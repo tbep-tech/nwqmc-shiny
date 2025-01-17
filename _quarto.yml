@@ -1,0 +1,64 @@
+project:
+  type: book
+  output-dir: _site
+  resources:
+    - "/.nojekyll"
+
+book:
+  title: "Actionable Data with Shiny Dashboards"
+  subtitle: "NWQMC Workshop, Mar. 12th, 2025"
+  author: "Marcus Beck, Jen Stamp, Erik Leppo, Kateri Salk-Gunderson"
+  repo-url: https://github.com/tbep-tech/nwqmc-shiny
+  reader-mode: true
+  repo-actions: [edit]
+  search: true
+  date: today
+  date-format: "YYYY-MM-DD"
+  page-navigation: true
+  page-footer:
+    left: |
+      Website created by instructors, with attribution to external content
+    right: |
+      This book was built with <a href="https://quarto.org/" target="_blank">Quarto</a>
+  chapters:
+    - index.qmd
+    - part: "Modules"
+      chapters:
+        - intro.qmd
+        - fundamentals.qmd
+        - deploy.qmd
+    - part: resources.qmd
+      chapters:
+        - resources/useful.qmd
+        - resources/tbepwq.qmd
+        - resources/tbepsg.qmd
+        - resources/tbepbt.qmd
+        - resources/tbeptc.qmd
+        - resources/tbepnk.qmd
+        - resources/tbeplu.qmd
+        - resources/tbeppp.qmd
+        - resources/tbepsc.qmd
+        - resources/fl_wq_dash.qmd
+        - resources/nms_climate_dash.qmd
+        - resources/obisindicators.qmd
+        - resources/rocky_shore_dash.qmd
+        - resources/seascapes.qmd
+  appendices:
+    - setup.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+    css: libs/style.css
+    code-tools:
+      source: repo
+    code-link: true
+    toc-depth: 4
+  # pdf:
+  #   documentclass: scrreprt
+  #   prefer-html: true
+
