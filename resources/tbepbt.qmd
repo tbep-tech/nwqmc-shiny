@@ -7,10 +7,7 @@ format:
     toc: true
 categories: 
   - "Tampa Bay"
-  - "flexdashboard"
-filters:
-   - lightbox
-lightbox: auto
+lightbox: true
 ---
 
 # Benthic Data {.unnumbered}

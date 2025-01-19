@@ -9,9 +9,7 @@ categories:
    - "Biodiversity"
    - "Spatial Mapping"
    - "flexdashboard"
-filters:
-   - lightbox
-lightbox: auto
+lightbox: true
 ---
 
 # Rocky Intertidal Dashboard {.unnumbered}

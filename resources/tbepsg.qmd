@@ -8,9 +8,7 @@ format:
 categories: 
   - "Tampa Bay"
   - "flexdashboard"
-filters:
-   - lightbox
-lightbox: auto
+lightbox: true
 ---
 
 # Seagrass Data {.unnumbered}

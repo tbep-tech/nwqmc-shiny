@@ -6,9 +6,7 @@ format:
   html: 
     toc: true
 categories: "Tampa Bay"
-filters:
-   - lightbox
-lightbox: auto
+lightbox: true
 ---
 
 # Piney Point Data {.unnumbered}

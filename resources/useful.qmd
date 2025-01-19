@@ -5,9 +5,7 @@ image: "../figs/resources/linksimage.png"
 format: 
   html: 
     toc: true
-filters:
-   - lightbox
-lightbox: auto
+lightbox: true
 ---
 
 # Useful Links {.unnumbered}

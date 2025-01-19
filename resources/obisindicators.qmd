@@ -9,9 +9,7 @@ categories:
    - "MBON"
    - "Biodiversity"
    - "Spatial Mapping"
-filters:
-   - lightbox
-lightbox: auto
+lightbox: true
 ---
 
 # OBIS Indicators {.unnumbered}

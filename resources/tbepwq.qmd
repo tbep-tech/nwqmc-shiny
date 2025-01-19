@@ -9,9 +9,7 @@ categories:
   - "Tampa Bay"
   - "Water Quality"
   - "flexdashboard"
-filters:
-   - lightbox
-lightbox: auto
+lightbox: true
 ---
 
 # Water Quality {.unnumbered}

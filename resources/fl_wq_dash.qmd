@@ -9,9 +9,7 @@ categories:
    - "Water Quality"
    - "Time Series"
    - "flexdashboard"
-filters:
-   - lightbox
-lightbox: auto
+lightbox: true
 ---
 
 # FL Water Quality Dash {.unnumbered}

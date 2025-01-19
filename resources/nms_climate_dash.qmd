@@ -1,4 +1,3 @@
-
 ---
 pagetitle: "Sanctuaries Climate Dashboard"
 description: "NOAA NMS Climate Dashboard"
@@ -10,9 +9,7 @@ categories:
    - "MBON"
    - "Climate Change"
    - "Time Series"
-filters:
-   - lightbox
-lightbox: auto
+lightbox: true
 ---
 
 # NMS Climate Dashboard {.unnumbered}

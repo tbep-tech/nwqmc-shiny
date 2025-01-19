@@ -10,9 +10,7 @@ categories:
    - "Water Quality"
    - "Time Series"
    - "Spatial Mapping"
-filters:
-   - lightbox
-lightbox: auto
+lightbox: true
 ---
 
 # Seascapes for Sanctuaries {.unnumbered}
