@@ -20,7 +20,7 @@ More simply, Shiny lets you create a web interface for any R workflow. This mean
 
 This workshop will expose you to the basics of creating interactive dashboards in R.  Before we begin, it's useful to distinguish between ***dynamic*** and ***interactive*** dashboards. 
 
-![](figs/dynamicvint.png){width="800"}
+![](figs/intro/dynamicvint.png){width="800"}
 
 First, ***dynamic*** applications can have the look and feel of an interactive Shiny dashboard, but are fundamentally different.  They are standalone and do not include a server component.  Any interactive functionality is pre-built into the application and they are built before being hosted on a web platform as an HTML file.  Applications such as Quarto (and its predecessor RMarkdown) can be used to create dynamic applications. Here's an [example](https://tbep-tech.github.io/scallop-search/){target="_blank"}.
 
