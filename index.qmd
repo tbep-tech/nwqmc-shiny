@@ -6,13 +6,9 @@ execute:
 
 # About this Workshop {.unnumbered}
 
-The Shiny R package is now ten years old and is a popular tool to create immersive, web-based content. Although many coastal scientists have experience with R, expertise in dashboards is uncommon. This workshop will include a mix of instructor-led demonstrations, discussion, and exercises that will empower attendees to create their own Shiny applications. We will begin by showing what's possible with the Quarto publishing system and Shiny by demoing existing applications from the Marine Biodiversity Observation Network ([MarineBON.org](https://marineBON.org)) and the National Estuary Program ([epa.gov/NEP](https://www.epa.gov/nep)). We will then transition to instructional material on the fundamentals of reactive programming with Shiny. Recent additions and improvements to Shiny (e.g., drag and drop user interface development, Python integration) will also be demonstrated. The remainder of the workshop will involve hands-on exercises that will allow attendees to develop their own applications using data from the examples above.
+The [Shiny](https://shiny.posit.co/){target="_blank"} R package is over ten years old and is a popular tool to create immersive, web-based content. Although many water quality scientists and professionals have experience with R, expertise in dashboards is uncommon. This workshop will introduce the fundamentals of building Shiny dashboards in R using real-world examples with hands-on coding exercises. The benefits of developing Shiny dashboards and their potential applications to improve research, monitoring, and management will be discussed. Special attention will be on the merits of open source software for creating reproducible and transparent dashboard workflows, including addressing common deployment and IT hurdles. Attendees are strongly encouraged to bring their own laptops to follow along with the workshop exercises. 
 
 Anyone interested in learning how to expand existing R skills for dashboard development will benefit from this workshop. This includes student, early career, and advanced professionals from any employment sector and field of expertise.
-
-Also see:
-
--   [Workshop -- Dashboards: Using R to Create Actionable Science \| CERF 2023 Biennial Conference](https://conference.cerf.science/2023-workshop--dashboards--using-r-to-create-actionable-science)
 
 ## Agenda {.unnumbered}
 
@@ -23,27 +19,33 @@ knitr::kable(agenda)
 
 ## Important links {.unnumbered}
 
-* Workshop Website: [link](https://tbep-tech.github.io/shiny-workshop){target="_blank"}
-* Live Chat: [link](https://app.gitter.im/#/room/#shiny-workshop:gitter.im){target="_blank"}
-* Posit Cloud: [link](https://posit.cloud/content/5544370){target="_blank"}
-* Post-workshop survey: [link](https://forms.gle/rhpRWQ5w2Txpqnik7){target="_blank"}
+* Workshop Website: [link](https://tbep-tech.github.io/nwqmc-shiny){target="_blank"}
+* Live Chat: [link](https://app.gitter.im/#/room/#nwqmc-shiny:gitter.im){target="_blank"}
+* Posit Cloud: [link](https://posit.cloud/content/9569756){target="_blank"}
+* Post-workshop survey: [link](https://forms.gle/868MnzAQRj4XH4t56){target="_blank"}
 
 ## Setup {.unnumbered}
 
-Please visit the [setup](setup.qmd) page for instructions on preparing for this workshop. You will be required to install R, RStudio, and Quarto prior to the workshop. You will also need to setup a GitHub and shinyapps.io account.
+Please visit the [setup](setup.qmd) page for instructions on participating during this workshop. You can use an RStudio project on Posit Cloud setup specifically for this workshop.  You may also use your own local version of R and RStudio if preferred.
 
 We also expect some prior experience using R. Please visit the [intro to R](rintro.qmd) page for a quick crash course.
 
 ## Presenters {.unnumbered}
 
-### Marcus Beck, Ph.D.
+### Marcus Beck
 
 ::: columns
 ::: {.column width="30%"}
 ![](figs/about/headshot_marcus.jpg)
 :::
 
-::: {.column .p-right width="70%"}
+::: {.column .p-right width="65%"}
 Marcus Beck is the Program Scientist for the Tampa Bay Estuary Program in St. Petersburg, Florida and is developing data analysis and visualization methods for Bay health indicators. Marcus has experience researching environmental indicators and developing open science products to support environmental decision-making. He has been using the R statistical programming language for over 15 years and has taught several workshops on its application to environmental sciences. Marcus has also developed several R packages and currently maintains 7 on CRAN. He received a PhD in Conservation Biology with a minor in Statistics from the University of Minnesota in 2013, his Masters in Conservation Biology from the University of Minnesota in 2009, and his Bachelors in Zoology from the University of Florida in 2007.
 :::
 :::
+
+### Jen Stamp
+
+### Erik Lepp
+
+### Kateri Salk-Gunderson
