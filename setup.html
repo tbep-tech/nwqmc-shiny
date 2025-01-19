@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.6.40">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Actionable Data with Shiny Dashboards - Appendix A — Setup for the workshop</title>
+
+
+<title>Appendix A — Setup for the workshop – Actionable Data with Shiny Dashboards</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -53,6 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -67,13 +71,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-78faf54a06e50be45dc6d83ab59297a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -99,25 +104,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link rel="stylesheet" href="libs/style.css">
+}</script>
+
+
+<link rel="stylesheet" href="libs/style.css">
 </head>
+
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./setup.html">Appendices</a></li><li class="breadcrumb-item"><a href="./setup.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Setup for the workshop</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Actionable Data with Shiny Dashboards</a> 
         <div class="sidebar-tools-main">
@@ -137,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About this Workshop</span></a>
@@ -145,14 +160,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
@@ -171,17 +186,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Resources</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./resources/useful.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Useful Links</span></a>
@@ -266,17 +281,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./setup.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Setup for the workshop</span></span></a>
@@ -289,39 +304,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li>
-<a href="#install-r-and-rstudio" id="toc-install-r-and-rstudio" class="nav-link active" data-scroll-target="#install-r-and-rstudio"><span class="header-section-number">A.1</span> Install R and RStudio</a>
+  <li><a href="#sec-cloud" id="toc-sec-cloud" class="nav-link active" data-scroll-target="#sec-cloud"><span class="header-section-number">A.1</span> Posit Cloud (optional)</a></li>
+  <li><a href="#sec-rstudio" id="toc-sec-rstudio" class="nav-link" data-scroll-target="#sec-rstudio"><span class="header-section-number">A.2</span> Install R and RStudio</a>
   <ul>
-<li><a href="#sec-instr" id="toc-sec-instr" class="nav-link" data-scroll-target="#sec-instr"><span class="header-section-number">A.1.1</span> Windows: Download and install R</a></li>
-  <li><a href="#sec-instrstudio" id="toc-sec-instrstudio" class="nav-link" data-scroll-target="#sec-instrstudio"><span class="header-section-number">A.1.2</span> Windows: Download and install RStudio</a></li>
-  <li><a href="#macos-download-and-install-r" id="toc-macos-download-and-install-r" class="nav-link" data-scroll-target="#macos-download-and-install-r"><span class="header-section-number">A.1.3</span> macOS: Download and install R</a></li>
-  <li><a href="#macos-download-and-install-rstudio" id="toc-macos-download-and-install-rstudio" class="nav-link" data-scroll-target="#macos-download-and-install-rstudio"><span class="header-section-number">A.1.4</span> macOS: Download and install RStudio</a></li>
-  <li><a href="#check-install" id="toc-check-install" class="nav-link" data-scroll-target="#check-install"><span class="header-section-number">A.1.5</span> Check Install</a></li>
+  <li><a href="#sec-instr" id="toc-sec-instr" class="nav-link" data-scroll-target="#sec-instr"><span class="header-section-number">A.2.1</span> Windows: Download and install R</a></li>
+  <li><a href="#sec-instrstudio" id="toc-sec-instrstudio" class="nav-link" data-scroll-target="#sec-instrstudio"><span class="header-section-number">A.2.2</span> Windows: Download and install RStudio</a></li>
+  <li><a href="#macos-download-and-install-r" id="toc-macos-download-and-install-r" class="nav-link" data-scroll-target="#macos-download-and-install-r"><span class="header-section-number">A.2.3</span> macOS: Download and install R</a></li>
+  <li><a href="#macos-download-and-install-rstudio" id="toc-macos-download-and-install-rstudio" class="nav-link" data-scroll-target="#macos-download-and-install-rstudio"><span class="header-section-number">A.2.4</span> macOS: Download and install RStudio</a></li>
+  <li><a href="#check-install" id="toc-check-install" class="nav-link" data-scroll-target="#check-install"><span class="header-section-number">A.2.5</span> Check Install</a></li>
+  </ul></li>
+  <li><a href="#sec-setshi" id="toc-sec-setshi" class="nav-link" data-scroll-target="#sec-setshi"><span class="header-section-number">A.3</span> Setup shinyapps.io</a></li>
   </ul>
-</li>
-  <li><a href="#sec-instquarto" id="toc-sec-instquarto" class="nav-link" data-scroll-target="#sec-instquarto"><span class="header-section-number">A.2</span> Install Quarto</a></li>
-  <li><a href="#sec-setgit" id="toc-sec-setgit" class="nav-link" data-scroll-target="#sec-setgit"><span class="header-section-number">A.3</span> Create GitHub account</a></li>
-  <li>
-<a href="#sec-instgit" id="toc-sec-instgit" class="nav-link" data-scroll-target="#sec-instgit"><span class="header-section-number">A.4</span> Install Git (optional)</a>
-  <ul>
-<li><a href="#make-sure-rstudio-can-talk-to-github-via-git" id="toc-make-sure-rstudio-can-talk-to-github-via-git" class="nav-link" data-scroll-target="#make-sure-rstudio-can-talk-to-github-via-git"><span class="header-section-number">A.4.1</span> Make sure RStudio can talk to GitHub via Git</a></li>
-  </ul>
-</li>
-  <li><a href="#sec-setshi" id="toc-sec-setshi" class="nav-link" data-scroll-target="#sec-setshi"><span class="header-section-number">A.5</span> Setup shinyapps.io</a></li>
-  <li><a href="#sec-cloud" id="toc-sec-cloud" class="nav-link" data-scroll-target="#sec-cloud"><span class="header-section-number">A.6</span> Posit Cloud (optional)</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/tbep-tech/nwqmc-shiny/edit/main/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/tbep-tech/nwqmc-shiny/edit/main/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./setup.html">Appendices</a></li><li class="breadcrumb-item"><a href="./setup.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Setup for the workshop</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./setup.html">Appendices</a></li><li class="breadcrumb-item"><a href="./setup.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Setup for the workshop</span></a></li></ol></nav>
+<div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title"><span id="setup" class="quarto-section-identifier">Appendix A — Setup for the workshop</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/tbep-tech/nwqmc-shiny/blob/main/setup.qmd"><i class="bi"></i> Code</button></div></div>
 </div>
 
@@ -336,126 +347,98 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Thanks for your interest in the R Shiny workshop. You will need to do the following, outlined below, before the workshop.</p>
-<ol type="1">
-<li><a href="#sec-instr">Install R</a></li>
-<li><a href="#sec-instrstudio">Install RStudio</a></li>
-<li><a href="#sec-instquarto">Install Quarto</a></li>
-<li><a href="#sec-setgit">Setup GitHub Account</a></li>
-<li>
-<a href="#sec-instgit">Install Git</a> (optional)</li>
-<li><a href="#sec-setshi">Setup shinyapps.io</a></li>
-<li>
-<a href="#sec-cloud">Posit Cloud</a> (optional)</li>
-</ol>
-<p>Most of these steps will require administrative privileges on a computer. Work with your IT staff to complete the setup if you do not have these privileges. As an alternative, you can use Posit Cloud to participate (see <a href="#sec-cloud" class="quarto-xref"><span>Section A.6</span></a>), although we strongly encourage you to install the software on your personal computer for use after the workshop.</p>
+</header>
+
+
+<p>Thanks for your interest in the R Shiny workshop. You can participate during the worskhop in two ways. First, you can use an RStudio project setup on <a href="#sec-cloud">Posit Cloud</a> (preferred) or you can use your own version of <a href="#sec-rstudio">R and RStudio</a> on your laptop. The instructions below describe setup for each.</p>
 <p>Please reach out if you have any issues with installation: <a href="mailto:mbeck@tbep.org">mbeck@tbep.org</a></p>
-<section id="install-r-and-rstudio" class="level2" data-number="A.1"><h2 data-number="A.1" class="anchored" data-anchor-id="install-r-and-rstudio">
-<span class="header-section-number">A.1</span> Install R and RStudio</h2>
+<section id="sec-cloud" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="sec-cloud"><span class="header-section-number">A.1</span> Posit Cloud (optional)</h2>
+<p>Posit Cloud provides an environment to use RStudio and the resources above through a web browser. We’ve created a workspace on Posit Cloud that includes most of the content described above. Open the following URL in a web browser: <a href="https://posit.cloud/content/9569756" target="_blank">https://posit.cloud/content/9569756</a></p>
+<p>You will see a login screen that looks like this:</p>
+<p><a href="figs/setup/positsignup.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/setup/positsignup.png" class="img-fluid"></a></p>
+<p>Sign up using a personal login or existing account (Google, GitHub, etc.).</p>
+<p>You’ll see the workspace in your browser once you’ve signed in. You’ll need to make a permanent copy to save your work. Just click the button at the top marked “+ Save as Permanent Copy”. When this is done, the red text at the top indicating “TEMPORARY COPY” will no longer be visible.</p>
+<p><a href="figs/setup/positworkspace.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="figs/setup/positworkspace.PNG" class="img-fluid"></a></p>
+<p>Now you can follow along with the workshop content.</p>
+</section>
+<section id="sec-rstudio" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="sec-rstudio"><span class="header-section-number">A.2</span> Install R and RStudio</h2>
+<p>Most of the steps below will require administrative privileges on a computer. Work with your IT staff to complete the setup if you do not have these privileges. As an alternative, you can use Posit Cloud to participate (see <a href="#sec-cloud" class="quarto-xref"><span>Section A.1</span></a>), although we strongly encourage you to install the software on your personal computer for use after the workshop.</p>
 <p><strong>R</strong> and <strong>RStudio</strong> are separate downloads and installations. R is the underlying statistical computing software. RStudio is a graphical integrated development environment (IDE) that makes using R much easier and more interactive. <em>You need to install R before you install RStudio</em>.</p>
 <p>Thanks to the <a href="https://owi.usgs.gov/R/training.html" target="_blank">USGS-R Training group</a> and <a href="https://datacarpentry.org/R-ecology-lesson/index.html" target="_blank">Data Carpentry</a> for making their installation materials available. The following instructions come directly from their materials, with a few minor edits to help you get set up.</p>
-<section id="sec-instr" class="level3" data-number="A.1.1"><h3 data-number="A.1.1" class="anchored" data-anchor-id="sec-instr">
-<span class="header-section-number">A.1.1</span> Windows: Download and install R</h3>
+<section id="sec-instr" class="level3" data-number="A.2.1">
+<h3 data-number="A.2.1" class="anchored" data-anchor-id="sec-instr"><span class="header-section-number">A.2.1</span> Windows: Download and install R</h3>
 <p>Go to <a href="https://cran.rstudio.com/bin/windows/base/" target="_blank">CRAN and download</a> the R installer for Windows. Make sure to choose the latest stable version (v4.2.3 as of April 2023).</p>
 <p>Once the installer downloads, Right-click on it and select “Run as administrator”.</p>
 <p>Type in your credentials and click yes (or if you don’t have administrator access have your IT rep install with Admin privileges).</p>
-<p><a href="figs/setup/install_open_as_admin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/setup/install_open_as_admin.png" class="img-fluid"></a></p>
+<p><a href="figs/setup/install_open_as_admin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="figs/setup/install_open_as_admin.png" class="img-fluid"></a></p>
 <p>You can click next through the standard dialogs and accept most defaults. But at the destination screen, please verify that it is installing it to C:\Program Files\R</p>
-<p><a href="figs/setup/install_destination.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="figs/setup/install_destination.png" class="img-fluid"></a></p>
+<p><a href="figs/setup/install_destination.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="figs/setup/install_destination.png" class="img-fluid"></a></p>
 <p>At the “Select Components” screen, you can accept the default and install both 32-bit and 64-bit versions.</p>
-<p><a href="figs/setup/install_arch_window.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="figs/setup/install_arch_window.png" class="img-fluid"></a></p>
+<p><a href="figs/setup/install_arch_window.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="figs/setup/install_arch_window.png" class="img-fluid"></a></p>
 <p>At this screen, uncheck ‘Create a desktop icon’ because non-admin users in Windows will be unable to delete it.</p>
-<p><a href="figs/setup/install_tasks.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="figs/setup/install_tasks.png" class="img-fluid"></a></p>
-</section><section id="sec-instrstudio" class="level3" data-number="A.1.2"><h3 data-number="A.1.2" class="anchored" data-anchor-id="sec-instrstudio">
-<span class="header-section-number">A.1.2</span> Windows: Download and install RStudio</h3>
+<p><a href="figs/setup/install_tasks.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="figs/setup/install_tasks.png" class="img-fluid"></a></p>
+</section>
+<section id="sec-instrstudio" class="level3" data-number="A.2.2">
+<h3 data-number="A.2.2" class="anchored" data-anchor-id="sec-instrstudio"><span class="header-section-number">A.2.2</span> Windows: Download and install RStudio</h3>
 <p>Download RStudio from <a href="https://www.rstudio.com/products/rstudio/download/#download" target="_blank">here</a>.</p>
 <p>After download, double-click the installer. It will ask for your administrator credentials to install (you might need to have your IT rep install again).</p>
 <p>Accept all the default options for the RStudio install.</p>
-<p><a href="figs/setup/install_rstudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="figs/setup/install_rstudio.png" class="img-fluid"></a></p>
-</section><section id="macos-download-and-install-r" class="level3" data-number="A.1.3"><h3 data-number="A.1.3" class="anchored" data-anchor-id="macos-download-and-install-r">
-<span class="header-section-number">A.1.3</span> macOS: Download and install R</h3>
+<p><a href="figs/setup/install_rstudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="figs/setup/install_rstudio.png" class="img-fluid"></a></p>
+</section>
+<section id="macos-download-and-install-r" class="level3" data-number="A.2.3">
+<h3 data-number="A.2.3" class="anchored" data-anchor-id="macos-download-and-install-r"><span class="header-section-number">A.2.3</span> macOS: Download and install R</h3>
 <ul>
 <li>Download and install R from the CRAN website for Mac <a href="https://cran.r-project.org/bin/macosx/" target="_blank">here</a>.</li>
 <li>Select the <code>.pkg</code> file for the latest R version</li>
 <li>Double click on the downloaded file to install R</li>
 <li>It is also a good idea to install <a href="https://www.xquartz.org/" target="_blank">XQuartz</a> (needed by some packages)</li>
-</ul></section><section id="macos-download-and-install-rstudio" class="level3" data-number="A.1.4"><h3 data-number="A.1.4" class="anchored" data-anchor-id="macos-download-and-install-rstudio">
-<span class="header-section-number">A.1.4</span> macOS: Download and install RStudio</h3>
+</ul>
+</section>
+<section id="macos-download-and-install-rstudio" class="level3" data-number="A.2.4">
+<h3 data-number="A.2.4" class="anchored" data-anchor-id="macos-download-and-install-rstudio"><span class="header-section-number">A.2.4</span> macOS: Download and install RStudio</h3>
 <ul>
 <li>Go to the <a href="https://www.rstudio.com/products/rstudio/download/#download" target="_blank">RStudio</a> download page</li>
 <li>Under Installers select the appropriate RStudio download file for macOS</li>
 <li>Double click the file to install RStudio</li>
-</ul></section><section id="check-install" class="level3" data-number="A.1.5"><h3 data-number="A.1.5" class="anchored" data-anchor-id="check-install">
-<span class="header-section-number">A.1.5</span> Check Install</h3>
+</ul>
+</section>
+<section id="check-install" class="level3" data-number="A.2.5">
+<h3 data-number="A.2.5" class="anchored" data-anchor-id="check-install"><span class="header-section-number">A.2.5</span> Check Install</h3>
 <p>Once installed, RStudio should be accessible from the start menu. Start up RStudio. Once running it should look something like this:</p>
-<p><a href="figs/setup/rstudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="figs/setup/rstudio.png" class="img-fluid"></a></p>
-</section></section><section id="sec-instquarto" class="level2" data-number="A.2"><h2 data-number="A.2" class="anchored" data-anchor-id="sec-instquarto">
-<span class="header-section-number">A.2</span> Install Quarto</h2>
-<p>A visual editor for Quarto is installed with RStudio. However, you’ll need to install Quarto CLI to make full use of its features.</p>
-<p>Navigate to <a href="https://quarto.org/docs/get-started/" target="_blank">https://quarto.org/docs/get-started/</a>. You’ll see a screen that looks like this:</p>
-<p><a href="figs/setup/quartoinstall.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="figs/setup/quartoinstall.PNG" class="img-fluid"></a></p>
-<p>Select the download appropriate for your operating system (Windows is the big blue button). After the file is downloaded, navigate to the folder containing the file, double-click to install, and accept the default settings at the prompts.</p>
-<p>After installation is done, open RStudio (or close and open again) and select the Terminal tab. This tab is located on the bottom-left pane, next to the Console tab. Type <code>quarto check</code> at the prompt and press enter. You should see something like this if installation was successful.</p>
-<p><a href="figs/setup/quartocheck.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="figs/setup/quartocheck.PNG" class="img-fluid"></a></p>
-</section><section id="sec-setgit" class="level2" data-number="A.3"><h2 data-number="A.3" class="anchored" data-anchor-id="sec-setgit">
-<span class="header-section-number">A.3</span> Create GitHub account</h2>
-<p>Open a web browser and enter the url <a href="https://github.com" target="_blank">https://github.com</a>. On the top-right, you should see a button to sign up. Click the button and register an account by choosing an email, username, and password.</p>
-<p><a href="figs/setup/githubsignup.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="figs/setup/githubsignup.PNG" class="img-fluid"></a></p>
-</section><section id="sec-instgit" class="level2" data-number="A.4"><h2 data-number="A.4" class="anchored" data-anchor-id="sec-instgit">
-<span class="header-section-number">A.4</span> Install Git (optional)</h2>
-<p>After you’ve registered a new GitHub account, you can install the Git software on your computer. Git is version control software used by RStudio that allows you to access GitHub. Open the url <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a> and follow the instructions for your operating system.</p>
-<p>After Git is installed, open RStudio (or close and open again) to verify the installation. You should see a new “Git” tab located in the top-right pane of RStudio.</p>
-<p><a href="figs/setup/gitpane.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="figs/setup/gitpane.PNG" class="img-fluid"></a></p>
-<section id="make-sure-rstudio-can-talk-to-github-via-git" class="level3" data-number="A.4.1"><h3 data-number="A.4.1" class="anchored" data-anchor-id="make-sure-rstudio-can-talk-to-github-via-git">
-<span class="header-section-number">A.4.1</span> Make sure RStudio can talk to GitHub via Git</h3>
-<p>The next step can be a bit tricky, but is essential if you want to access your GitHub using RStudio and Git. First, install the <code>usethis</code> R package in RStudio.</p>
-<div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"usethis"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You must let Git know who you are and that you have permission to write to a GitHub repository. First, let Git know who you are, where you enter your user name and email associated with the account from the previous step.</p>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_git_config.html">use_git_config</a></span><span class="op">(</span>user.name<span class="op">=</span><span class="st">"Jane Doe"</span>, user.email<span class="op">=</span><span class="st">"jane@example.org"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Next, you need to setup a personal access token (PAT) that defines the permissions to write to a repository. This can be done as follows:</p>
-<div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/github-token.html">create_github_token</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Then follow the remaining prompts to complete the PAT creation. A more thorough explanation can be found <a href="https://happygitwithr.com/https-pat.html#https-pat" target="_blank">here</a>.</p>
-</section></section><section id="sec-setshi" class="level2" data-number="A.5"><h2 data-number="A.5" class="anchored" data-anchor-id="sec-setshi">
-<span class="header-section-number">A.5</span> Setup shinyapps.io</h2>
+<p><a href="figs/setup/rstudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="figs/setup/rstudio.png" class="img-fluid"></a></p>
+</section>
+</section>
+<section id="sec-setshi" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="sec-setshi"><span class="header-section-number">A.3</span> Setup shinyapps.io</h2>
 <p>The <a href="https://shinyapps.io" target="_blank">shinyapps.io</a> website is a service provided by Posit for hosting Shiny applications online. A free option is available, with additional paid tiers depending on your needs. Although there are other free options, this website is the easiest and quickest way to host a Shiny application.</p>
 <p>First, navigate to <a href="https://shinyapps.io" target="_blank">shinyapps.io</a> and click the “Sign Up” button. After you’ve setup your GitHub account, you can sign up for shinyapps.io by selecting the GitHub sign up option.</p>
-<p><a href="figs/setup/shinyappssignup.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="figs/setup/shinyappssignup.PNG" class="img-fluid"></a></p>
+<p><a href="figs/setup/shinyappssignup.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="figs/setup/shinyappssignup.PNG" class="img-fluid"></a></p>
 <p>Next, install the <code>rsconnect</code> package in R. This package lets you connect to shinyapps.io and push applications from your local computer.</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rsconnect"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rsconnect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You need to obtain an access token from shinyapps.io to configure the <code>rsconnect</code> package to use your account. In your shinyapps.io dashboard, click your user name on the top right and select Tokens.</p>
-<p><a href="figs/setup/shinyappstoken.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="figs/setup/shinyappstoken.PNG" class="img-fluid"></a></p>
+<p><a href="figs/setup/shinyappstoken.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="figs/setup/shinyappstoken.PNG" class="img-fluid"></a></p>
 <p>Add a new token, copy/paste the command to setup your account info, and execute it in the R console. It will look something like this and there will a button that allows you to copy the command to your clipboard, where <code>&lt;TOKEN&gt;</code> and <code>&lt;SECRET&gt;</code> are specific to your account and should not be shared.</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">rsconnect</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rsconnect/man/setAccountInfo.html">setAccountInfo</a></span><span class="op">(</span>name<span class="op">=</span><span class="st">'beckmw'</span>,</span>
-<span>              token<span class="op">=</span><span class="st">'&lt;TOKEN&gt;'</span>,</span>
-<span>              secret<span class="op">=</span><span class="st">'&lt;SECRET&gt;'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rsconnect<span class="sc">::</span><span class="fu">setAccountInfo</span>(<span class="at">name=</span><span class="st">'beckmw'</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">token=</span><span class="st">'&lt;TOKEN&gt;'</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">secret=</span><span class="st">'&lt;SECRET&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now you will be able to push a Shiny application to your shinyapps.io account as follows.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/rsconnect">rsconnect</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/rsconnect/man/deployApp.html">deployApp</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rsconnect)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">deployApp</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>More info can be found <a href="https://shiny.posit.co/r/articles/share/shinyapps/" target="_blank">here</a>.</p>
-</section><section id="sec-cloud" class="level2" data-number="A.6"><h2 data-number="A.6" class="anchored" data-anchor-id="sec-cloud">
-<span class="header-section-number">A.6</span> Posit Cloud (optional)</h2>
-<p>Posit Cloud provides an environment to use RStudio and the resources above through a web browser. We’ve created a workspace on Posit Cloud that includes most of the content described above. Open the following URL in a web browser: <a href="https://posit.cloud/content/5544370" target="_blank">https://posit.cloud/content/5544370</a></p>
-<p>You will see a login screen that looks like this:</p>
-<p><a href="figs/setup/positsignup.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="figs/setup/positsignup.png" class="img-fluid"></a></p>
-<p>Sign up using a personal login or existing account (Google, GitHub, etc.).</p>
-<p>You’ll see the workspace in your browser once you’ve signed in. You’ll need to make a permanent copy to save your work. Just click the button at the top marked “+ Save as Permanent Copy”. When this is done, the red text at the top indicating “TEMPORARY COPY” will no longer be visible.</p>
-<p><a href="figs/setup/positworkspace.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="figs/setup/positworkspace.PNG" class="img-fluid"></a></p>
-<p>Now you can follow along with the workshop content.</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -490,18 +473,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -533,7 +505,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -585,6 +577,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -619,7 +629,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -667,7 +681,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -892,8 +905,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./resources/seascapes.html" class="pagination-link  aria-label=" seascapes="" for="" sanctuaries="">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./resources/seascapes.html" class="pagination-link" aria-label="Seascapes for Sanctuaries">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Seascapes for Sanctuaries</span>
       </a>          
   </div>
@@ -904,7 +919,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Website created by instructors, with attribution to external content</p>
 </div>   
@@ -915,31 +931,41 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>This book was built with <a href="https://quarto.org/" target="_blank">Quarto</a></p>
 </div>
   </div>
-</footer><script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
+
+
 
 
 </body></html>

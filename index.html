@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.6.40">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Marcus Beck, Jen Stamp, Erik Leppo, Kateri Salk-Gunderson">
 <meta name="dcterms.date" content="2025-01-19">
+
 <title>Actionable Data with Shiny Dashboards</title>
 <style>
 code{white-space: pre-wrap;}
@@ -21,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -34,13 +38,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-78faf54a06e50be45dc6d83ab59297a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -66,25 +71,35 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link rel="stylesheet" href="libs/style.css">
+}</script>
+
+
+<link rel="stylesheet" href="libs/style.css">
 </head>
+
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">About this Workshop</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Actionable Data with Shiny Dashboards</a> 
         <div class="sidebar-tools-main">
@@ -104,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">About this Workshop</span></a>
@@ -112,14 +127,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
@@ -138,17 +153,17 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Resources</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./resources/useful.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Useful Links</span></a>
@@ -233,17 +248,17 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Setup for the workshop</span></span></a>
@@ -256,33 +271,38 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li>
-<a href="#about-this-workshop" id="toc-about-this-workshop" class="nav-link active" data-scroll-target="#about-this-workshop">About this Workshop</a>
+  <li><a href="#about-this-workshop" id="toc-about-this-workshop" class="nav-link active" data-scroll-target="#about-this-workshop">About this Workshop</a>
   <ul>
-<li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
   <li><a href="#important-links" id="toc-important-links" class="nav-link" data-scroll-target="#important-links">Important links</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
-  <li>
-<a href="#presenters" id="toc-presenters" class="nav-link" data-scroll-target="#presenters">Presenters</a>
+  <li><a href="#presenters" id="toc-presenters" class="nav-link" data-scroll-target="#presenters">Presenters</a>
   <ul class="collapse">
-<li><a href="#marcus-beck-ph.d." id="toc-marcus-beck-ph.d." class="nav-link" data-scroll-target="#marcus-beck-ph.d.">Marcus Beck, Ph.D.</a></li>
+  <li><a href="#marcus-beck" id="toc-marcus-beck" class="nav-link" data-scroll-target="#marcus-beck">Marcus Beck</a></li>
+  <li><a href="#jen-stamp" id="toc-jen-stamp" class="nav-link" data-scroll-target="#jen-stamp">Jen Stamp</a></li>
+  <li><a href="#erik-lepp" id="toc-erik-lepp" class="nav-link" data-scroll-target="#erik-lepp">Erik Lepp</a></li>
+  <li><a href="#kateri-salk-gunderson" id="toc-kateri-salk-gunderson" class="nav-link" data-scroll-target="#kateri-salk-gunderson">Kateri Salk-Gunderson</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
-</li>
-  </ul>
-</li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/tbep-tech/nwqmc-shiny/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/tbep-tech/nwqmc-shiny/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Actionable Data with Shiny Dashboards</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/tbep-tech/nwqmc-shiny/blob/main/index.qmd"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">NWQMC Workshop, Mar.&nbsp;12th, 2025</p>
 </div>
@@ -310,21 +330,24 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header><section id="about-this-workshop" class="level1 unnumbered"><h1 class="unnumbered">About this Workshop</h1>
-<p>The Shiny R package is now ten years old and is a popular tool to create immersive, web-based content. Although many coastal scientists have experience with R, expertise in dashboards is uncommon. This workshop will include a mix of instructor-led demonstrations, discussion, and exercises that will empower attendees to create their own Shiny applications. We will begin by showing what’s possible with the Quarto publishing system and Shiny by demoing existing applications from the Marine Biodiversity Observation Network (<a href="https://marineBON.org">MarineBON.org</a>) and the National Estuary Program (<a href="https://www.epa.gov/nep">epa.gov/NEP</a>). We will then transition to instructional material on the fundamentals of reactive programming with Shiny. Recent additions and improvements to Shiny (e.g., drag and drop user interface development, Python integration) will also be demonstrated. The remainder of the workshop will involve hands-on exercises that will allow attendees to develop their own applications using data from the examples above.</p>
+</header>
+
+
+<section id="about-this-workshop" class="level1 unnumbered">
+<h1 class="unnumbered">About this Workshop</h1>
+<p>The <a href="https://shiny.posit.co/" target="_blank">Shiny</a> R package is over ten years old and is a popular tool to create immersive, web-based content. Although many water quality scientists and professionals have experience with R, expertise in dashboards is uncommon. This workshop will introduce the fundamentals of building Shiny dashboards in R using real-world examples with hands-on coding exercises. The benefits of developing Shiny dashboards and their potential applications to improve research, monitoring, and management will be discussed. Special attention will be on the merits of open source software for creating reproducible and transparent dashboard workflows, including addressing common deployment and IT hurdles. Attendees are strongly encouraged to bring their own laptops to follow along with the workshop exercises.</p>
 <p>Anyone interested in learning how to expand existing R skills for dashboard development will benefit from this workshop. This includes student, early career, and advanced professionals from any employment sector and field of expertise.</p>
-<p>Also see:</p>
-<ul>
-<li><a href="https://conference.cerf.science/2023-workshop--dashboards--using-r-to-create-actionable-science">Workshop – Dashboards: Using R to Create Actionable Science | CERF 2023 Biennial Conference</a></li>
-</ul>
-<section id="agenda" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="agenda">Agenda</h2>
+<section id="agenda" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="agenda">Agenda</h2>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<thead><tr class="header">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
 <th style="text-align: left;">Time</th>
 <th style="text-align: left;">Topic</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">10:30</td>
@@ -346,32 +369,49 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </div>
-</section><section id="important-links" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="important-links">Important links</h2>
+</section>
+<section id="important-links" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="important-links">Important links</h2>
 <ul>
-<li>Workshop Website: <a href="https://tbep-tech.github.io/shiny-workshop" target="_blank">link</a>
-</li>
-<li>Live Chat: <a href="https://app.gitter.im/#/room/#shiny-workshop:gitter.im" target="_blank">link</a>
-</li>
-<li>Posit Cloud: <a href="https://posit.cloud/content/5544370" target="_blank">link</a>
-</li>
-<li>Post-workshop survey: <a href="https://forms.gle/rhpRWQ5w2Txpqnik7" target="_blank">link</a>
-</li>
-</ul></section><section id="setup" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="setup">Setup</h2>
-<p>Please visit the <a href="./setup.html">setup</a> page for instructions on preparing for this workshop. You will be required to install R, RStudio, and Quarto prior to the workshop. You will also need to setup a GitHub and shinyapps.io account.</p>
+<li>Workshop Website: <a href="https://tbep-tech.github.io/nwqmc-shiny" target="_blank">link</a></li>
+<li>Live Chat: <a href="https://app.gitter.im/#/room/#nwqmc-shiny:gitter.im" target="_blank">link</a></li>
+<li>Posit Cloud: <a href="https://posit.cloud/content/9569756" target="_blank">link</a></li>
+<li>Post-workshop survey: <a href="https://forms.gle/868MnzAQRj4XH4t56" target="_blank">link</a></li>
+</ul>
+</section>
+<section id="setup" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="setup">Setup</h2>
+<p>Please visit the <a href="./setup.html">setup</a> page for instructions on participating during this workshop. You can use an RStudio project on Posit Cloud setup specifically for this workshop. You may also use your own local version of R and RStudio if preferred.</p>
 <p>We also expect some prior experience using R. Please visit the <a href="rintro.qmd">intro to R</a> page for a quick crash course.</p>
-</section><section id="presenters" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="presenters">Presenters</h2>
-<section id="marcus-beck-ph.d." class="level3"><h3 class="anchored" data-anchor-id="marcus-beck-ph.d.">Marcus Beck, Ph.D.</h3>
+</section>
+<section id="presenters" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="presenters">Presenters</h2>
+<section id="marcus-beck" class="level3">
+<h3 class="anchored" data-anchor-id="marcus-beck">Marcus Beck</h3>
 <div class="columns">
 <div class="column" style="width:30%;">
 <p><a href="figs/about/headshot_marcus.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/about/headshot_marcus.jpg" class="img-fluid"></a></p>
-</div>
-<div class="column p-right" style="width:70%;">
+</div><div class="column p-right" style="width:65%;">
 <p>Marcus Beck is the Program Scientist for the Tampa Bay Estuary Program in St.&nbsp;Petersburg, Florida and is developing data analysis and visualization methods for Bay health indicators. Marcus has experience researching environmental indicators and developing open science products to support environmental decision-making. He has been using the R statistical programming language for over 15 years and has taught several workshops on its application to environmental sciences. Marcus has also developed several R packages and currently maintains 7 on CRAN. He received a PhD in Conservation Biology with a minor in Statistics from the University of Minnesota in 2013, his Masters in Conservation Biology from the University of Minnesota in 2009, and his Bachelors in Zoology from the University of Florida in 2007.</p>
 </div>
 </div>
+</section>
+<section id="jen-stamp" class="level3">
+<h3 class="anchored" data-anchor-id="jen-stamp">Jen Stamp</h3>
+</section>
+<section id="erik-lepp" class="level3">
+<h3 class="anchored" data-anchor-id="erik-lepp">Erik Lepp</h3>
+</section>
+<section id="kateri-salk-gunderson" class="level3">
+<h3 class="anchored" data-anchor-id="kateri-salk-gunderson">Kateri Salk-Gunderson</h3>
 
 
-</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -406,18 +446,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -449,7 +478,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -501,6 +550,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -535,7 +602,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -583,7 +654,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -808,16 +878,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>Introduction</span>">
+      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
         <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Website created by instructors, with attribution to external content</p>
 </div>   
@@ -828,31 +901,41 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>This book was built with <a href="https://quarto.org/" target="_blank">Quarto</a></p>
 </div>
   </div>
-</footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
+
+
 
 
 </body></html>
