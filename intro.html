@@ -321,12 +321,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#dynamic-and-interactive-applications" id="toc-dynamic-and-interactive-applications" class="nav-link active" data-scroll-target="#dynamic-and-interactive-applications"><span class="header-section-number">2</span> Dynamic and Interactive applications</a>
-  <ul>
-  <li><a href="#reactivity" id="toc-reactivity" class="nav-link" data-scroll-target="#reactivity"><span class="header-section-number">2.1</span> Reactivity</a></li>
-  <li><a href="#a-simple-example" id="toc-a-simple-example" class="nav-link" data-scroll-target="#a-simple-example"><span class="header-section-number">2.2</span> A simple example</a></li>
-  </ul></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps"><span class="header-section-number">3</span> Next steps</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#what-is-and-why-shiny" id="toc-what-is-and-why-shiny" class="nav-link" data-scroll-target="#what-is-and-why-shiny"><span class="header-section-number">1.1</span> What is and why shiny</a></li>
+  <li><a href="#shiny-applications" id="toc-shiny-applications" class="nav-link" data-scroll-target="#shiny-applications"><span class="header-section-number">1.2</span> Shiny applications</a></li>
+  <li><a href="#reactivity" id="toc-reactivity" class="nav-link" data-scroll-target="#reactivity"><span class="header-section-number">1.3</span> Reactivity</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps"><span class="header-section-number">2</span> Next steps</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/tbep-tech/nwqmc-shiny/edit/main/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -352,6 +351,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="learning-objectives" class="level2 unnumbered objectives">
+<h2 class="unnumbered objectives anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>In this module, you’ll learn why you may want to use Shiny and the problems it can solve in your own applications. You’ll also get a sense for how Shiny apps work at a basic level, including what is meant by reactivity. You should have a general understanding of how a Shiny app works as a foundation for the rest of the workshop.</p>
+</section>
+<section id="what-is-and-why-shiny" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="what-is-and-why-shiny"><span class="header-section-number">1.1</span> What is and why shiny</h2>
 <p>Shiny is an R package that lets you create rich, interactive web applications. Shiny lets you take an existing R script and expose it using a web browser so that you or anybody else can use it outside of R. Shiny is commonly used to:</p>
 <ul>
 <li>Communicate complex workflows to a non-technical audience with informative visualizations and interactive components</li>
@@ -359,18 +364,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Help inform your understanding of an analysis by creating a user interface to quickly evaluate data</li>
 </ul>
 <p>In the applied sciences world, Shiny can be a very important tool to “bridge the research-management divide”. A very simple example is the use of Shiny to replace a 500 page document that has hundreds of figures with a simple application that allows the user to jump to an exact slice of the data that they want.</p>
-<p>There are many advantages to using Shiny over other platforms for creating web applications. As R users, the value of Shiny is that you only need to know how to use R. You do not need to know anything about web programming, such as HTML, CSS, or JavaScript. On the other hand, Shiny gives you the power to tap into the broader suite of web programming tools when you’re ready or have a need to expand your application.</p>
+<p>There are many advantages to using Shiny over other platforms for creating web applications. As R users, the value of Shiny is that you only need to know how to use R. You do not need to know anything about web programming, such as HTML, CSS, or JavaScript. On the other hand, Shiny gives you the power to tap into this broader suite of web programming tools when you’re ready or have a need to expand your application.</p>
 <p>More simply, Shiny lets you create a web interface for any R workflow. This means that any custom analysis or graphic you’ve made can be fully integrated into your dashboard, unlike other platforms that may have rigid and less customizable templates.</p>
-<section id="dynamic-and-interactive-applications" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Dynamic and Interactive applications</h1>
-<p>This workshop will expose you to the basics of creating interactive dashboards in R. Before we begin, it’s useful to distinguish between <strong><em>dynamic</em></strong> and <strong><em>interactive</em></strong> dashboards.</p>
-<p><a href="figs/intro/dynamicvint.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/intro/dynamicvint.png" class="img-fluid" width="800"></a></p>
-<p>First, <strong><em>dynamic</em></strong> applications can have the look and feel of an interactive Shiny dashboard, but are fundamentally different. They are standalone and do not include a server component. Any interactive functionality is pre-built into the application and they are built before being hosted on a web platform as an HTML file. Applications such as Quarto (and its predecessor RMarkdown) can be used to create dynamic applications. Here’s an <a href="https://tbep-tech.github.io/scallop-search/" target="_blank">example</a>.</p>
-<p>By comparison, a Shiny application is fully <strong><em>interactive</em></strong> - it has both a user interface (UI) and server allowing a user to send requests to the server through the UI. This allows reactivity of the application components, where the content that a user sees on the UI is controlled by their inputs in a fully interactive experience. These applications require combined or separate R scripts that define the UI and server components. Here’s an <a href="https://shiny.tbep.org/landuse-change/" target="_blank">example</a>.</p>
-<p>This workshop will cover both dynamic and interactive applications. Your needs for creating an application will determine which approach you use. In general, more complexity will require an interactive approach, but the rapidly evolving toolbox has greatly expanded the capabilities of dynamic applications. You may find that you can build a simpler dynamic application without having to integrate interactive Shiny components.</p>
-<section id="reactivity" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="reactivity"><span class="header-section-number">2.1</span> Reactivity</h2>
-<p>For <strong><em>dynamic</em></strong> applications, there’s not much you need to understand about coding beyond what you might already now about R. Creating the interactive components generally follows a familiar format. However, creating <strong><em>interactive</em></strong> applications in Shiny requires a fundamental shift in how you think about coding. It’s all done in R, but the pieces interact differently. You’re used to an R script from running top to bottom - code for a Shiny app runs up, down, and sideways depending on how you structure the components.</p>
+</section>
+<section id="shiny-applications" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="shiny-applications"><span class="header-section-number">1.2</span> Shiny applications</h2>
+<p>This workshop will expose you to the basics of creating interactive dashboards in R. The following shows a typical workflow for creating and deploying a Shiny application.</p>
+<p><a href="figs/intro/shinyflow.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/intro/shinyflow.png" class="img-fluid" width="800"></a></p>
+<p>A Shiny application is fully <strong><em>interactive</em></strong> - it has both a user interface (UI) and server allowing a user to send requests to the server through the UI. This allows reactivity of the application components, where the content that a user sees on the UI is controlled by their inputs in a fully interactive experience. These applications require combined or separate R scripts that define the UI and server components. Here’s an <a href="https://shiny.tbep.org/landuse-change/" target="_blank">example</a>.</p>
+</section>
+<section id="reactivity" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="reactivity"><span class="header-section-number">1.3</span> Reactivity</h2>
+<p>Creating interactive applications in Shiny requires a fundamental shift in how you think about coding. It’s all done in R, but the pieces interact differently. You’re used to an R script running top to bottom - code for a Shiny app runs up, down, and sideways depending on how you structure the components.</p>
 <p>A Shiny app runs from an R script, but instead of executing code linearly, it uses <strong>reactive</strong> programming that detects when an input is changed on the application, runs the minimal amount of code that uses that input, then updates the output as needed. So, rather than thinking of the script as linear, think of it as having interconnected components that share pieces of information to produce the results.</p>
 <p>This can be daunting at first because it requires you to think about which pieces of your code require inputs from other pieces and how that information is used to create output. Reactivity creates the building blocks of a Shiny app. Every Shiny app has the following:</p>
 <ul>
@@ -386,71 +391,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>You “launch” or run the dashboard by sourcing the script or hitting the green “Run App” button on the top right.</p>
 <p><a href="figs/intro/simpleapp.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="figs/intro/simpleapp.PNG" class="img-fluid"></a></p>
-<p>If you run this code, you’ll see a local web browser pop up. It will be empty because this app does nothing - it’s just a template. All we need to do is populate the <code>ui</code> and <code>server</code> objects with code to do some things.</p>
+<p>If you run this code, you’ll see a local web browser pop up. It will be empty because this app does nothing - it’s just a template. All we need to do is populate the <code>ui</code> and <code>server</code> objects with code to do some things. We’ll do that in the next module.</p>
 </section>
-<section id="a-simple-example" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="a-simple-example"><span class="header-section-number">2.2</span> A simple example</h2>
-<p>Now let’s make our simple example do something. As with most problems, it’s good to start with identifying where you want to go and then work backwards to figure out how to get there. Let’s end with a simple histogram to visualize some data for the normal distribution, but with different sample sizes.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="intro_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="intro_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Changing the sample size:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="intro_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="intro_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
-</figure>
-</div>
-</div>
-</div>
-<p>To make a Shiny app out of this, we need to identify our inputs and outputs. The input in this case is what we want to be able to modify (the sample size) and the output is the plot. Inputs/outputs go in the <code>ui</code> object. The <code>server</code> takes the inputs, does something with them, then sends the results back to the <code>ui</code>. Putting this into our template would look something like this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">numericInput</span>(<span class="at">inputId =</span> <span class="st">'n'</span>, <span class="at">label =</span> <span class="st">'Sample size'</span>, <span class="at">value =</span> <span class="dv">50</span>),</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">'myplot'</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>myplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    dat <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(input<span class="sc">$</span>n)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(dat)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Okay, so what is happening under the hood when you change the sample size?</p>
-<ol type="1">
-<li>The <code>input</code> value <code>n</code> (you name it) from the <code>ui</code> is sent to the <code>server</code>, seen as <code>input$n</code>.</li>
-<li>The <code>dat</code> object is created as a random sample with size <code>n</code> and then a histogram is created as reactive output with <code>renderPlot</code></li>
-<li>The plot output named <code>myplot</code> (you name it) is appended to the <code>output</code> list of objects in the <code>server</code> function</li>
-<li>The plot is then rendered on the <code>ui</code> using <code>plotOutput</code> by referencing the <code>myplot</code> name from the <code>output</code> object</li>
-</ol>
-<p><a href="figs/intro/simpleappflo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="figs/intro/simpleappflo.png" class="img-fluid"></a></p>
-<p>All of this happens each time the input values are changed, such that the output <strong>reacts</strong> to any change in the input. This is a fundamental principle of Shiny functionality, simplified as follows.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="figs/intro/flow.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="figs/intro/flow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></a></p>
-</figure>
-</div>
-</section>
-</section>
-<section id="next-steps" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Next steps</h1>
-<p>Throughout this workshop, we’ll cover the fundamentals of web-based applications in R for actionable science. We’ll first talk about Quarto dynamic applications in <span class="quarto-unresolved-ref">?sec-quarto</span> and then dive into Shiny interactive applications in <span class="quarto-unresolved-ref">?sec-shiny</span>. We’ll also discuss often overlooked but important concepts of the user experience when developing and engaging with a web application in <span class="quarto-unresolved-ref">?sec-codesign</span>. Throughout, we’ll highlight real applications that demonstrate how these operate in the wild for their intended uses, many of which are highlighted on our <a href="https://tbep-tech.github.io/shiny-workshop/resources.html">resources</a> page.</p>
+<section id="next-steps" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Next steps</h1>
+<p>Throughout this workshop, we’ll cover the fundamentals of web-based applications in R for actionable science. We’ll also discuss often overlooked but important concepts of the user experience when developing and engaging with a web application in <span class="quarto-unresolved-ref">?sec-codesign</span>. Throughout, we’ll highlight useful applications that demonstrate how these operate in the wild for their intended uses, many examples of which are highlighted on our <a href="https://tbep-tech.github.io/shiny-workshop/resources.html">resources</a> page.</p>
 
 
 </section>
