@@ -54,14 +54,21 @@ Okay, so what is happening under the hood when you change the sample size?
 
 ![](figs/fundamentals/simpleappflo.png)
 
-All of this happens each time the input values are changed, such that the output __reacts__ to any change in the input. This is a fundamental principle of Shiny functionality, simplified as follows.
+All of this happens each time the input values are changed, such that the output __reacts__ to any change in the input. This is a fundamental principle of Shiny reactivity, simplified as follows.
 
 ![](figs/fundamentals/flow.png){width=50% fig-align="center"}
 
+## Showcase mode
+
 A useful tool provided by Shiny is showcase mode...
 
+## Using the RStudio template
 
-Another useful way of learning the basics of the `ui` and `server` is to use the built-in Shiny template in RStudio. Under New File -> Shiny Web App..., you can open a script that has a working Shiny app.  Tinkering with this file will teach you a lot about how Shiny works.    
+Another useful way of learning the basics of the `ui` and `server` is to use the built-in Shiny template in RStudio. Under **File** -> **New File** -> **Shiny Web App...**, you can open a script that has a working Shiny app.  Tinkering with this file will teach you a lot about how Shiny works.    
+
+For now, let's go with the single file option that puts hte entire application in `app.R` rather than splitting it intwo (`ui.R`, `server.R`).
+
+![](figs/fundamentals/new-shiny-app.png){width="400"}
 
 Let's try it again from scratch, recreating our simple histogram example.  Here's what the template file looks like: 
 
@@ -165,7 +172,7 @@ shinyApp(ui = ui, server = server)
 
 This is the same app as before, but the layout is different and we've only replaced the relevant pieces, i.e., the title, the numeric input widget, and a simpler plot.  
 
-Let's spice it up by adding a widget for changing the histogram color. 
+Let's spice it up by adding a widget for changing the histogram color. There's a lot to say about "widgets" - Shiny has many you can choose from depending on the type of input you need.  [This page](https://shiny.posit.co/r/gallery/widgets/widget-gallery/){target="_blank"} provides an overview of available widgets.  We'll add the `selectInput()` widget in this example.
 
 ```{r}
 #| eval: false
@@ -209,9 +216,7 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-There's a lot to say about "widgets" - Shiny has many you can choose from depending on the type of input you need.  [This page](https://shiny.posit.co/r/gallery/widgets/widget-gallery/){target="_blank"} provides an overview of available widgets. 
-
-Also notice how the random sample changes when you update the color.  Why is that? How can we fix this? 
+Notice how the random sample changes when you update the color.  Why is that? How can we fix this? 
 
 ## Debugging a Shiny app
 

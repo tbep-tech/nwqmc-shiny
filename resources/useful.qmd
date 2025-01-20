@@ -85,7 +85,7 @@ The following is a non-exhaustive list of additional resources you can use for c
 * [Lovelace et al. Geocomputation with R](https://geocompr.robinlovelace.net/){target="_blank"}
 * [Edszer Pebesma and Roger Bivand Spatial Data Science](https://keen-swartz-3146c4.netlify.app/index.html){target="_blank"}
 
-## Git/Github
+## Git/Github {#sec-github}
 
 * [Jenny Bryan's Happy Git and Github for the useR](http://happygitwithr.com/){target="_blank"}
 * [Git and GitHub for the Casual User](https://masalmon.eu/2023/01/12/git-github-casual/){target="_blank"}
