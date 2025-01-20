@@ -27,6 +27,7 @@ The following is a non-exhaustive list of additional resources you can use for c
 * [Mastering Shiny](https://mastering-shiny.org/){target="_blank"}
 * [Shiny Cheatsheet](https://rstudio.github.io/cheatsheets/html/shiny.html?_gl=1*120harh*_ga*NzE2MTA4NTQ4LjE2NzY4MjMyMDQ.*_ga_2C0WZ1JHG0*MTY4NjMzNTE5My45LjAuMTY4NjMzNTIwMC4wLjAuMA..){target="_blank"}
 * [Engineering Production Grade Shiny Apps](https://engineering-shiny.org/){target="_blank"}
+* [CERF 2023 Shiny workshop](https://tbep-tech.github.io/shiny-workshop){target="_blank"}
 
 ## Open Science Websites
 

@@ -4,4 +4,223 @@ lightbox: true
 
 # Fundamentals
 
-text
+## Learning Objectives {.unnumbered .objectives}
+
+Use the Shiny framework to develop online interactive applications accepting user input to render outputs from arbitrary R functions.
+
+## A simple example
+
+We'll start with a simple application of Shiny.  As with most problems, it's good to start with identifying where you want to go and then work backwards to figure out how to get there.  Let's end with a simple histogram to visualize some data for the normal distribution, but with different sample sizes. 
+
+```{r}
+dat <- rnorm(100)
+hist(dat)
+```
+
+Changing the sample size:
+
+```{r}
+dat <- rnorm(10)
+hist(dat)
+```
+
+To make a Shiny app out of this, we need to identify our inputs and outputs.  The input in this case is what we want to be able to modify (the sample size) and the output is the plot.  This can all be done in a single script by creating a `ui` and `server` component.  Inputs and outputs go in the `ui` object.  The `server` takes the inputs, does something with them, then sends the results back to the `ui`. Putting this into our template would look something like this: 
+
+```{r}
+#| eval: false
+library(shiny)
+
+ui <- fluidPage(
+  numericInput(inputId = 'n', label = 'Sample size', value = 50),
+  plotOutput('myplot')
+)
+
+server <- function(input, output){
+  output$myplot <- renderPlot({
+    dat <- rnorm(input$n)
+    hist(dat)
+  })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+Okay, so what is happening under the hood when you change the sample size?  
+
+1. The `input` value `n` (you name it) from the `ui` is sent to the `server`, seen as `input$n`. 
+1. The `dat` object is created as a random sample with size `n` and then a histogram is created as reactive output with `renderPlot`
+1. The plot output named `myplot` (you name it) is appended to the `output` list of objects in the `server` function
+1. The plot is then rendered on the `ui` using `plotOutput` by referencing the `myplot` name from the `output` object 
+
+![](figs/fundamentals/simpleappflo.png)
+
+All of this happens each time the input values are changed, such that the output __reacts__ to any change in the input. This is a fundamental principle of Shiny functionality, simplified as follows.
+
+![](figs/fundamentals/flow.png){width=50% fig-align="center"}
+
+A useful tool provided by Shiny is showcase mode...
+
+
+Another useful way of learning the basics of the `ui` and `server` is to use the built-in Shiny template in RStudio. Under New File -> Shiny Web App..., you can open a script that has a working Shiny app.  Tinkering with this file will teach you a lot about how Shiny works.    
+
+Let's try it again from scratch, recreating our simple histogram example.  Here's what the template file looks like: 
+
+```{r}
+#| eval: false
+#
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    https://shiny.posit.co/
+#
+
+library(shiny)
+
+# Define UI for application that draws a histogram
+ui <- fluidPage(
+
+    # Application title
+    titlePanel("Old Faithful Geyser Data"),
+
+    # Sidebar with a slider input for number of bins 
+    sidebarLayout(
+        sidebarPanel(
+            sliderInput("bins",
+                        "Number of bins:",
+                        min = 1,
+                        max = 50,
+                        value = 30)
+        ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+           plotOutput("distPlot")
+        )
+    )
+)
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+
+    output$distPlot <- renderPlot({
+        # generate bins based on input$bins from ui.R
+        x    <- faithful[, 2]
+        bins <- seq(min(x), max(x), length.out = input$bins + 1)
+
+        # draw the histogram with the specified number of bins
+        hist(x, breaks = bins, col = 'darkgray', border = 'white',
+             xlab = 'Waiting time to next eruption (in mins)',
+             main = 'Histogram of waiting times')
+    })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+```
+
+Your final product should look like this: 
+
+```{r}
+#| eval: false
+library(shiny)
+
+# Define UI for application that draws a histogram
+ui <- fluidPage(
+
+    # Application title
+    titlePanel("My awesome histogram app"),
+
+    # Sidebar with a numeric input for sample size 
+    sidebarLayout(
+        sidebarPanel(
+           numericInput(inputId = 'n', label = 'Sample size', value = 50)
+        ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+           plotOutput("distPlot")
+        )
+    )
+)
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+
+    output$distPlot <- renderPlot({
+        
+      # generate random sample of size n
+        x <- rnorm(input$n)
+
+        # draw the histogram
+        hist(x)
+        
+    })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+```
+
+This is the same app as before, but the layout is different and we've only replaced the relevant pieces, i.e., the title, the numeric input widget, and a simpler plot.  
+
+Let's spice it up by adding a widget for changing the histogram color. 
+
+```{r}
+#| eval: false
+library(shiny)
+
+# Define UI for application that draws a histogram
+ui <- fluidPage(
+
+    # Application title
+    titlePanel("My awesome histogram app"),
+
+    # Sidebar with a numeric input for sample size 
+    sidebarLayout(
+        sidebarPanel(
+           numericInput(inputId = 'n', label = 'Sample size', value = 50), 
+           selectInput(inputId = 'col', label = 'Choose color', choices = c('red', 'blue', 'green'))
+        ),
+
+        # Show a plot of the generated distribution
+        mainPanel(
+           plotOutput("distPlot")
+        )
+    )
+)
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+
+    output$distPlot <- renderPlot({
+        
+      # generate random sample of size n
+        x <- rnorm(input$n)
+
+        # draw the histogram
+        hist(x, col = input$col)
+        
+    })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+```
+
+There's a lot to say about "widgets" - Shiny has many you can choose from depending on the type of input you need.  [This page](https://shiny.posit.co/r/gallery/widgets/widget-gallery/){target="_blank"} provides an overview of available widgets. 
+
+Also notice how the random sample changes when you update the color.  Why is that? How can we fix this? 
+
+## Debugging a Shiny app
+
+`browser()`
+
+## A better example
+
+Water quality time series
+
+## A dirty trick...
+
+Much has changed in the programming world over the last few years.  As you might expect, there are generative AI tools to help build and develop Shiny apps.  
