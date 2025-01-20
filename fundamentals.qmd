@@ -1,5 +1,7 @@
 ---
 lightbox: true
+filters: 
+  - line-highlight
 ---
 
 # Fundamentals
@@ -35,7 +37,19 @@ dat <- rnorm(10)
 hist(dat)
 ```
 
-To make a Shiny app out of this, we need to identify our inputs and outputs.  The input in this case is what we want to be able to modify (the sample size) and the output is the plot.  This can all be done in a single script by creating a `ui` and `server` component.  Inputs and outputs go in the `ui` object.  The `server` takes the inputs, does something with them, then sends the results back to the `ui`. Putting this into our template would look something like this: 
+To make a Shiny app out of this, we need to identify our inputs and outputs.  The input in this case is what we want to be able to modify (the sample size) and the output is the plot.  This can all be done in a single script by creating a `ui` and `server` component.  Inputs and outputs go in the `ui` object.  The `server` takes the inputs, does something with them, then sends the results back to the `ui`. 
+
+Using our template from before: 
+
+```{r}
+#| eval: false
+library(shiny)
+ui <- fluidPage()
+server <- function(input, output){}
+shinyApp(ui = ui, server = server)
+```
+
+Then putting this into our template would look something like this: 
 
 ```{r}
 #| eval: false
@@ -64,7 +78,6 @@ Okay, so what is happening under the hood when you change the sample size?
 
     ```{r}
     #| eval: false
-    #| class-source: "numberLines"
     #| source-line-numbers: "2"
     ui <- fluidPage(
       numericInput(inputId = 'n', label = 'Sample size', value = 50),
@@ -76,7 +89,6 @@ Okay, so what is happening under the hood when you change the sample size?
 
     ```{r}
     #| eval: false
-    #| class-source: "numberLines"
     #| source-line-numbers: "3"
     server <- function(input, output){
       output$myplot <- renderPlot({
@@ -90,8 +102,8 @@ Okay, so what is happening under the hood when you change the sample size?
 
     ```{r}
     #| eval: false
-    #| class-source: "numberLines"
     #| source-line-numbers: "4"
+    
     server <- function(input, output){
       output$myplot <- renderPlot({
         dat <- rnorm(input$n)
@@ -104,7 +116,6 @@ Okay, so what is happening under the hood when you change the sample size?
 
     ```{r}
     #| eval: false
-    #| class-source: "numberLines"
     #| source-line-numbers: "2"
     server <- function(input, output){
       output$myplot <- renderPlot({
@@ -118,7 +129,6 @@ Okay, so what is happening under the hood when you change the sample size?
 
     ```{r}
     #| eval: false
-    #| class-source: "numberLines"
     #| source-line-numbers: "3"
     ui <- fluidPage(
       numericInput(inputId = 'n', label = 'Sample size', value = 50),
@@ -131,19 +141,6 @@ Okay, so what is happening under the hood when you change the sample size?
 All of this happens each time the input values are changed, such that the output __reacts__ to any change in the input. This is a fundamental principle of Shiny reactivity, simplified as follows.
 
 ![](figs/fundamentals/flow.png){width=50% fig-align="center"}
-
-## Showcase mode
-
-A useful tool provided by Shiny is running an application in showcase mode.  This is a literal demonstration of the workflow outlined above, but in realtime as you run the app.  To use showcase mode, you must first save your app as an R script in a folder of the same name. Use the function `shiny::runApp()` and add `display.mode = 'showcase'` in the call.
-
-```{r}
-#| eval: false
-shiny::runApp('app', display.mode = 'showcase')
-```
-
-![](figs/fundamentals/showcase.png)
-
-This is a simle example that isn't very informative, but it gives you a sense of how showcase made works.  It will be more useful with a more comlex app. 
 
 ## Using the RStudio template
 
@@ -306,6 +303,19 @@ shinyApp(ui = ui, server = server)
 ![](figs/fundamentals/histshinytemplatecol.png)
 
 Notice how the random sample changes when you update the color.  Why is that? How can we fix this? 
+
+## Showcase mode
+
+A useful tool provided by Shiny is running an application in showcase mode.  This is a literal demonstration of the workflow outlined above, but in realtime as you run the app.  To use showcase mode, you must first save your app as an R script in a folder of the same name. Use the function `shiny::runApp()` and add `display.mode = 'showcase'` in the call.
+
+```{r}
+#| eval: false
+shiny::runApp('app', display.mode = 'showcase')
+```
+
+![](figs/fundamentals/showcase.png)
+
+This is a simple example that isn't very informative, but it gives you a sense of how showcase made works.  It will be more useful with a more complex app. 
 
 ## Debugging a Shiny app
 
