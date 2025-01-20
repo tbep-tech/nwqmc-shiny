@@ -8,6 +8,17 @@ lightbox: true
 
 Use the Shiny framework to develop online interactive applications accepting user input to render outputs from arbitrary R functions.
 
+## Install packages
+
+Let's begin by installing and loading the packages used for this workshop. This will already be installed if you're using [Posit Cloud](#sec-cloud).
+
+```{r}
+#| eval: false
+install.packages(c('shiny', 'tidyverse'))
+library(shiny)
+library(tidyverse)
+```
+
 ## A simple example
 
 We'll start with a simple application of Shiny.  As with most problems, it's good to start with identifying where you want to go and then work backwards to figure out how to get there.  Let's end with a simple histogram to visualize some data for the normal distribution, but with different sample sizes. 
@@ -45,12 +56,75 @@ server <- function(input, output){
 shinyApp(ui = ui, server = server)
 ```
 
+![](figs/fundamentals/histshiny.png)
+
 Okay, so what is happening under the hood when you change the sample size?  
 
-1. The `input` value `n` (you name it) from the `ui` is sent to the `server`, seen as `input$n`. 
+1. The `input` value `n` (you name it) is chosen by the user from the `ui`.
+
+    ```{r}
+    #| eval: false
+    #| class-source: "numberLines"
+    #| source-line-numbers: "2"
+    ui <- fluidPage(
+      numericInput(inputId = 'n', label = 'Sample size', value = 50),
+      plotOutput('myplot')
+    )
+    ```
+    
+1. Shiny recognizes that the `input$n` value has changed and re-runs any pieces of `server` that use that value.   
+
+    ```{r}
+    #| eval: false
+    #| class-source: "numberLines"
+    #| source-line-numbers: "3"
+    server <- function(input, output){
+      output$myplot <- renderPlot({
+        dat <- rnorm(input$n)
+        hist(dat)
+      })
+    }
+    ```
+
 1. The `dat` object is created as a random sample with size `n` and then a histogram is created as reactive output with `renderPlot`
+
+    ```{r}
+    #| eval: false
+    #| class-source: "numberLines"
+    #| source-line-numbers: "4"
+    server <- function(input, output){
+      output$myplot <- renderPlot({
+        dat <- rnorm(input$n)
+        hist(dat)
+      })
+    }
+    ```
+    
 1. The plot output named `myplot` (you name it) is appended to the `output` list of objects in the `server` function
+
+    ```{r}
+    #| eval: false
+    #| class-source: "numberLines"
+    #| source-line-numbers: "2"
+    server <- function(input, output){
+      output$myplot <- renderPlot({
+        dat <- rnorm(input$n)
+        hist(dat)
+      })
+    }
+    ```
+
 1. The plot is then rendered on the `ui` using `plotOutput` by referencing the `myplot` name from the `output` object 
+
+    ```{r}
+    #| eval: false
+    #| class-source: "numberLines"
+    #| source-line-numbers: "3"
+    ui <- fluidPage(
+      numericInput(inputId = 'n', label = 'Sample size', value = 50),
+      plotOutput('myplot')
+    )
+    ```
 
 ![](figs/fundamentals/simpleappflo.png)
 
@@ -60,13 +134,22 @@ All of this happens each time the input values are changed, such that the output
 
 ## Showcase mode
 
-A useful tool provided by Shiny is showcase mode...
+A useful tool provided by Shiny is running an application in showcase mode.  This is a literal demonstration of the workflow outlined above, but in realtime as you run the app.  To use showcase mode, you must first save your app as an R script in a folder of the same name. Use the function `shiny::runApp()` and add `display.mode = 'showcase'` in the call.
+
+```{r}
+#| eval: false
+shiny::runApp('app', display.mode = 'showcase')
+```
+
+![](figs/fundamentals/showcase.png)
+
+This is a simle example that isn't very informative, but it gives you a sense of how showcase made works.  It will be more useful with a more comlex app. 
 
 ## Using the RStudio template
 
 Another useful way of learning the basics of the `ui` and `server` is to use the built-in Shiny template in RStudio. Under **File** -> **New File** -> **Shiny Web App...**, you can open a script that has a working Shiny app.  Tinkering with this file will teach you a lot about how Shiny works.    
 
-For now, let's go with the single file option that puts hte entire application in `app.R` rather than splitting it intwo (`ui.R`, `server.R`).
+For now, let's go with the single file option that puts the entire application in `app.R` rather than splitting it intwo (`ui.R`, `server.R`).
 
 ![](figs/fundamentals/new-shiny-app.png){width="400"}
 
@@ -127,7 +210,9 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-Your final product should look like this: 
+![](figs/fundamentals/faithfulshiny.png)
+
+We can replace the relevant pieces with those used in our initial histogram app.Your final product should look like this: 
 
 ```{r}
 #| eval: false
@@ -169,6 +254,8 @@ server <- function(input, output) {
 # Run the application 
 shinyApp(ui = ui, server = server)
 ```
+
+![](figs/fundamentals/histshinytemplate.png)
 
 This is the same app as before, but the layout is different and we've only replaced the relevant pieces, i.e., the title, the numeric input widget, and a simpler plot.  
 
@@ -215,6 +302,8 @@ server <- function(input, output) {
 # Run the application 
 shinyApp(ui = ui, server = server)
 ```
+
+![](figs/fundamentals/histshinytemplatecol.png)
 
 Notice how the random sample changes when you update the color.  Why is that? How can we fix this? 
 
