@@ -371,6 +371,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1.2" class="anchored" data-anchor-id="shiny-applications"><span class="header-section-number">1.2</span> Shiny applications</h2>
 <p>This workshop will expose you to the basics of creating interactive dashboards in R. The following shows a typical workflow for creating and deploying a Shiny application.</p>
 <p><a href="figs/intro/shinyflow.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/intro/shinyflow.png" class="img-fluid" width="800"></a></p>
+<ol type="1">
+<li>You’ll start by creating the application locally with RStudio on your computer.<br>
+</li>
+<li>Ideally, you’ll also be using version control software like Git and hosting the app in a repository on GitHub. This is not a requirement to building a Shiny app, rather it’s part of a broader workflow for reproducibility and shareability of your code. Git/GitHub is an entirely different topic that’s worth learning but not the focus of this workshop. There are resources available in the <a href="resources/useful.html#sec-github">Useful Links</a> portion of this website.</li>
+<li>Finally, the app is hosted online using Shiny Server that works with both the <code>ui</code> and <code>server</code> components of the app. More about this later.</li>
+</ol>
 <p>A Shiny application is fully <strong><em>interactive</em></strong> - it has both a user interface (UI) and server allowing a user to send requests to the server through the UI. This allows reactivity of the application components, where the content that a user sees on the UI is controlled by their inputs in a fully interactive experience. These applications require combined or separate R scripts that define the UI and server components. Here’s an <a href="https://shiny.tbep.org/landuse-change/" target="_blank">example</a>.</p>
 </section>
 <section id="reactivity" class="level2" data-number="1.3">

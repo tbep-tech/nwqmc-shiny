@@ -323,9 +323,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   <li><a href="#a-simple-example" id="toc-a-simple-example" class="nav-link" data-scroll-target="#a-simple-example"><span class="header-section-number">2.1</span> A simple example</a></li>
-  <li><a href="#debugging-a-shiny-app" id="toc-debugging-a-shiny-app" class="nav-link" data-scroll-target="#debugging-a-shiny-app"><span class="header-section-number">2.2</span> Debugging a Shiny app</a></li>
-  <li><a href="#a-better-example" id="toc-a-better-example" class="nav-link" data-scroll-target="#a-better-example"><span class="header-section-number">2.3</span> A better example</a></li>
-  <li><a href="#a-dirty-trick" id="toc-a-dirty-trick" class="nav-link" data-scroll-target="#a-dirty-trick"><span class="header-section-number">2.4</span> A dirty trick…</a></li>
+  <li><a href="#showcase-mode" id="toc-showcase-mode" class="nav-link" data-scroll-target="#showcase-mode"><span class="header-section-number">2.2</span> Showcase mode</a></li>
+  <li><a href="#using-the-rstudio-template" id="toc-using-the-rstudio-template" class="nav-link" data-scroll-target="#using-the-rstudio-template"><span class="header-section-number">2.3</span> Using the RStudio template</a></li>
+  <li><a href="#debugging-a-shiny-app" id="toc-debugging-a-shiny-app" class="nav-link" data-scroll-target="#debugging-a-shiny-app"><span class="header-section-number">2.4</span> Debugging a Shiny app</a></li>
+  <li><a href="#a-better-example" id="toc-a-better-example" class="nav-link" data-scroll-target="#a-better-example"><span class="header-section-number">2.5</span> A better example</a></li>
+  <li><a href="#a-dirty-trick" id="toc-a-dirty-trick" class="nav-link" data-scroll-target="#a-dirty-trick"><span class="header-section-number">2.6</span> A dirty trick…</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/tbep-tech/nwqmc-shiny/edit/main/fundamentals.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -407,14 +409,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>The plot is then rendered on the <code>ui</code> using <code>plotOutput</code> by referencing the <code>myplot</code> name from the <code>output</code> object</li>
 </ol>
 <p><a href="figs/fundamentals/simpleappflo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="figs/fundamentals/simpleappflo.png" class="img-fluid"></a></p>
-<p>All of this happens each time the input values are changed, such that the output <strong>reacts</strong> to any change in the input. This is a fundamental principle of Shiny functionality, simplified as follows.</p>
+<p>All of this happens each time the input values are changed, such that the output <strong>reacts</strong> to any change in the input. This is a fundamental principle of Shiny reactivity, simplified as follows.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="figs/fundamentals/flow.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="figs/fundamentals/flow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></a></p>
 </figure>
 </div>
+</section>
+<section id="showcase-mode" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="showcase-mode"><span class="header-section-number">2.2</span> Showcase mode</h2>
 <p>A useful tool provided by Shiny is showcase mode…</p>
-<p>Another useful way of learning the basics of the <code>ui</code> and <code>server</code> is to use the built-in Shiny template in RStudio. Under New File -&gt; Shiny Web App…, you can open a script that has a working Shiny app. Tinkering with this file will teach you a lot about how Shiny works.</p>
+</section>
+<section id="using-the-rstudio-template" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="using-the-rstudio-template"><span class="header-section-number">2.3</span> Using the RStudio template</h2>
+<p>Another useful way of learning the basics of the <code>ui</code> and <code>server</code> is to use the built-in Shiny template in RStudio. Under <strong>File</strong> -&gt; <strong>New File</strong> -&gt; <strong>Shiny Web App…</strong>, you can open a script that has a working Shiny app. Tinkering with this file will teach you a lot about how Shiny works.</p>
+<p>For now, let’s go with the single file option that puts hte entire application in <code>app.R</code> rather than splitting it intwo (<code>ui.R</code>, <code>server.R</code>).</p>
+<p><a href="figs/fundamentals/new-shiny-app.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="figs/fundamentals/new-shiny-app.png" class="img-fluid" width="400"></a></p>
 <p>Let’s try it again from scratch, recreating our simple histogram example. Here’s what the template file looks like:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -510,7 +520,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This is the same app as before, but the layout is different and we’ve only replaced the relevant pieces, i.e., the title, the numeric input widget, and a simpler plot.</p>
-<p>Let’s spice it up by adding a widget for changing the histogram color.</p>
+<p>Let’s spice it up by adding a widget for changing the histogram color. There’s a lot to say about “widgets” - Shiny has many you can choose from depending on the type of input you need. <a href="https://shiny.posit.co/r/gallery/widgets/widget-gallery/" target="_blank">This page</a> provides an overview of available widgets. We’ll add the <code>selectInput()</code> widget in this example.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -551,19 +561,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the application </span></span>
 <span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>There’s a lot to say about “widgets” - Shiny has many you can choose from depending on the type of input you need. <a href="https://shiny.posit.co/r/gallery/widgets/widget-gallery/" target="_blank">This page</a> provides an overview of available widgets.</p>
-<p>Also notice how the random sample changes when you update the color. Why is that? How can we fix this?</p>
+<p>Notice how the random sample changes when you update the color. Why is that? How can we fix this?</p>
 </section>
-<section id="debugging-a-shiny-app" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="debugging-a-shiny-app"><span class="header-section-number">2.2</span> Debugging a Shiny app</h2>
+<section id="debugging-a-shiny-app" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="debugging-a-shiny-app"><span class="header-section-number">2.4</span> Debugging a Shiny app</h2>
 <p><code>browser()</code></p>
 </section>
-<section id="a-better-example" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="a-better-example"><span class="header-section-number">2.3</span> A better example</h2>
+<section id="a-better-example" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="a-better-example"><span class="header-section-number">2.5</span> A better example</h2>
 <p>Water quality time series</p>
 </section>
-<section id="a-dirty-trick" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="a-dirty-trick"><span class="header-section-number">2.4</span> A dirty trick…</h2>
+<section id="a-dirty-trick" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="a-dirty-trick"><span class="header-section-number">2.6</span> A dirty trick…</h2>
 <p>Much has changed in the programming world over the last few years. As you might expect, there are generative AI tools to help build and develop Shiny apps.</p>
 
 
