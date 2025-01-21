@@ -423,48 +423,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="figs/fundamentals/histshiny.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="figs/fundamentals/histshiny.png" class="img-fluid"></a></p>
 <p>Okay, so what is happening under the hood when you change the sample size?</p>
 <ol type="1">
-<li><p>The <code>input</code> value <code>n</code> (you name it) is chosen by the user from the <code>ui</code>.</p>
-<p>::: {.cell source-line-numbers=‘2’}</p>
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers=""><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<li>The <code>input</code> value <code>n</code> (you name it) is chosen by the user from the <code>ui</code>.</li>
+</ol>
+<div class="cell" data-source-line-numbers="2">
+<div class="sourceCode cell-code" id="cb6" data-source-line-numbers="2" data-code-line-numbers="2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">numericInput</span>(<span class="at">inputId =</span> <span class="st">'n'</span>, <span class="at">label =</span> <span class="st">'Sample size'</span>, <span class="at">value =</span> <span class="dv">50</span>),</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">'myplot'</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p></li>
-<li><p>Shiny recognizes that the <code>input$n</code> value has changed and re-runs any pieces of <code>server</code> that use that value.</p>
-<p>::: {.cell source-line-numbers=‘3’}</p>
-<div class="sourceCode cell-code" id="cb7" data-code-line-numbers=""><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+</div>
+<ol start="2" type="1">
+<li>Shiny recognizes that the <code>input$n</code> value has changed and re-runs any pieces of <code>server</code> that use that value.</li>
+</ol>
+<div class="cell" data-source-line-numbers="3">
+<div class="sourceCode cell-code" id="cb7" data-source-line-numbers="3" data-code-line-numbers="3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>myplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    dat <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(input<span class="sc">$</span>n)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(dat)</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  })</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p></li>
-<li><p>The <code>dat</code> object is created as a random sample with size <code>n</code> and then a histogram is created as reactive output with <code>renderPlot</code></p>
-<p>::: {.cell source-line-numbers=‘4’}</p>
-<div class="sourceCode cell-code" id="cb8" data-code-line-numbers=""><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+</div>
+<ol start="3" type="1">
+<li>The <code>dat</code> object is created as a random sample with size <code>n</code> and then a histogram is created as reactive output with <code>renderPlot</code></li>
+</ol>
+<div class="cell" data-source-line-numbers="4">
+<div class="sourceCode cell-code" id="cb8" data-source-line-numbers="4" data-code-line-numbers="4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>myplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    dat <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(input<span class="sc">$</span>n)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(dat)</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  })</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p></li>
-<li><p>The plot output named <code>myplot</code> (you name it) is appended to the <code>output</code> list of objects in the <code>server</code> function</p>
-<p>::: {.cell source-line-numbers=‘2’}</p>
-<div class="sourceCode cell-code" id="cb9" data-code-line-numbers=""><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+</div>
+<ol start="4" type="1">
+<li>The plot output named <code>myplot</code> (you name it) is appended to the <code>output</code> list of objects in the <code>server</code> function</li>
+</ol>
+<div class="cell" data-source-line-numbers="2">
+<div class="sourceCode cell-code" id="cb9" data-source-line-numbers="2" data-code-line-numbers="2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>myplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    dat <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(input<span class="sc">$</span>n)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(dat)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  })</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p></li>
-<li><p>The plot is then rendered on the <code>ui</code> using <code>plotOutput</code> by referencing the <code>myplot</code> name from the <code>output</code> object</p>
-<p>::: {.cell source-line-numbers=‘3’}</p>
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers=""><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+</div>
+<ol start="5" type="1">
+<li>The plot is then rendered on the <code>ui</code> using <code>plotOutput</code> by referencing the <code>myplot</code> name from the <code>output</code> object</li>
+</ol>
+<div class="cell" data-source-line-numbers="3">
+<div class="sourceCode cell-code" id="cb10" data-source-line-numbers="3" data-code-line-numbers="3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">numericInput</span>(<span class="at">inputId =</span> <span class="st">'n'</span>, <span class="at">label =</span> <span class="st">'Sample size'</span>, <span class="at">value =</span> <span class="dv">50</span>),</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">'myplot'</span>)</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p></li>
-</ol>
+</div>
 <p><a href="figs/fundamentals/simpleappflo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="figs/fundamentals/simpleappflo.png" class="img-fluid"></a></p>
 <p>All of this happens each time the input values are changed, such that the output <strong>reacts</strong> to any change in the input. This is a fundamental principle of Shiny reactivity, simplified as follows.</p>
 <div class="quarto-figure quarto-figure-center">
