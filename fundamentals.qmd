@@ -74,65 +74,66 @@ shinyApp(ui = ui, server = server)
 
 Okay, so what is happening under the hood when you change the sample size?  
 
-1. The `input` value `n` (you name it) is chosen by the user from the `ui`.
+1.  The `input` value `n` (you name it) is chosen by the user from the `ui`.
 
-```{r}
-#| eval: false
-#| source-line-numbers: "2"
-ui <- fluidPage(
-  numericInput(inputId = 'n', label = 'Sample size', value = 50),
-  plotOutput('myplot')
-)
-```
+    ```{r}
+    #| eval: false
+    #| source-line-numbers: "2"
+    ui <- fluidPage(
+      numericInput(inputId = 'n', label = 'Sample size', value = 50),
+      plotOutput('myplot')
+    )
+    ```
     
-2. Shiny recognizes that the `input$n` value has changed and re-runs any pieces of `server` that use that value.   
-```{r}
-#| eval: false
-#| source-line-numbers: "3"
-server <- function(input, output){
-  output$myplot <- renderPlot({
-    dat <- rnorm(input$n)
-    hist(dat)
-  })
-}
-```
+1.  Shiny recognizes that the `input$n` value has changed and re-runs any pieces of `server` that use that value.   
 
-3. The `dat` object is created as a random sample with size `n` and then a histogram is created as reactive output with `renderPlot`
+    ```{r}
+    #| eval: false
+    #| source-line-numbers: "3"
+    server <- function(input, output){
+      output$myplot <- renderPlot({
+        dat <- rnorm(input$n)
+        hist(dat)
+      })
+    }
+    ```
 
-```{r}
-#| eval: false
-#| source-line-numbers: "4"
-server <- function(input, output){
-  output$myplot <- renderPlot({
-    dat <- rnorm(input$n)
-    hist(dat)
-  })
-}
-```
+1.  The `dat` object is created as a random sample with size `n` and then a histogram is created as reactive output with `renderPlot`
+
+    ```{r}
+    #| eval: false
+    #| source-line-numbers: "4"
+    server <- function(input, output){
+      output$myplot <- renderPlot({
+        dat <- rnorm(input$n)
+        hist(dat)
+      })
+    }
+    ```
     
-4. The plot output named `myplot` (you name it) is appended to the `output` list of objects in the `server` function
+1.  The plot output named `myplot` (you name it) is appended to the `output` list of objects in the `server` function
 
-```{r}
-#| eval: false
-#| source-line-numbers: "2"
-server <- function(input, output){
-  output$myplot <- renderPlot({
-    dat <- rnorm(input$n)
-    hist(dat)
-  })
-}
-```
+    ```{r}
+    #| eval: false
+    #| source-line-numbers: "2"
+    server <- function(input, output){
+      output$myplot <- renderPlot({
+        dat <- rnorm(input$n)
+        hist(dat)
+      })
+    }
+    ```
 
-5. The plot is then rendered on the `ui` using `plotOutput` by referencing the `myplot` name from the `output` object 
+1.  The plot is then rendered on the `ui` using `plotOutput` by referencing the `myplot` name from the `output` object 
 
-```{r}
-#| eval: false
-#| source-line-numbers: "3"
-ui <- fluidPage(
-  numericInput(inputId = 'n', label = 'Sample size', value = 50),
-  plotOutput('myplot')
-)
-```
+    ```{r}
+    #| eval: false
+    #| source-line-numbers: "3"
+    ui <- fluidPage(
+      numericInput(inputId = 'n', label = 'Sample size', value = 50),
+      plotOutput('myplot')
+    )
+    ```
 
 ![](figs/fundamentals/simpleappflo.png)
 
