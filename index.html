@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Marcus Beck, Jen Stamp, Erik Leppo, Kateri Salk-Gunderson">
-<meta name="dcterms.date" content="2025-01-20">
+<meta name="dcterms.date" content="2025-01-21">
 
 <title>Actionable Data with Shiny Dashboards</title>
 <style>
@@ -42,9 +42,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-78faf54a06e50be45dc6d83ab59297a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -296,8 +293,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#presenters" id="toc-presenters" class="nav-link" data-scroll-target="#presenters">Presenters</a>
   <ul class="collapse">
   <li><a href="#marcus-beck" id="toc-marcus-beck" class="nav-link" data-scroll-target="#marcus-beck">Marcus Beck</a></li>
-  <li><a href="#jen-stamp" id="toc-jen-stamp" class="nav-link" data-scroll-target="#jen-stamp">Jen Stamp</a></li>
-  <li><a href="#erik-lepp" id="toc-erik-lepp" class="nav-link" data-scroll-target="#erik-lepp">Erik Lepp</a></li>
+  <li><a href="#erik-leppo" id="toc-erik-leppo" class="nav-link" data-scroll-target="#erik-leppo">Erik Leppo</a></li>
   <li><a href="#kateri-salk-gunderson" id="toc-kateri-salk-gunderson" class="nav-link" data-scroll-target="#kateri-salk-gunderson">Kateri Salk-Gunderson</a></li>
   </ul></li>
   </ul></li>
@@ -327,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-01-20</p>
+      <p class="date">2025-01-21</p>
     </div>
   </div>
   
@@ -394,19 +390,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="unnumbered anchored" data-anchor-id="presenters">Presenters</h2>
 <section id="marcus-beck" class="level3">
 <h3 class="anchored" data-anchor-id="marcus-beck">Marcus Beck</h3>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><a href="figs/about/headshot_marcus.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/about/headshot_marcus.jpg" class="img-fluid"></a></p>
-</div><div class="column p-right" style="width:65%;">
-<p>Marcus Beck is the Program Scientist for the Tampa Bay Estuary Program in St.&nbsp;Petersburg, Florida and is developing data analysis and visualization methods for Bay health indicators. Marcus has experience researching environmental indicators and developing open science products to support environmental decision-making. He has been using the R statistical programming language for over 15 years and has taught several workshops on its application to environmental sciences. Marcus has also developed several R packages and currently maintains 7 on CRAN. He received a PhD in Conservation Biology with a minor in Statistics from the University of Minnesota in 2013, his Masters in Conservation Biology from the University of Minnesota in 2009, and his Bachelors in Zoology from the University of Florida in 2007.</p>
-</div>
-</div>
+<p>Marcus Beck is the Program Scientist for the Tampa Bay Estuary Program in St.&nbsp;Petersburg, Florida and is developing data analysis and visualization methods for Bay health indicators. Marcus has experience researching environmental indicators and developing open science products to support environmental decision-making. He has been using the R statistical programming language for over 15 years and has taught several workshops on its application to environmental sciences. Marcus has also developed several R packages and currently maintains 7 on CRAN. He received a PhD in Conservation Biology with a minor in Statistics from the University of Minnesota in 2013, his Masters in Conservation Biology from the University of Minnesota in 2009, and his Bachelors in Zoology from the University of Florida in 2007. <a href="https://github.com/fawda123" target="_blank">GitHub</a>, <a href="https://scholar.google.com/citations?user=9ZDDQ_8AAAAJ&amp;hl=en&amp;authuser=2" target="_blank">Scholar</a>, <a href="https://github.com/fawda123/CV/blob/master/Beck_CV.pdf" target="_blank">CV</a></p>
 </section>
-<section id="jen-stamp" class="level3">
-<h3 class="anchored" data-anchor-id="jen-stamp">Jen Stamp</h3>
-</section>
-<section id="erik-lepp" class="level3">
-<h3 class="anchored" data-anchor-id="erik-lepp">Erik Lepp</h3>
+<section id="erik-leppo" class="level3">
+<h3 class="anchored" data-anchor-id="erik-leppo">Erik Leppo</h3>
+<p>Erik W. Leppo is an environmental scientist and data scientist based in Maryland. He has been working with Tetra Tech since 1994, focusing on environmental data analysis and biomonitoring. Erik has extensive experience with R programming since 2006 and has been developing Shiny applications since 2017. He is also active on GitHub, where he shares various tools for biomonitoring and bioassessment. He maintains the baytrends package on CRAN. He has led or helped run several R workshops and discussions at both the Association of Mid-Atlantic Aquatic Biologists (AMAAB) and the National Water Quality Monitoring Council (NWQMC) conference. <a href="https://github.com/leppott" target="_blank">GitHub</a></p>
 </section>
 <section id="kateri-salk-gunderson" class="level3">
 <h3 class="anchored" data-anchor-id="kateri-salk-gunderson">Kateri Salk-Gunderson</h3>
@@ -908,38 +896,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 
