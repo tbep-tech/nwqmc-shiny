@@ -2,7 +2,7 @@ library(shiny)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-  
+
   # Application title
   titlePanel("My awesome histogram app"),
   
@@ -24,7 +24,7 @@ ui <- fluidPage(
 server <- function(input, output) {
   
   output$distPlot <- renderPlot({
-    
+    browser()
     # generate random sample of size n
     x <- rnorm(input$n)
     

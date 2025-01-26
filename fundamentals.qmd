@@ -23,7 +23,7 @@ library(tidyverse)
 
 ## A simple example
 
-We'll start with a simple application of Shiny.  As with most problems, it's good to start with identifying where you want to go and then work backwards to figure out how to get there.  Let's end with a simple histogram to visualize some data for the normal distribution, but with different sample sizes. 
+We'll start with a simple application of Shiny.  As with most problems, it's good to start with identifying where you want to go and then work backwards to figure out how to get there.  Let's end with a simple histogram to visualize some data for the normal distribution, but with different sample sizes.  To start, we create the simple plot with the random data of a given sample size. 
 
 ```{r}
 dat <- rnorm(100)
@@ -74,7 +74,7 @@ shinyApp(ui = ui, server = server)
 
 Okay, so what is happening under the hood when you change the sample size?  
 
-1.  The `input` value `n` (you name it) is chosen by the user from the `ui`.
+1.  The `input` value `n` (you name it) for the `server` is chosen by the user from the `ui`.  This uses the `numericInput()` widget.
 
     ```{r}
     #| eval: false
@@ -85,7 +85,7 @@ Okay, so what is happening under the hood when you change the sample size?
     )
     ```
     
-1.  Shiny recognizes that the `input$n` value has changed and re-runs any pieces of `server` that use that value.   
+1.  Shiny recognizes that the `input$n` value comes from the `ui` and is used by the `server` to create the random sample `dat`.
 
     ```{r}
     #| eval: false
@@ -98,7 +98,7 @@ Okay, so what is happening under the hood when you change the sample size?
     }
     ```
 
-1.  The `dat` object is created as a random sample with size `n` and then a histogram is created as reactive output with `renderPlot`
+1.  The `dat` object with sample size `n` is then used to create a histogram.
 
     ```{r}
     #| eval: false
@@ -111,7 +111,7 @@ Okay, so what is happening under the hood when you change the sample size?
     }
     ```
     
-1.  The plot output named `myplot` (you name it) is appended to the `output` list of objects in the `server` function
+1.  The plot output named `myplot` (you name it) is created using the `renderPlot()` function and appended to the `output` list of objects in the `server` function.
 
     ```{r}
     #| eval: false
@@ -134,6 +134,8 @@ Okay, so what is happening under the hood when you change the sample size?
       plotOutput('myplot')
     )
     ```
+
+This is what it looks like in a simple flowchart.
 
 ![](figs/fundamentals/simpleappflo.png)
 
@@ -208,7 +210,9 @@ shinyApp(ui = ui, server = server)
 
 ![](figs/fundamentals/faithfulshiny.png)
 
-We can replace the relevant pieces with those used in our initial histogram app.Your final product should look like this: 
+We can replace the relevant pieces with those used in our initial histogram app. What does this app do differently from the original? 
+
+Your final product should look like this: 
 
 ```{r}
 #| eval: false
@@ -305,7 +309,7 @@ Notice how the random sample changes when you update the color.  Why is that? Ho
 
 ## Showcase mode
 
-A useful tool provided by Shiny is running an application in showcase mode.  This is a literal demonstration of the workflow outlined above, but in realtime as you run the app.  To use showcase mode, you must first save your app as an R script in a folder of the same name. Use the function `shiny::runApp()` and add `display.mode = 'showcase'` in the call.
+A useful tool provided by Shiny is running an application in showcase mode.  This is a literal demonstration of the workflow outlined above, but in realtime as you run the app.  To use showcase mode, you must first save your app as an R script in a folder of the same name (`app`). Use the function `shiny::runApp()` and add `display.mode = 'showcase'` in the call.
 
 ```{r}
 #| eval: false
@@ -318,11 +322,72 @@ This is a simple example that isn't very informative, but it gives you a sense o
 
 ## Debugging a Shiny app
 
-`browser()`
+Figuring out why and where your code might break in an application is challenging because of the reactivity inherent in a Shiny app. You can't just run the app step by step as you would a normal R script. The `browser()` function can be used to "step inside" the R code of an app. The `browser()` function can work with any arbitrary R function that is part of your environment.  We'll first demonstrate how to use it with a simple function.
+
+```{r}
+my_func <- function(n){
+
+  x <- rnorm(n)
+  hist(x)
+  
+}
+my_func(n)
+```
+
+Let's save this code in a new R script, place the `browser()` function inside of `my_func()`, and run the code again.
+
+```{r}
+#| eval: false
+my_func <- function(n){
+
+  browser()
+  x <- rnorm(n)
+  hist(x)
+  
+}
+my_func(n)
+```
+
+Two things happen when the code is run: 
+
+1.  The source code now highlights the `browser()` function with a green arrow.  This indicates your current location inside the browser.
+
+    ![](figs/fundamentals/browsersource.png){width=50% fig-align="center"}
+
+1.  The console will show that you're in the browser.
+
+    ![](figs/fundamentals/browserconsole.png){width=50% fig-align="center"}
+    
+1.  Browser controls appear at the top of the console.
+
+    ![](figs/fundamentals/browsercontrols.png){width=50% fig-align="center"}
+    
+You can now "step" through the function using these controls or by pressing "enter".  The code will run as intended if there are no errors.  You will exit the browser once the code execution is complete or if you hit the "Stop" button on the controls. Any objects created inside the function will be available for you to investigate if there are issues.
+
+The `browser()` works the same with a Shiny app.  You'll use it within objects in the `server` component since these behave as functions. For example:
+
+```{r}
+#| eval: false
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+  
+  output$distPlot <- renderPlot({
+    browser()
+    # generate random sample of size n
+    x <- rnorm(input$n)
+    
+    # draw the histogram
+    hist(x, col = input$col)
+    
+  })
+}
+```
+
+The browser takes a bit of practice to get comfortable, but you'll quickly find it a useful tool for debugging apps, particularly those that have multiple working parts. 
 
 ## A better example
 
-Water quality time series
+Now that we know the basics of a Shiny app and how to debug basic components, we'll create a more involved example similar to one you may encounter with water quality data. 
 
 ## A dirty trick...
 
