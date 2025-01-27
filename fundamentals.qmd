@@ -621,7 +621,7 @@ locations
 Let's add dropdown menus for station and indicator selection and placeholders for `plotly` and `leaflet` outputs. These outputs are [htmlwidgets](https://www.htmlwidgets.org/){target="_blank"} that allow additional interactivity.  They will also be update based on user input.
 
 ```{r}
-#|eval: false
+#| eval: false
 #  ui.R ----
 ui <- fluidPage(
 
