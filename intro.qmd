@@ -16,9 +16,9 @@ Shiny is an R package that lets you create rich, interactive web applications.  
 * Share your analysis easily with colleagues without having to walk them through details of your script
 * Help inform your understanding of an analysis by creating a user interface to quickly evaluate data
 
-In the applied sciences world, Shiny can be a very important tool to "bridge the research-management divide".  A very simple example is the use of Shiny to replace a 500 page document that has hundreds of figures with a simple application that allows the user to jump to an exact slice of the data that they want.   
+In the applied sciences world, Shiny can be a very important tool to "bridge the research-management divide".  A common example is the use of Shiny to replace a 500 page document that has hundreds of figures with a simple application that allows the user to jump to an exact slice of the data that they want.   
 
-There are many advantages to using Shiny over other platforms for creating web applications.  As R users, the value of Shiny is that you only need to know how to use R.  You do not need to know anything about web programming, such as HTML, CSS, or JavaScript.  On the other hand, Shiny gives you the power to tap into this broader suite of web programming tools when you're ready or have a need to expand your application. 
+There are many advantages to using Shiny over other dashboard platforms.  As R users, the value of Shiny is that you only need to know how to use R to create a web application.  You do not need to know anything about web programming, such as HTML, CSS, or JavaScript.  On the other hand, Shiny gives you the power to tap into this broader suite of web programming tools when you're ready and have a need to expand your application. 
 
 More simply, Shiny lets you create a web interface for any R workflow. This means that any custom analysis or graphic you've made can be fully integrated into your dashboard, unlike other platforms that may have rigid and less customizable templates.  
 
@@ -32,7 +32,7 @@ This workshop will expose you to the basics of creating interactive dashboards i
 1. Ideally, you'll also be using version control software like Git and hosting the app in a repository on GitHub.  This is not a requirement to building a Shiny app, rather it's part of a broader workflow for reproducibility and shareability of your code.  Git/GitHub is an entirely different topic that's worth learning but not the focus of this workshop. There are resources available in the [Useful Links](#sec-github) portion of this website. 
 1. Finally, the app is hosted online using Shiny Server that works with both the `ui` and `server` components of the app.  More about this later.
 
-A Shiny application is fully ***interactive*** - it has both a user interface (UI) and server allowing a user to send requests to the server through the UI.  This allows reactivity of the application components, where the content that a user sees on the UI is controlled by their inputs in a fully interactive experience.  These applications require combined or separate R scripts that define the UI and server components. Here's an [example](https://shiny.tbep.org/landuse-change/){target="_blank"}.
+A Shiny application is fully ***interactive*** - it has both a user interface (UI) and server allowing a user to send requests to the server through the UI.  This allows reactivity of the application components, where the content that a user sees on the UI is controlled by their inputs in a fully interactive experience.  These applications require combined or separate R scripts that define the UI and server components.
 
 ## Reactivity
 
@@ -44,6 +44,8 @@ This can be daunting at first because it requires you to think about which piece
 
 * __User interface (UI)__: Includes all inputs and outputs, as well as the appearance of the dashboard.  Here, when we say "output" we mean the final product (e.g. a plot, table, etc.) that is placed on the `ui`, but created by processing inputs sent to the `server`.  In web-speak, this is the front end.
 * __Server__: The guts or engine of how the inputs are used to create the outputs, this is where the working parts of your analysis live.  It can be as simple or as complicated as you like.  In web-speak, this is the back end.
+
+![](figs/intro/flow.png){width=50% fig-align="center"}
 
 At it's core, a Shiny app is an R script that contains The `ui` and `server` components.  In practice, it looks like this: 
 

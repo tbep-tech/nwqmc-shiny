@@ -2,13 +2,17 @@
 lightbox: true
 filters: 
   - line-highlight
+  
+execute:
+  warning: false
+  message: false
 ---
 
 # Fundamentals
 
 ## Learning Objectives {.unnumbered .objectives}
 
-Use the Shiny framework to develop online interactive applications accepting user input to render outputs from arbitrary R functions.
+Use the Shiny framework to develop interactive applications accepting user input to render outputs from arbitrary R functions.
 
 ## Install packages
 
@@ -22,8 +26,7 @@ options(repos = c(
     CRAN = 'https://cloud.r-project.org'))
 
 # install and load
-install.packages(c('leaflet', 'shiny', 'plotly', 'tbeptools', 'tidyverse'))
-library(leaflet)
+install.packages(c('shiny', 'plotly', 'tbeptools', 'tidyverse'))*
 library(plotly)
 library(shiny)
 library(tbeptools)
@@ -46,7 +49,7 @@ dat <- rnorm(10)
 hist(dat)
 ```
 
-To make a Shiny app out of this, we need to identify our inputs and outputs.  The input in this case is what we want to be able to modify (the sample size) and the output is the plot.  This can all be done in a single script by creating a `ui` and `server` component.  Inputs and outputs go in the `ui` object.  The `server` takes the inputs, does something with them, then sends the results back to the `ui`. 
+We need to identify our inputs and outputs to use this in a Shiny framework.  The input is what we want to be able to modify (the sample size) and the output is the plot.  This can all be done in a single script by creating a `ui` and `server` component.  Inputs and outputs go in the `ui` object and will include our selection for the sample size and the resulting plot.  The `server` processes the inputs and produces the output, which will be the random sample generation and creation of the plot.
 
 Using our template from before: 
 
@@ -146,19 +149,19 @@ Okay, so what is happening under the hood when you change the sample size?
 
 This is what it looks like in a simple flowchart.
 
-![](figs/fundamentals/simpleappflo.png)
+![](figs/fundamentals/simpleappflo.png){width=70% fig-align="center"}
 
-All of this happens each time the input values are changed, such that the output __reacts__ to any change in the input. This is a fundamental principle of Shiny reactivity, simplified as follows.
+All of this happens each time the input values are changed, such that the output __reacts__ to any change in the input.
 
-![](figs/fundamentals/flow.png){width=50% fig-align="center"}
+One other piece of advice to understand how app fundamentals is about the standard naming convention for reactive functions.  Notice in the example that plotting components for the `server` and `ui` have paired functions named `renderPlot()` and `plotOutput()`.  Every piece of a working Shiny app requires these two pieces to create and show content.  The naming convention is similar for other elements of an app, e.g., `renderTable()` and `tableOutput()` for tabular content.  
 
 ## Using the RStudio template
 
 Another useful way of learning the basics of the `ui` and `server` is to use the built-in Shiny template in RStudio. Under **File** -> **New File** -> **Shiny Web App...**, you can open a script that has a working Shiny app.  Tinkering with this file will teach you a lot about how Shiny works.    
 
-For now, let's go with the single file option that puts the entire application in `app.R` rather than splitting it intwo (`ui.R`, `server.R`).
+For now, let's go with the single file option that puts the entire application in `app.R` rather than splitting it in two (`ui.R`, `server.R`).
 
-![](figs/fundamentals/new-shiny-app.png){width="400"}
+![](figs/fundamentals/new-shiny-app.png){width="500" fig-align="center"}
 
 Let's try it again from scratch, recreating our simple histogram example.  Here's what the template file looks like: 
 
@@ -219,6 +222,8 @@ shinyApp(ui = ui, server = server)
 
 ![](figs/fundamentals/faithfulshiny.png)
 
+This app template has a lot more pieces than the last example.  In particular, the `sidebarLayout()` format is used for the `ui` with a `sidebarPanel()` for the widget selection and a `mainPanel()` for the plot output.   
+
 We can replace the relevant pieces with those used in our initial histogram app. What does this app do differently from the original? 
 
 Your final product should look like this: 
@@ -266,9 +271,9 @@ shinyApp(ui = ui, server = server)
 
 ![](figs/fundamentals/histshinytemplate.png)
 
-This is the same app as before, but the layout is different and we've only replaced the relevant pieces, i.e., the title, the numeric input widget, and a simpler plot.  
+This is the same app as before, but we've only replaced the relevant pieces, i.e., the title, the numeric input widget, and a simpler plot.  
 
-Let's spice it up by adding a widget for changing the histogram color. There's a lot to say about "widgets" - Shiny has many you can choose from depending on the type of input you need.  [This page](https://shiny.posit.co/r/gallery/widgets/widget-gallery/){target="_blank"} provides an overview of available widgets.  We'll add the `selectInput()` widget in this example.
+Let's spice it up by adding a widget for changing the histogram color. There's a lot to say about "widgets" - Shiny has many you can choose from depending on the type of input you need.  [This page](https://shiny.posit.co/r/gallery/widgets/widget-gallery/){target="_blank"} provides an overview of available widgets.  We'll add the `selectInput()` widget for the colors.
 
 ```{r}
 #| eval: false
@@ -316,22 +321,9 @@ shinyApp(ui = ui, server = server)
 
 Notice how the random sample changes when you update the color.  Why is that? How can we fix this? 
 
-## Showcase mode
-
-A useful tool provided by Shiny is running an application in showcase mode.  This is a literal demonstration of the workflow outlined above, but in realtime as you run the app.  To use showcase mode, you must first save your app as an R script in a folder of the same name (`app`). Use the function `shiny::runApp()` and add `display.mode = 'showcase'` in the call.
-
-```{r}
-#| eval: false
-shiny::runApp('app', display.mode = 'showcase')
-```
-
-![](figs/fundamentals/showcase.png)
-
-This is a simple example that isn't very informative, but it gives you a sense of how showcase made works.  It will be more useful with a more complex app. 
-
 ## Debugging a Shiny app
 
-Figuring out why and where your code might break in an application is challenging because of the reactivity inherent in a Shiny app. You can't just run the app step by step as you would a normal R script. The `browser()` function can be used to "step inside" the R code of an app. The `browser()` function can work with any arbitrary R function that is part of your environment.  We'll first demonstrate how to use it with a simple function.
+Figuring out why and where your code might break in an application is challenging because of the reactivity inherent in a Shiny app. You can't just run the app step by step as you would a normal R script. The `browser()` function can be used to "step inside" the R code of an app. The `browser()` function can work with any arbitrary R function and works similarly with Shiny apps that share many similarities with functions.  We'll first demonstrate how to use it with a simple function.
 
 ```{r}
 my_func <- function(n){
@@ -361,15 +353,15 @@ Two things happen when the code is run:
 
 1.  The source code now highlights the `browser()` function with a green arrow.  This indicates your current location inside the browser.
 
-    ![](figs/fundamentals/browsersource.png){width=50% fig-align="center"}
+    ![](figs/fundamentals/browsersource.png){width=40% fig-align="center"}
 
 1.  The console will show that you're in the browser.
 
-    ![](figs/fundamentals/browserconsole.png){width=50% fig-align="center"}
+    ![](figs/fundamentals/browserconsole.png){width=30% fig-align="center"}
     
 1.  Browser controls appear at the top of the console.
 
-    ![](figs/fundamentals/browsercontrols.png){width=50% fig-align="center"}
+    ![](figs/fundamentals/browsercontrols.png){width=90% fig-align="center"}
     
 You can now "step" through the function using these controls or by pressing "enter".  The code will run as intended if there are no errors.  You will exit the browser once the code execution is complete or if you hit the "Stop" button on the controls. Any objects created inside the function will be available for you to investigate if there are issues.
 
@@ -396,126 +388,17 @@ The browser takes a bit of practice to get comfortable, but you'll quickly find 
 
 ## Create a complex Shiny app
 
-Now that we know the basics of a Shiny app and how to debug, we'll create a more involved example similar to one you may encounter with water quality data.  For example, a common use of Shiny is to plot data where there are multiple options to choose the type of data you have, e.g., multiple sampling stations and multiple parameters.  These types of plots are often included as hundreds of pages in a report appendix and we can greatly simplify how the data are explored using Shiny.  In essence, Shiny can be used to easily subset parts of the data that are of interest rather than producing all possible combinations.
+Now that we know the basics of a Shiny app and how to debug, we'll create a more involved example similar to one you may encounter with water quality data.  For example, a common use of Shiny is to plot data where there are multiple options to choose the type of data you have, e.g., multiple sampling stations and multiple parameters. Shiny can be used to easily subset parts of the data that are of interest rather than producing all possible combinations.
 
-In this next more complicated app we’ll create an interactive time series plot and map. Users can select a station from a drop-down menu and see the time series for any of the available indicators from another drop-down selection. The map will show the location of the selected station. 
+We’ll create an interactive time series plot where users can select a station from a drop-down menu and see the time series for any of the available indicators chosen from another drop-down selection.
 
 ![Complex app to create using water quality data from Tampa Bay, FL.](figs/fundamentals/app-wq.png)
-
-Here is the full set of expandable code for the app:
-
-```{r}
-#| code-fold: true
-#| code-summary: "Show Code: `wq/app.R`"
-#| eval: false
-# Goal: Create an app to show a time series by station and indicator
-#   includes map of selected station
-
-# global.R ----
-
-# * load libraries ----
-library(tidyverse)
-library(plotly)
-library(leaflet)
-library(tbeptools)
-
-# * prep data ----
-d <- epcdata |>
-  select(
-    station                 = epchc_station,
-    SampleTime,
-    lat                     = Latitude,
-    lon                     = Longitude,
-    `Total Nitrogen (mg/L)` = tn,
-    `Chlorophyll-a (ug/L)`  = chla,
-    `Secchi depth (m)`      = sd_m) |>
-  pivot_longer(
-    names_to  = "indicator",
-    values_to = "value",
-    `Total Nitrogen (mg/L)`:`Secchi depth (m)`)
-
-# * data for select ----
-stations   <- unique(d$station)
-indicators <- unique(d$indicator)
-locations  <- d |>
-  select(station, lon, lat) |>
-  unique()
-
-#  ui.R ----
-ui <- fluidPage(
-  wellPanel(
-    h2("Water Quality"),
-    selectInput("sel_sta", "Station",   choices = stations),
-    selectInput("sel_ind", "Indicator", choices = indicators),
-    plotlyOutput("tsplot"),
-    leafletOutput("map") )
-)
-
-#  server.R ----
-server <- function(input, output, session) {
-  
-  # * get_data(): reactive to inputs ----
-  get_data <- reactive({
-    d |>
-      filter(
-        station   == input$sel_sta,
-        indicator == input$sel_ind)
-  })
-  
-  # * tsplot: time series plot ----
-  output$tsplot <- renderPlotly({
-    g <- ggplot(
-      get_data(),
-      aes(
-        x = SampleTime,
-        y = value) ) +
-      geom_line() +
-      labs(y = input$sel_ind)
-    ggplotly(g)
-  })
-  
-  # * map ----
-  output$map <- renderLeaflet({
-    
-    # filter locations by station
-    locs_sta <- locations |>
-      filter(
-        station == input$sel_sta)
-    
-    # create map
-    leaflet(locations) |>
-      addProviderTiles(providers$CartoDB.Positron) |>
-      # add all stations
-      addLabelOnlyMarkers(
-        lat          = ~lat,
-        lng          = ~lon,
-        label        = ~as.character(station),
-        labelOptions = labelOptions(
-          noHide   = T,
-          textOnly = T) ) |>
-      # add selected station
-      addCircles(
-        data   = locs_sta,
-        lng    = ~lon,
-        lat    = ~lat,
-        color  = "red",
-        weight = 20)
-  })
-}
-
-# run ----
-shinyApp(ui, server)
-```
-
-You might notice the extra four dashes at the end of some of the comments in the code. Adding comments like these allows you to easily navigate to that section of code from the lower-left or Outline on the top-right of the Source pane in RStudio or using the Outline :
-
-![When comments end with four or more dashes `----` in the code, RStudio includes it as a menu item in the lower left of the Source pane to quickly jump to that section in the code. In this case menus are used to indicate content in `app.R` that might otherwise be split into seperate files: `global.R`, `ui.R` and `server.R`. Then an asterisk prefix `*` is used to bullet key sections within.](./figs/fundamentals/app-wq_headers.png){width="201px"}
 
 In this extended tutorial, we will explore more complex topics of reactivity, data wrangling with `dplyr`, and the advantages of using R libraries that wrap JavaScript functionality. We'll start from the default Shiny application using the Old Faithful Geyser data and transform it into a more complex application.
 
 ### Prepare data
 
-First, let's prepare the water quality data for our app from the Tampa Bay Estuary Program R package [tbeptools](https://tbep-tech.github.io/tbeptools/index.html) that we'll install if it's not already installed on your computer.
+First, let's prepare the water quality data for our app using a dataset from the Tampa Bay Estuary Program R package [tbeptools](https://tbep-tech.github.io/tbeptools/index.html).
 
 ```{r}
 library(tbeptools)
@@ -525,22 +408,20 @@ epcdata
 
 The `epcdata` (`?epcdata` for details) object is a long-term time series starting in the 1970s collected monthly at numerous stations in Tampa Bay by the Environmental Protection Commission (EPC) of Hillsborough County. There are also numerous parameters that are measured.
 
-The dataset is "lazily loaded" as part of the `tbeptools` R package, available once the package is loaded with `library(tbeptools)`, similar to how `faithful` (`?faithful` for details) is automatically available from the base R package `datasets`.
-
 How should we prepare `epcdata` for use with the dashboard?  Remember, our goals are to be able to create a time series and map for a selected station and parameter:  
 
-1.  Let's assume we only want three indicators: Total Nitrogen (mg/L) (`tn`), Chlorophyll-a (ug/L) (`chla`), and Secchi depth (m) (`sd_m`). Based on [tidy principles](https://tidyr.tidyverse.org/){target="_blank"}, we want each row to capture a unique "observation" and any co-varying "variables" (such as location and time). 
+1.  Let's assume we only want three indicators: Total Nitrogen (mg/L) (`tn`), Chlorophyll-a (ug/L) (`chla`), and Secchi depth (m) (`sd_m`). Based on [tidy principles](https://tidyr.tidyverse.org/){target="_blank"}, we want each row to capture a unique "observation" and any co-varying "variables" (such as location and time). This will allow us to easily filter rows for plotting.
 
 1.  The `epcdata` is currently in *wide* format, with each variable as its own column. We want to pivot it to *long* format so that each row is an observation of a single indicator. 
-The `dplyr` package is the 'swiss army knife' (or 'plyers') for data wrangling, along with its close cousin `tidyr`. Let's look at some basic operations: filtering, selecting, and pivoting. Be sure to reference [Posit Cheatsheets](https://posit.co/resources/cheatsheets/) like: [Data tidying with tidyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/html/tidyr.html) and [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/html/data-transformation.html).
+The `dplyr` package is the 'swiss army knife' (or 'plyers') for data wrangling, along with its close cousin `tidyr`. Let's look at some basic operations: filtering, selecting, and pivoting. Be sure to reference [Posit Cheatsheets](https://posit.co/resources/cheatsheets/) like [Data tidying with tidyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/html/tidyr.html) and [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/html/data-transformation.html).
 
 1.  **Filter**\
     ![](./figs/fundamentals/dplyr_filter.png){width="100"}\
     Reduce ***rows*** based on condition(s) that evaluate logically (i.e. True or False)
 
     ``` r
-    d |> 
-      dplyr::filter(station == 8)
+    epcdata |> 
+      dplyr::filter(epchch_station == 8)
     ```
 
 2.  **Select**\
@@ -548,7 +429,7 @@ The `dplyr` package is the 'swiss army knife' (or 'plyers') for data wrangling, 
     Reduce ***columns*** to only those specified
 
     ``` r
-    d |> 
+    epcdata |> 
       dplyr::select(
         station = epchc_station, 
         SampleTime,
@@ -561,7 +442,7 @@ The `dplyr` package is the 'swiss army knife' (or 'plyers') for data wrangling, 
     Transform the data from wide ***to long*** format
 
     ``` r
-    d |> 
+    epcdata |> 
       tidyr::pivot_longer(
         names_to  = "var", 
         values_to = "val")
@@ -571,10 +452,8 @@ Applying the above concepts, create a new folder `app-wq` for the water quality 
 
 ```{r}
 # * load libraries ----
-library(leaflet)
 library(tidyverse)
 library(plotly)
-library(leaflet)
 library(tbeptools)
 
 # * prep data ----
@@ -582,8 +461,6 @@ d <- epcdata |>
   select(
     station                 = epchc_station,
     SampleTime,
-    lat                     = Latitude,
-    lon                     = Longitude,
     `Total Nitrogen (mg/L)` = tn,
     `Chlorophyll-a (ug/L)`  = chla,
     `Secchi depth (m)`      = sd_m) |>
@@ -600,25 +477,19 @@ We additionally need to prepare data for the following elements:
     List of unique station numbers for selecting from a drop-down menu.
 1.  **Indicators**\
     List of unique indicators for selecting from a drop-down menu.
-1.  **Locations**\
-    List of unique station locations (i.e. stations with lat/lon coordinates) to display on the map.
 
 ```{r}
 # * data for select ----
 stations   <- unique(d$station)
 indicators <- unique(d$indicator)
-locations  <- d |>
-  select(station, lon, lat) |>
-  unique()
 
 stations
 indicators
-locations
 ```
 
 ### Add User Interface
 
-Let's add dropdown menus for station and indicator selection and placeholders for `plotly` and `leaflet` outputs. These outputs are [htmlwidgets](https://www.htmlwidgets.org/){target="_blank"} that allow additional interactivity.  They will also be update based on user input.
+Let's add dropdown menus for station and indicator selection and a placeholder for the `plotly` output. These outputs are [htmlwidgets](https://www.htmlwidgets.org/){target="_blank"} that allow additional interactivity.  They will also be update based on user input.
 
 ```{r}
 #| eval: false
@@ -634,28 +505,21 @@ ui <- fluidPage(
     selectInput("sel_ind", "Indicator", choices = indicators),
     
     # * output htmlwidgets ----
-    plotlyOutput("tsplot"),
-    leafletOutput("map") )
+    plotlyOutput("tsplot")
+  )
+
 )
 ```
 
-Notice that `shiny::fluidPage()` and `shiny::wellPanel()` are used to setup the layout of the app. For more details, check out [Shiny - Application layout guide](https://shiny.posit.co/r/articles/build/layout-guide/). And for even more advanced layout options, checkout [shinydashboard](https://rstudio.github.io/shinydashboard) and [bslib](https://rstudio.github.io/bslib/) R packages.
+Notice that `shiny::fluidPage()` and `shiny::wellPanel()` functions are used for the layout. For more details, check out [Shiny - Application layout guide](https://shiny.posit.co/r/articles/build/layout-guide/). For even more advanced layout options, checkout [shinydashboard](https://rstudio.github.io/shinydashboard) and [bslib](https://rstudio.github.io/bslib/) R packages.
 
-Notice that [`plotly::plotlyOutput()`]() and [`leaflet::leafletOutput()`]() are used to layout the htmlwidgets.  We need these components because we'll be updating them interactively based on user input with server-side functions.
+Notice that [`plotly::plotlyOutput()`]() is used to layout the htmlwidget.  We need these components because we'll be updating them interactively based on user input with server-side functions.
 
 ### Add Server functions
 
-The htmlwidget R packages made for Shiny generally have two functions: 1) an `*Output` to place in the `ui`; and 2) a `render*` function for the `server` based on user inputs:
+Let's add `renderPlotly()` to update the time series plot based on user inputs. The `renderPlotly()` function takes a [`plotly`](https://plotly.com/r/) interactive plot object. We can use the `plotly::ggplotly()` function to take a static `ggplot2` plot object and make it an interactive plotly object. Using [`ggplot2`](https://ggplot2.tidyverse.org/) allows us to take advantage of the Grammar of Graphics principles to render plots using a layered approach (see [cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization.pdf), [summary](https://towardsdatascience.com/a-comprehensive-guide-to-the-grammar-of-graphics-for-effective-visualization-of-multi-dimensional-1f92b4ed4149) or [book](https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448/ref=as_li_ss_tl)).
 
--   general form: `render*` (server.R) -\> `*Output` (ui.R)
--   `plotly`: `renderPlotly()` -\> `plotlyOutput()`
--   `leaflet`: `leafletOutput()` -\> `renderLeaflet()`
-
-#### Render time series plot
-
-Let's add a `renderPlotly()` function to update the time series plot based on user inputs. The `renderPlotly()` function takes a [`plotly`](https://plotly.com/r/) interactive plot object. We can use the `plotly::ggplotly()` function to take a static `ggplot2` plot object and make it an interactive plotly object. Using [`ggplot2`](https://ggplot2.tidyverse.org/) allows us to take advantage of the Grammar of Graphics principles to render plots using a layered approach (see [cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization.pdf), [summary](https://towardsdatascience.com/a-comprehensive-guide-to-the-grammar-of-graphics-for-effective-visualization-of-multi-dimensional-1f92b4ed4149) or [book](https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448/ref=as_li_ss_tl)).
-
-The `get_data()` function allows us to generate a data frame reactive to user inputs and available for use across multiple server-side functions (although here we only use one). For more, see [Shiny - Use reactive expressions](https://shiny.posit.co/r/getstarted/shiny-basics/lesson6/).
+The `get_data()` component allows us to generate a data frame reactive to user inputs and available for use across multiple server-side functions (although here we only use one). For more, see [Shiny - Use reactive expressions](https://shiny.posit.co/r/getstarted/shiny-basics/lesson6/).
 
 ```{r}
 #| eval: false
@@ -684,43 +548,162 @@ server <- function(input, output, session) {
 }
 ```
 
-#### Render map
+### Final app
 
-Let's add a `renderLeaflet()` function to update the map based on user inputs. The `renderLeaflet()` function takes a [`leaflet`](https://rstudio.github.io/leaflet/) interactive map object. We can use the `leaflet::addLabelOnlyMarkers` function to add station labels. And to highlight the selected station we can use `leaflet::addCircles()`.
+Now with all the pieces, your app should work as intended. Try running it by placing `shinyApp(ui, server)` at the bottom of your file and sourcing the entire script. The finished product should look like this: 
 
 ```{r}
 #| eval: false
-  # * map ----
-  output$map <- renderLeaflet({
+# Goal: Create an app to show a time series by station and indicator
+#   includes map of selected station
 
-    # filter locations by station
-    locs_sta <- locations |>
+# global.R ----
+
+# * load libraries ----
+library(tidyverse)
+library(plotly)
+library(tbeptools)
+
+# * prep data ----
+d <- epcdata |>
+  select(
+    station                 = epchc_station,
+    SampleTime,
+    lat                     = Latitude,
+    lon                     = Longitude,
+    `Total Nitrogen (mg/L)` = tn,
+    `Chlorophyll-a (ug/L)`  = chla,
+    `Secchi depth (m)`      = sd_m) |>
+  pivot_longer(
+    names_to  = "indicator",
+    values_to = "value",
+    `Total Nitrogen (mg/L)`:`Secchi depth (m)`)
+
+# * data for select ----
+stations   <- unique(d$station)
+indicators <- unique(d$indicator)
+
+#  ui.R ----
+ui <- fluidPage(
+  wellPanel(
+    h2("Water Quality"),
+    selectInput("sel_sta", "Station",   choices = stations),
+    selectInput("sel_ind", "Indicator", choices = indicators),
+    plotlyOutput("tsplot")
+  )
+)
+
+#  server.R ----
+server <- function(input, output, session) {
+  
+  # * get_data(): reactive to inputs ----
+  get_data <- reactive({
+    d |>
       filter(
-        station == input$sel_sta)
-
-    # create map
-    leaflet(locations) |>
-      addProviderTiles(providers$CartoDB.Positron) |>
-      # add all stations
-      addLabelOnlyMarkers(
-        lat          = ~lat,
-        lng          = ~lon,
-        label        = ~as.character(station),
-        labelOptions = labelOptions(
-          noHide   = T,
-          textOnly = T) ) |>
-      # add selected station
-      addCircles(
-        data   = locs_sta,
-        lng    = ~lon,
-        lat    = ~lat,
-        color  = "red",
-        weight = 20)
+        station   == input$sel_sta,
+        indicator == input$sel_ind)
   })
-```
+  
+  # * tsplot: time series plot ----
+  output$tsplot <- renderPlotly({
+    g <- ggplot(
+      get_data(),
+      aes(
+        x = SampleTime,
+        y = value) ) +
+      geom_line() +
+      labs(y = input$sel_ind)
+    ggplotly(g)
+  })
+ 
+}
 
-Now with all the pieces, your app should work as intended. Try running it by placing `shinyApp(ui, server)` at the bottom of your file and sourcing the entire script.
+# run ----
+shinyApp(ui, server)
+```
 
 ## A dirty trick...
 
-Much has changed in the programming world over the last few years.  As you might expect, there are generative AI tools to help build and develop Shiny apps.  
+Much has changed in the programming world over the last few years.  As you might expect, there are generative AI tools to help build and develop Shiny apps.  The [Shiny Assistant](https://gallery.shinyapps.io/assistant/){target="_blank"} from Posit can be used in this capacity. 
+
+It works like any other generative AI tool, except it's trained specifically to support Shiny develop AND has a built in feature for rendering generated apps directly in the browser. Here's a prompt that shows how you could build an app similar to the one above that shows the tool the general structure of your data (i.e., `str(epcdata)`).
+
+![](figs/fundamentals/shinyass.PNG)
+
+This is the app that it gave me, after substituting my input data.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show Code"
+#| eval: false
+library(shiny)
+library(bslib)
+library(plotly)
+library(dplyr)
+library(lubridate)
+library(tbeptools)
+
+# Create labels for parameters
+param_labels <- c(
+  "tn" = "Total Nitrogen",
+  "chla" = "Chlorophyll-a",
+  "sd_m" = "Secchi Depth (m)"
+)
+
+ui <- page_sidebar(
+  title = "Time Series Explorer",
+  sidebar = sidebar(
+    selectInput("station", "Select Station:",
+                choices = sort(unique(epcdata$epchc_station))
+    ),
+    selectInput("parameter", "Select Parameter:",
+                choices = setNames(names(param_labels), param_labels)
+    ),
+    hr(),
+    helpText("Select a station and parameter to view the time series plot.")
+  ),
+  card(
+    card_header("Time Series Plot"),
+    plotlyOutput("tsplot")
+  )
+)
+
+server <- function(input, output, session) {
+  
+  # Create the plot
+  output$tsplot <- renderPlotly({
+    req(input$station, input$parameter)
+    
+    # Filter data
+    plot_data <- epcdata %>%
+      filter(epchc_station == input$station) %>%
+      arrange(SampleTime)
+    
+    # Create plot
+    p <- plot_ly(data = plot_data, 
+                 x = ~SampleTime, 
+                 y = as.formula(paste0("~", input$parameter)),
+                 type = 'scatter',
+                 mode = 'lines+markers',
+                 name = param_labels[input$parameter]
+    ) %>%
+      layout(
+        title = paste("Time Series for Station", input$station),
+        xaxis = list(title = "Date"),
+        yaxis = list(title = param_labels[input$parameter])
+      )
+    
+    p
+  })
+}
+
+shinyApp(ui, server)
+```
+
+![](figs/fundamentals/shinyassex.PNG)
+
+A word of caution... just because you can doesn't mean you should.  Don't use this as a crutch to a deeper understanding of Shiny.  It's a useful learning and troubleshooting tool, but it shouldn't replace the conventional learning process to build personal knowledge of the tools.  
+
+# Next steps
+
+In this lesson, we learned about building a simple Shiny app and built on these principles to develop a more complex application.  We also learned how to troubleshoot applications using the `browser()` function.  In the next module, we'll talk about deploying Shiny apps and discuss common challenges developing and using Shiny apps in the wild. 

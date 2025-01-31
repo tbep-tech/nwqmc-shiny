@@ -6,7 +6,6 @@
 # * load libraries ----
 library(tidyverse)
 library(plotly)
-library(leaflet)
 library(tbeptools)
 
 # * prep data ----
@@ -27,9 +26,6 @@ d <- epcdata |>
 # * data for select ----
 stations   <- unique(d$station)
 indicators <- unique(d$indicator)
-locations  <- d |>
-  select(station, lon, lat) |>
-  unique()
 
 #  ui.R ----
 ui <- fluidPage(
@@ -37,8 +33,8 @@ ui <- fluidPage(
     h2("Water Quality"),
     selectInput("sel_sta", "Station",   choices = stations),
     selectInput("sel_ind", "Indicator", choices = indicators),
-    plotlyOutput("tsplot"),
-    leafletOutput("map") )
+    plotlyOutput("tsplot")
+  )
 )
 
 #  server.R ----
@@ -64,33 +60,6 @@ server <- function(input, output, session) {
     ggplotly(g)
   })
   
-  # * map ----
-  output$map <- renderLeaflet({
-    
-    # filter locations by station
-    locs_sta <- locations |>
-      filter(
-        station == input$sel_sta)
-    
-    # create map
-    leaflet(locations) |>
-      addProviderTiles(providers$CartoDB.Positron) |>
-      # add all stations
-      addLabelOnlyMarkers(
-        lat          = ~lat,
-        lng          = ~lon,
-        label        = ~as.character(station),
-        labelOptions = labelOptions(
-          noHide   = T,
-          textOnly = T) ) |>
-      # add selected station
-      addCircles(
-        data   = locs_sta,
-        lng    = ~lon,
-        lat    = ~lat,
-        color  = "red",
-        weight = 20)
-  })
 }
 
 # run ----
