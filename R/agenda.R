@@ -5,7 +5,8 @@ agenda <- frame_matrix(
   '10:30', '[Introduction](intro.qmd)',
   '10:45', '[Fundamentals](fundamentals.qmd)',
   '11:30', '[Deployment and IT Hurdles](deploy.qmd)',
-  '12:00', 'adjourn'
+  '11:45', 'Q&A and Discussion',
+  '12:00', 'Adjourn'
 )
 
 save(agenda, file = 'data/agenda.RData')
