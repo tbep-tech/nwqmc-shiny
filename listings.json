@@ -3,11 +3,13 @@
     "listing": "/resources.html",
     "items": [
       "/resources/tbepbt.html",
+      "/resources/exp_lakes.html",
       "/resources/fl_wq_dash.html",
       "/resources/tbeplu.html",
       "/resources/nms_climate_dash.html",
       "/resources/tbepnk.html",
       "/resources/obisindicators.html",
+      "/resources/peterpaul.html",
       "/resources/tbeppp.html",
       "/resources/rocky_shore_dash.html",
       "/resources/tbepsc.html",
@@ -15,6 +17,7 @@
       "/resources/seascapes.html",
       "/resources/tbeptc.html",
       "/resources/useful.html",
+      "/resources/utahlakes.html",
       "/resources/tbepwq.html"
     ]
   }
