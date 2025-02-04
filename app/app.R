@@ -24,7 +24,7 @@ ui <- fluidPage(
 server <- function(input, output) {
   
   output$distPlot <- renderPlot({
-    browser()
+
     # generate random sample of size n
     x <- rnorm(input$n)
     

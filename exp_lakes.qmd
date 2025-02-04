@@ -1,0 +1,23 @@
+---
+pagetitle: "Experimental Lakes"
+description: "IISD-Experimental Lakes Area Interactive Data"
+image: "../figs/resources/explakesscreenshot.PNG"
+format: 
+  html: 
+    toc: true
+categories: 
+  - "Lakes"
+lightbox: true
+---
+
+# Experimental Lakes {.unnumbered}
+
+## Background
+
+Founded in 1968, the IISD Experimental Lakes Area in Ontario, Canada is a research area containing 58 specially preserved freshwater lakes for aquatic, biological, chemical research, and more. Run by the International Institute for Sustainable Development, the IISD-ELA regularly carries out large-scale experiments that would otherwise be impossible to perform in highly populated areas. Their research has yielded important insights into the long-term environmental impacts of modifications in freshwater lake systems, and has provided a steady stream of important research for the scientific community. The dashboard showcases 50 years worth of ecosystem experiments performed at these lakes.
+
+## Dashboard
+
+View the dashboard by visiting [https://katerisalk.shinyapps.io/ELA_Interactive_WebApp/](https://katerisalk.shinyapps.io/ELA_Interactive_WebApp/){target="_blank"}
+
+![](../figs/resources/explakesscreenshot.PNG)

@@ -1,0 +1,23 @@
+---
+pagetitle: "Utah Lakes"
+description: "Utah Lake Data Explorer"
+image: "../figs/resources/utahlakesscreenshot.PNG"
+format: 
+  html: 
+    toc: true
+categories: 
+  - "Lakes"
+lightbox: true
+---
+
+# Utah Lakes {.unnumbered}
+
+## Background
+
+This tools shows various summary graphics for Utah lakes water quality that are part of the Utah Department of Environmental Quality's monitoring program. More information about the monitoring program is avialable at [Utah DEQ website](https://deq.utah.gov/water-quality/monitoring-water-quality){target="_blank"} website.
+
+## Dashboard
+
+View the dashboard by visiting [https://tetratech-wtr-wne.shinyapps.io/UtahLakeDataExplorer/](https://tetratech-wtr-wne.shinyapps.io/UtahLakeDataExplorer/){target="_blank"}
+
+![](../figs/resources/utahlakesscreenshot.PNG)

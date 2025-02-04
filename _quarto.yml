@@ -43,6 +43,9 @@ book:
         - resources/obisindicators.qmd
         - resources/rocky_shore_dash.qmd
         - resources/seascapes.qmd
+        - resources/exp_lakes.qmd
+        - resources/utahlakes.qmd
+        - resources/peterpaul.qmd
   appendices:
     - setup.qmd
     - rintro.qmd

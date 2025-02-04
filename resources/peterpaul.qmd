@@ -1,0 +1,23 @@
+---
+pagetitle: "Peter and Paul Lakes"
+description: "Peter and Paul Lakes Data Explorer"
+image: "../figs/resources/peterpaulscreenshot.PNG"
+format: 
+  html: 
+    toc: true
+categories: 
+  - "Lakes"
+lightbox: true
+---
+
+# Peter and Paul Lakes {.unnumbered}
+
+## Background
+
+This tools shows summary graphics for nutrients in Peter and Paul lakes.
+
+## Dashboard
+
+View the dashboard by visiting [https://katerisalk.shinyapps.io/PeterPaulApp_Full/](https://katerisalk.shinyapps.io/PeterPaulApp_Full/){target="_blank"}
+
+![](../figs/resources/peterpaulscreenshot.PNG)
