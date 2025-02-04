@@ -153,7 +153,7 @@ This is what it looks like in a simple flowchart.
 
 All of this happens each time the input values are changed, such that the output __reacts__ to any change in the input.
 
-One other piece of advice to understand how app fundamentals is about the standard naming convention for reactive functions.  Notice in the example that plotting components for the `server` and `ui` have paired functions named `renderPlot()` and `plotOutput()`.  Every piece of a working Shiny app requires these two pieces to create and show content.  The naming convention is similar for other elements of an app, e.g., `renderTable()` and `tableOutput()` for tabular content.  
+One other piece of advice to understand app fundamentals is about the standard naming convention for reactive functions.  Notice in the example that plotting components for the `server` and `ui` have paired functions named `renderPlot()` and `plotOutput()`, respectively.  Every component of a working Shiny app requires these two pieces to create and show content.  The naming convention is similar for other elements of an app, e.g., `renderTable()` and `tableOutput()` for tabular content.  
 
 ## Using the RStudio template
 
@@ -394,7 +394,7 @@ We’ll create an interactive time series plot where users can select a station 
 
 ![Complex app to create using water quality data from Tampa Bay, FL.](figs/fundamentals/app-wq.png)
 
-In this extended tutorial, we will explore more complex topics of reactivity, data wrangling with `dplyr`, and the advantages of using R libraries that wrap JavaScript functionality. We'll start from the default Shiny application using the Old Faithful Geyser data and transform it into a more complex application.
+In this extended tutorial, we will explore more complex topics of reactivity and data wrangling with `dplyr`.  We'll also demonstrate the advantages of using R libraries that wrap JavaScript functionality, in particular using [plotly](https://www.htmlwidgets.org/showcase_plotly.html){target ='_blank"} to make static plots more interactive.
 
 ### Prepare data
 
@@ -402,7 +402,6 @@ First, let's prepare the water quality data for our app using a dataset from the
 
 ```{r}
 library(tbeptools)
-
 epcdata
 ```
 
