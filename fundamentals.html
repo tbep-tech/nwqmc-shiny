@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-72c93205fb41c15e2e398b4f9a505ee2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2ce9fc9ac8b614e7ffef13962cc12eaf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/line-highlight-1.0.0/line-highlight.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -340,7 +340,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages"><span class="header-section-number">2.1</span> Install packages</a></li>
   <li><a href="#a-simple-example" id="toc-a-simple-example" class="nav-link" data-scroll-target="#a-simple-example"><span class="header-section-number">2.2</span> A simple example</a></li>
   <li><a href="#using-the-rstudio-template" id="toc-using-the-rstudio-template" class="nav-link" data-scroll-target="#using-the-rstudio-template"><span class="header-section-number">2.3</span> Using the RStudio template</a></li>
@@ -380,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="learning-objectives" class="level2 unnumbered objectives">
-<h2 class="unnumbered objectives anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<h2 class="unnumbered objectives anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>Use the Shiny framework to develop interactive applications accepting user input to render outputs from arbitrary R functions.</p>
 </section>
 <section id="install-packages" class="level2" data-number="2.1">
@@ -745,20 +745,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb17" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tbeptools)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>epcdata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code># A tibble: 27,961 × 26
+<pre data-code-line-numbers=""><code># A tibble: 28,501 × 26
    bay_segment epchc_station SampleTime             yr    mo Latitude Longitude
    &lt;chr&gt;               &lt;dbl&gt; &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
- 1 HB                      6 2023-12-19 10:01:00  2023    12     27.9     -82.5
- 2 HB                      7 2023-12-19 10:12:00  2023    12     27.9     -82.5
- 3 HB                      8 2023-12-19 12:39:00  2023    12     27.9     -82.4
- 4 MTB                     9 2023-12-19 11:54:00  2023    12     27.8     -82.4
- 5 MTB                    11 2023-12-19 10:25:00  2023    12     27.8     -82.5
- 6 MTB                    13 2023-12-19 10:38:00  2023    12     27.8     -82.5
- 7 MTB                    14 2023-12-19 11:24:00  2023    12     27.8     -82.5
- 8 MTB                    16 2023-12-20 09:35:00  2023    12     27.7     -82.5
- 9 MTB                    19 2023-12-20 09:49:00  2023    12     27.7     -82.6
-10 LTB                    23 2023-12-20 13:16:00  2023    12     27.7     -82.6
-# ℹ 27,951 more rows
+ 1 HB                      6 2024-12-09 09:27:00  2024    12     27.9     -82.5
+ 2 HB                      7 2024-12-09 09:38:00  2024    12     27.9     -82.5
+ 3 HB                      8 2024-12-09 11:42:00  2024    12     27.9     -82.4
+ 4 MTB                     9 2024-12-09 11:02:00  2024    12     27.8     -82.4
+ 5 MTB                    11 2024-12-09 09:52:00  2024    12     27.8     -82.5
+ 6 MTB                    13 2024-12-09 10:04:00  2024    12     27.8     -82.5
+ 7 MTB                    14 2024-12-09 10:37:00  2024    12     27.8     -82.5
+ 8 MTB                    16 2024-12-16 09:44:00  2024    12     27.7     -82.5
+ 9 MTB                    19 2024-12-16 09:59:00  2024    12     27.7     -82.6
+10 LTB                    23 2024-12-16 13:33:00  2024    12     27.7     -82.6
+# ℹ 28,491 more rows
 # ℹ 19 more variables: Total_Depth_m &lt;dbl&gt;, Sample_Depth_m &lt;dbl&gt;, tn &lt;dbl&gt;,
 #   tn_q &lt;chr&gt;, sd_m &lt;dbl&gt;, sd_raw_m &lt;dbl&gt;, sd_q &lt;chr&gt;, chla &lt;dbl&gt;,
 #   chla_q &lt;chr&gt;, Sal_Top_ppth &lt;dbl&gt;, Sal_Mid_ppth &lt;dbl&gt;,
@@ -794,7 +794,7 @@ Transform the data from wide <strong><em>to long</em></strong> format</p>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to  =</span> <span class="st">"var"</span>, </span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"val"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
-<p>Applying the above concepts, create a new folder <code>app-wq</code> for the water quality app and create the R file <code>app-wq.R</code> inside the folder with the following contents:</p>
+<p>Applying the above concepts, create a new folder <code>app-wq</code> for the water quality app and create the R file <code>app.R</code> inside the folder with the following contents:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22" data-source-line-numbers="nil" data-code-line-numbers="nil"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * load libraries ----</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -815,20 +815,20 @@ Transform the data from wide <strong><em>to long</em></strong> format</p>
 <span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Total Nitrogen (mg/L)</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">Secchi depth (m)</span><span class="st">`</span>)</span>
 <span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre data-code-line-numbers=""><code># A tibble: 83,883 × 4
+<pre data-code-line-numbers=""><code># A tibble: 85,503 × 4
    station SampleTime          indicator               value
      &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;                   &lt;dbl&gt;
- 1       6 2023-12-19 10:01:00 Total Nitrogen (mg/L)   0.305
- 2       6 2023-12-19 10:01:00 Chlorophyll-a (ug/L)    2.1  
- 3       6 2023-12-19 10:01:00 Secchi depth (m)      NaN    
- 4       7 2023-12-19 10:12:00 Total Nitrogen (mg/L)   0.276
- 5       7 2023-12-19 10:12:00 Chlorophyll-a (ug/L)    3    
- 6       7 2023-12-19 10:12:00 Secchi depth (m)        2.5  
- 7       8 2023-12-19 12:39:00 Total Nitrogen (mg/L)   0.805
- 8       8 2023-12-19 12:39:00 Chlorophyll-a (ug/L)   52.7  
- 9       8 2023-12-19 12:39:00 Secchi depth (m)        0.7  
-10       9 2023-12-19 11:54:00 Total Nitrogen (mg/L)   0.354
-# ℹ 83,873 more rows</code></pre>
+ 1       6 2024-12-09 09:27:00 Total Nitrogen (mg/L)   0.246
+ 2       6 2024-12-09 09:27:00 Chlorophyll-a (ug/L)    6.6  
+ 3       6 2024-12-09 09:27:00 Secchi depth (m)        1.9  
+ 4       7 2024-12-09 09:38:00 Total Nitrogen (mg/L)   0.352
+ 5       7 2024-12-09 09:38:00 Chlorophyll-a (ug/L)    3.9  
+ 6       7 2024-12-09 09:38:00 Secchi depth (m)        2.8  
+ 7       8 2024-12-09 11:42:00 Total Nitrogen (mg/L)   0.315
+ 8       8 2024-12-09 11:42:00 Chlorophyll-a (ug/L)    5.3  
+ 9       8 2024-12-09 11:42:00 Secchi depth (m)      NaN    
+10       9 2024-12-09 11:02:00 Total Nitrogen (mg/L)   0.18 
+# ℹ 85,493 more rows</code></pre>
 </div>
 </div>
 <p>We additionally need to prepare data for the following elements:</p>
