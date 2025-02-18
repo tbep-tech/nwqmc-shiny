@@ -4,5 +4,33 @@ lightbox: true
 
 # Deployment and IT Hurdles
 
+## Learning Objectives {.unnumbered .objectives}
+
+Understand how to share a Shiny application and the tradeoffs of the different approaches.
+
+## Sharing your Shiny application
+
+Now that you know the basics of creating a Shiny application, the next step is to learn how to share it with others or yourself at different locations.  There are several ways this can be done and each comes with tradeoffs in the overhead and ease of access.  We'll present a few options and you can decide which is the preferred option for your needs.  
+
+## Sharing the script
+
+Because a Shiny app is simply an R script or two (i.e., `app.R` or `server.R` and `ui.R`), they can be shared with others for use on their own machines.  The advantage of this approach is that file sizes are small, although there are several disadvantages.  First, any data that an app requires must also be shared.  This can be simple if the data are small, but can quickly become tedious if multiple files are required.  Second and more importantly, this assumes your intended user knows how to use R and has the required dependencies (packages) installed on their machine.  For these reasons, this mode of sharing is not a recommended approach for most applications.
+
+## GitHub
+
+An app can also be shared on GitHub as a repository with all working components, similar to how it would be structured on your own machine.  
+
+```{r}
+#| eval: false
+shiny::runGitHub('tbep-tech/nwqmc-shiny', subdir = 'app-wq')
+```
+
+## shinyapps.io
+
+## Custom configuration
+
+## IT hurdles
+
 What happens to my data - where does it go and what if I don't want to include it in my app?  This addresses two challenges - ownership and performance (data integration as internal v external).
 
+# Next Steps

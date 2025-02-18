@@ -10,7 +10,7 @@ execute:
 
 # Fundamentals
 
-## Learning Objectives {.unnumbered .objectives}
+## Learning objectives {.unnumbered .objectives}
 
 Use the Shiny framework to develop interactive applications accepting user input to render outputs from arbitrary R functions.
 
@@ -447,7 +447,7 @@ The `dplyr` package is the 'swiss army knife' (or 'plyers') for data wrangling, 
         values_to = "val")
     ```
 
-Applying the above concepts, create a new folder `app-wq` for the water quality app and create the R file `app-wq.R` inside the folder with the following contents:
+Applying the above concepts, create a new folder `app-wq` for the water quality app and create the R file `app.R` inside the folder with the following contents:
 
 ```{r}
 # * load libraries ----
