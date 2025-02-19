@@ -14,7 +14,7 @@ Now that you know the basics of creating a Shiny application, the next step is t
 
 ## Sharing the script
 
-Because a Shiny app is simply an R script or two (i.e., `app.R` or `server.R` and `ui.R`), they can be shared with others for use on their own machines.  The advantage of this approach is that file sizes are small, although there are several disadvantages.  First, any data that an app requires must also be shared.  This can be simple if the data are small, but can quickly become tedious if multiple files are required.  Second and more importantly, this assumes your intended user knows how to use R and has the required dependencies (packages) installed on their machine.  For these reasons, this mode of sharing is not a recommended approach for most applications.
+Because a Shiny app is simply an R script or two (i.e., `app.R` or `server.R` and `ui.R`), they can be shared with others for use on their own machines.  The advantage of this approach is that file sizes are small and easily shareable, although there are several disadvantages.  First, any data that an app requires must also be shared.  This can be simple if the data are small, but can quickly become tedious if multiple files are required and the data are larger than a few megabytes.  Second and more importantly, this assumes your intended user knows how to use R and has the required dependencies (packages) installed on their machine.  For these reasons, this mode of sharing is not a recommended approach for most applications.
 
 ## GitHub
 
@@ -25,9 +25,26 @@ An app can also be shared on GitHub as a repository with all working components,
 shiny::runGitHub('tbep-tech/nwqmc-shiny', subdir = 'app-wq')
 ```
 
+The disadvantages of this approach are similar to the previous example. A user must already know how to use R and the required packages must already be installed.
+
 ## shinyapps.io
 
+The easiest and most portable approach to hosting an app is using [ShinyApps.io](https://www.shinyapps.io/){target="_blank"}.  Hosting on this service makes a publicly accessible web page for your app and allows you to host up five apps for free.  The free version is suitable for personal use and sharing with a handful of others, but it will quickly run out of the allowed hours if your app has heavy traffic.  Additional [pricing](https://www.shinyapps.io/#pricing-anchor){target="_blank"} options are available. Visit [Shiny - Getting started with shinyapps.io](https://shiny.posit.co/r/articles/share/shinyapps/){target="_blank"} to run through the following sequence:
+
+1.  Install the `rsconnect` R package.
+2.  Create an account at [ShinyApps.io](https://www.shinyapps.io/).
+3.  Configure `rsconnect` with a token in RStudio.
+4.  Publish the app from RStudio using `deployApp()`.
+
+The disadvantage of this approach is that your app is hosted on a third-party server with limited ability to fine tune or customize the setup.  This limitation is likely not a huge concern for most users.  Those wanting more freedom and ownership of the hosting service should use the final option below.
+
+## NALMS server
+
+The North American Lake Management Society (NALMS) hosts a shiny server on [nalms.shinyapps.io](https://nalms.shinyapps.io/NALMS_Shiny_Home/){target="_blank"} as a free paid service for water resources apps.  The service is paid for by NALMS and has all of the advantages of shinyapps.io, without the need for an individual user to pay for higher-tier subscription service.  Simply use the contact information on the main page to request hosting for your app.
+
 ## Custom configuration
+
+Posit provides an open source version of [Shiny Server](https://github.com/rstudio/shiny-server/blob/master/README.md){target="_blank"} that allows you to host apps on an internal or personal server. This may be desired if you want full control over the server and customization of the settings.  Apps can also be hosted behind a firewall for an added level of security. However, this requires some knowledge of server settings and use of a Linux operating system. A dedicated server space is also needed, which usually requires a paid service such as through Google or Amazon hosting. Apps can also be hosting with Shiny Server using [Docker](https://www.docker.com/){target="_blank} that "containerizes" an easily portable bundle. Machines or servers only need to have Docker installed to run an app.
 
 ## IT hurdles
 
