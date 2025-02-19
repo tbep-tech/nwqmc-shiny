@@ -197,7 +197,7 @@
     "href": "deploy.html#sharing-the-script",
     "title": "3  Deployment and IT Hurdles",
     "section": "3.2 Sharing the script",
-    "text": "3.2 Sharing the script\nBecause a Shiny app is simply an R script or two (i.e., app.R or server.R and ui.R), they can be shared with others for use on their own machines. The advantage of this approach is that file sizes are small, although there are several disadvantages. First, any data that an app requires must also be shared. This can be simple if the data are small, but can quickly become tedious if multiple files are required. Second and more importantly, this assumes your intended user knows how to use R and has the required dependencies (packages) installed on their machine. For these reasons, this mode of sharing is not a recommended approach for most applications.",
+    "text": "3.2 Sharing the script\nBecause a Shiny app is simply an R script or two (i.e., app.R or server.R and ui.R), they can be shared with others for use on their own machines. The advantage of this approach is that file sizes are small and easily shareable, although there are several disadvantages. First, any data that an app requires must also be shared. This can be simple if the data are small, but can quickly become tedious if multiple files are required and the data are larger than a few megabytes. Second and more importantly, this assumes your intended user knows how to use R and has the required dependencies (packages) installed on their machine. For these reasons, this mode of sharing is not a recommended approach for most applications.",
     "crumbs": [
       "Modules",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Deployment and IT Hurdles</span>"
@@ -208,7 +208,7 @@
     "href": "deploy.html#github",
     "title": "3  Deployment and IT Hurdles",
     "section": "3.3 GitHub",
-    "text": "3.3 GitHub\nAn app can also be shared on GitHub as a repository with all working components, similar to how it would be structured on your own machine.\n\nshiny::runGitHub('tbep-tech/nwqmc-shiny', subdir = 'app-wq')",
+    "text": "3.3 GitHub\nAn app can also be shared on GitHub as a repository with all working components, similar to how it would be structured on your own machine.\n\nshiny::runGitHub('tbep-tech/nwqmc-shiny', subdir = 'app-wq')\n\nThe disadvantages of this approach are similar to the previous example. A user must already know how to use R and the required packages must already be installed.",
     "crumbs": [
       "Modules",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Deployment and IT Hurdles</span>"
@@ -219,7 +219,18 @@
     "href": "deploy.html#shinyapps.io",
     "title": "3  Deployment and IT Hurdles",
     "section": "3.4 shinyapps.io",
-    "text": "3.4 shinyapps.io",
+    "text": "3.4 shinyapps.io\nThe easiest and most portable approach to hosting an app is using ShinyApps.io. Hosting on this service makes a publicly accessible web page for your app and allows you to host up five apps for free. The free version is suitable for personal use and sharing with a handful of others, but it will quickly run out of the allowed hours if your app has heavy traffic. Additional pricing options are available. Visit Shiny - Getting started with shinyapps.io to run through the following sequence:\n\nInstall the rsconnect R package.\nCreate an account at ShinyApps.io.\nConfigure rsconnect with a token in RStudio.\nPublish the app from RStudio using deployApp().\n\nThe disadvantage of this approach is that your app is hosted on a third-party server with limited ability to fine tune or customize the setup. This limitation is likely not a huge concern for most users. Those wanting more freedom and ownership of the hosting service should use the final option below.",
+    "crumbs": [
+      "Modules",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Deployment and IT Hurdles</span>"
+    ]
+  },
+  {
+    "objectID": "deploy.html#nalms-server",
+    "href": "deploy.html#nalms-server",
+    "title": "3  Deployment and IT Hurdles",
+    "section": "3.5 NALMS server",
+    "text": "3.5 NALMS server\nThe North American Lake Management Society (NALMS) hosts a shiny server on nalms.shinyapps.io as a free paid service for water resources apps. The service is paid for by NALMS and has all of the advantages of shinyapps.io, without the need for an individual user to pay for higher-tier subscription service. Simply use the contact information on the main page to request hosting for your app.",
     "crumbs": [
       "Modules",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Deployment and IT Hurdles</span>"
@@ -229,8 +240,8 @@
     "objectID": "deploy.html#custom-configuration",
     "href": "deploy.html#custom-configuration",
     "title": "3  Deployment and IT Hurdles",
-    "section": "3.5 Custom configuration",
-    "text": "3.5 Custom configuration",
+    "section": "3.6 Custom configuration",
+    "text": "3.6 Custom configuration\nPosit provides an open source version of Shiny Server that allows you to host apps on an internal or personal server. This may be desired if you want full control over the server and customization of the settings. Apps can also be hosted behind a firewall for an added level of security. However, this requires some knowledge of server settings and use of a Linux operating system. A dedicated server space is also needed, which usually requires a paid service such as through Google or Amazon hosting. Apps can also be hosting with Shiny Server using Docker{target=“_blank} that “containerizes” an easily portable bundle. Machines or servers only need to have Docker installed to run an app.",
     "crumbs": [
       "Modules",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Deployment and IT Hurdles</span>"
@@ -240,8 +251,8 @@
     "objectID": "deploy.html#it-hurdles",
     "href": "deploy.html#it-hurdles",
     "title": "3  Deployment and IT Hurdles",
-    "section": "3.6 IT hurdles",
-    "text": "3.6 IT hurdles\nWhat happens to my data - where does it go and what if I don’t want to include it in my app? This addresses two challenges - ownership and performance (data integration as internal v external).",
+    "section": "3.7 IT hurdles",
+    "text": "3.7 IT hurdles\nWhat happens to my data - where does it go and what if I don’t want to include it in my app? This addresses two challenges - ownership and performance (data integration as internal v external).",
     "crumbs": [
       "Modules",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Deployment and IT Hurdles</span>"
@@ -779,7 +790,7 @@
     "href": "rintro.html#r-language-fundamentals",
     "title": "Appendix B — Introduction to R",
     "section": "B.2 R language fundamentals",
-    "text": "B.2 R language fundamentals\nR is built around functions. The basic syntax of a function follows the form: function_name(arg1, arg2, ...).\nWith the base install, you will gain access to many functions (2356, to be exact). Some examples:\n\n# print\nprint(\"hello world!\")\n\n[1] \"hello world!\"\n\n# sequence\nseq(1, 10)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n# random numbers\nrnorm(100, mean = 10, sd = 2)\n\n  [1]  8.174990  8.041442 10.553729  7.699378  8.780499 10.978943  6.508770\n  [8]  7.063177  8.232968 11.326623  9.288222 10.873340  8.659584 15.372627\n [15] 10.811687 12.845336  8.643829 11.627388 12.631044 12.219651  6.967851\n [22] 12.848860  8.401298 10.786423 11.162232 10.609124  9.802873  6.908188\n [29] 10.990625  7.987867  8.322097  7.564300 10.325925  8.560398  8.704205\n [36]  8.633494  6.295197 10.587064 10.687918  7.748485  8.849777  8.669649\n [43] 10.085611 10.685517 13.225969 13.321848 10.322787  5.713582 11.445338\n [50] 11.456795 11.418718  7.842205 11.080432  8.509969 11.886295 12.373178\n [57] 11.086229 10.347468  9.716131 10.429340 13.556323  9.436599 10.200759\n [64] 15.121950  8.911658  8.910294  8.348614 11.450929  8.927453  8.499376\n [71]  8.485684  9.853307 10.768871 10.659147 10.887193 12.589431  9.449354\n [78] 14.580138 11.822532 10.075722  9.656010 13.475802  8.745205  5.753466\n [85]  7.722292  7.565292  9.899078  6.756319  8.570529 15.627505 11.038828\n [92] 13.020983  9.099708 10.539162 12.769329  8.154175 10.562817  8.453078\n [99] 10.972710  3.772410\n\n# average \nmean(rnorm(100))\n\n[1] 0.07806241\n\n# sum\nsum(rnorm(100))\n\n[1] -21.6919\n\n\nVery often you will see functions used like this:\n\nmy_random_sum &lt;- sum(rnorm(100))\n\nThe first part of the line is the name of an object that you make up. The second bit, &lt;-, is the assignment operator. This tells R to take the result of sum(rnorm(100)) and store it in an object named, my_random_sum. It is stored in the environment and can be used by just executing it’s name in the console.\n\nmy_random_sum\n\n[1] 4.280807\n\n\n\nB.2.1 What is the environment?\nThere are two outcomes when you run code. First, the code will simply print output directly in the console. Second, there is no output because you have stored it as a variable using &lt;-. Output that is stored is saved in the environment. The environment is the collection of named objects that are stored in memory for your current R session.",
+    "text": "B.2 R language fundamentals\nR is built around functions. The basic syntax of a function follows the form: function_name(arg1, arg2, ...).\nWith the base install, you will gain access to many functions (2356, to be exact). Some examples:\n\n# print\nprint(\"hello world!\")\n\n[1] \"hello world!\"\n\n# sequence\nseq(1, 10)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n# random numbers\nrnorm(100, mean = 10, sd = 2)\n\n  [1] 14.141143 10.191848 11.171523  9.714118  8.674409 12.016937  8.283059\n  [8] 15.572721  9.695778  6.744723 10.198269 12.900935  7.256238  9.572451\n [15]  8.881499 10.405407 10.599905  9.057694  7.220604  8.535503 11.623909\n [22]  9.275845 10.561744 12.097813 11.004135  8.490537  8.851868 13.515738\n [29] 11.044978  7.018598 11.163902 11.209275  9.918707  9.528794 11.171788\n [36]  9.671731  7.392868 13.062962 10.799533  5.585823 15.510613 14.439101\n [43] 12.203775 13.232531  8.580594  7.927955 12.460078  9.720381  7.372725\n [50] 10.041079 11.402511  9.702963 12.395177  9.076029  7.966430 11.300162\n [57]  8.265216 10.533680  9.936225 10.806625  7.746803 10.494854  6.005623\n [64]  9.412628  9.487448 11.344347  7.256704  8.956764 13.580901 12.672981\n [71]  8.333925 14.474682  9.570260  7.531365  8.723108  7.112190 10.535220\n [78] 11.435375  8.330080 11.253120  9.027868 12.044168  7.485252  9.442603\n [85]  9.704913  8.111545  9.466360 11.390121 12.660039 11.350849 11.161495\n [92]  6.814520  6.321759 12.638859  7.849683  9.049317 11.238704 10.876807\n [99]  9.808820  8.508852\n\n# average \nmean(rnorm(100))\n\n[1] 0.06475322\n\n# sum\nsum(rnorm(100))\n\n[1] -0.829739\n\n\nVery often you will see functions used like this:\n\nmy_random_sum &lt;- sum(rnorm(100))\n\nThe first part of the line is the name of an object that you make up. The second bit, &lt;-, is the assignment operator. This tells R to take the result of sum(rnorm(100)) and store it in an object named, my_random_sum. It is stored in the environment and can be used by just executing it’s name in the console.\n\nmy_random_sum\n\n[1] -7.729887\n\n\n\nB.2.1 What is the environment?\nThere are two outcomes when you run code. First, the code will simply print output directly in the console. Second, there is no output because you have stored it as a variable using &lt;-. Output that is stored is saved in the environment. The environment is the collection of named objects that are stored in memory for your current R session.",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>Introduction to R</span>"
@@ -790,7 +801,7 @@
     "href": "rintro.html#packages",
     "title": "Appendix B — Introduction to R",
     "section": "B.3 Packages",
-    "text": "B.3 Packages\nThe base installation of R is quite powerful. Packages allow you to include new methods for use in R.\n\nB.3.1 CRAN\nMany packages are available on CRAN, The Comprehensive R Archive Network. This is where you download R and also where most will gain access to packages. As of 2025-02-18, there are 22054 packages on CRAN!\n\n\nB.3.2 Installing packages\nWhen a package gets installed, that means the source code is downloaded and put into your library. A default library location is set for you.\nWe use the install.packages() function to download and install a package. Here, we install the readxl package, used below, which is used to upload data from and Excel file.\n\ninstall.packages(\"readxl\")\n\nYou should see some text in the R console showing progress of the installation and a prompt after installation is done.\nAfter installation, you can load a package using the library() function. This makes all functions in a package available for you to use.\n\nlibrary(readxl)\n\nAn important aspect of packages is that you only need to download them once, but every time you start RStudio you need to load them with the library() function.",
+    "text": "B.3 Packages\nThe base installation of R is quite powerful. Packages allow you to include new methods for use in R.\n\nB.3.1 CRAN\nMany packages are available on CRAN, The Comprehensive R Archive Network. This is where you download R and also where most will gain access to packages. As of 2025-02-19, there are 22055 packages on CRAN!\n\n\nB.3.2 Installing packages\nWhen a package gets installed, that means the source code is downloaded and put into your library. A default library location is set for you.\nWe use the install.packages() function to download and install a package. Here, we install the readxl package, used below, which is used to upload data from and Excel file.\n\ninstall.packages(\"readxl\")\n\nYou should see some text in the R console showing progress of the installation and a prompt after installation is done.\nAfter installation, you can load a package using the library() function. This makes all functions in a package available for you to use.\n\nlibrary(readxl)\n\nAn important aspect of packages is that you only need to download them once, but every time you start RStudio you need to load them with the library() function.",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>Introduction to R</span>"

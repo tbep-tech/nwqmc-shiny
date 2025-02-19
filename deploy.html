@@ -341,8 +341,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sharing-the-script" id="toc-sharing-the-script" class="nav-link" data-scroll-target="#sharing-the-script"><span class="header-section-number">3.2</span> Sharing the script</a></li>
   <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github"><span class="header-section-number">3.3</span> GitHub</a></li>
   <li><a href="#shinyapps.io" id="toc-shinyapps.io" class="nav-link" data-scroll-target="#shinyapps.io"><span class="header-section-number">3.4</span> shinyapps.io</a></li>
-  <li><a href="#custom-configuration" id="toc-custom-configuration" class="nav-link" data-scroll-target="#custom-configuration"><span class="header-section-number">3.5</span> Custom configuration</a></li>
-  <li><a href="#it-hurdles" id="toc-it-hurdles" class="nav-link" data-scroll-target="#it-hurdles"><span class="header-section-number">3.6</span> IT hurdles</a></li>
+  <li><a href="#nalms-server" id="toc-nalms-server" class="nav-link" data-scroll-target="#nalms-server"><span class="header-section-number">3.5</span> NALMS server</a></li>
+  <li><a href="#custom-configuration" id="toc-custom-configuration" class="nav-link" data-scroll-target="#custom-configuration"><span class="header-section-number">3.6</span> Custom configuration</a></li>
+  <li><a href="#it-hurdles" id="toc-it-hurdles" class="nav-link" data-scroll-target="#it-hurdles"><span class="header-section-number">3.7</span> IT hurdles</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps"><span class="header-section-number">4</span> Next Steps</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/tbep-tech/nwqmc-shiny/edit/main/deploy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
@@ -379,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="sharing-the-script" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sharing-the-script"><span class="header-section-number">3.2</span> Sharing the script</h2>
-<p>Because a Shiny app is simply an R script or two (i.e., <code>app.R</code> or <code>server.R</code> and <code>ui.R</code>), they can be shared with others for use on their own machines. The advantage of this approach is that file sizes are small, although there are several disadvantages. First, any data that an app requires must also be shared. This can be simple if the data are small, but can quickly become tedious if multiple files are required. Second and more importantly, this assumes your intended user knows how to use R and has the required dependencies (packages) installed on their machine. For these reasons, this mode of sharing is not a recommended approach for most applications.</p>
+<p>Because a Shiny app is simply an R script or two (i.e., <code>app.R</code> or <code>server.R</code> and <code>ui.R</code>), they can be shared with others for use on their own machines. The advantage of this approach is that file sizes are small and easily shareable, although there are several disadvantages. First, any data that an app requires must also be shared. This can be simple if the data are small, but can quickly become tedious if multiple files are required and the data are larger than a few megabytes. Second and more importantly, this assumes your intended user knows how to use R and has the required dependencies (packages) installed on their machine. For these reasons, this mode of sharing is not a recommended approach for most applications.</p>
 </section>
 <section id="github" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="github"><span class="header-section-number">3.3</span> GitHub</h2>
@@ -387,15 +388,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>shiny<span class="sc">::</span><span class="fu">runGitHub</span>(<span class="st">'tbep-tech/nwqmc-shiny'</span>, <span class="at">subdir =</span> <span class="st">'app-wq'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>The disadvantages of this approach are similar to the previous example. A user must already know how to use R and the required packages must already be installed.</p>
 </section>
 <section id="shinyapps.io" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="shinyapps.io"><span class="header-section-number">3.4</span> shinyapps.io</h2>
+<p>The easiest and most portable approach to hosting an app is using <a href="https://www.shinyapps.io/" target="_blank">ShinyApps.io</a>. Hosting on this service makes a publicly accessible web page for your app and allows you to host up five apps for free. The free version is suitable for personal use and sharing with a handful of others, but it will quickly run out of the allowed hours if your app has heavy traffic. Additional <a href="https://www.shinyapps.io/#pricing-anchor" target="_blank">pricing</a> options are available. Visit <a href="https://shiny.posit.co/r/articles/share/shinyapps/" target="_blank">Shiny - Getting started with shinyapps.io</a> to run through the following sequence:</p>
+<ol type="1">
+<li>Install the <code>rsconnect</code> R package.</li>
+<li>Create an account at <a href="https://www.shinyapps.io/">ShinyApps.io</a>.</li>
+<li>Configure <code>rsconnect</code> with a token in RStudio.</li>
+<li>Publish the app from RStudio using <code>deployApp()</code>.</li>
+</ol>
+<p>The disadvantage of this approach is that your app is hosted on a third-party server with limited ability to fine tune or customize the setup. This limitation is likely not a huge concern for most users. Those wanting more freedom and ownership of the hosting service should use the final option below.</p>
 </section>
-<section id="custom-configuration" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="custom-configuration"><span class="header-section-number">3.5</span> Custom configuration</h2>
+<section id="nalms-server" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="nalms-server"><span class="header-section-number">3.5</span> NALMS server</h2>
+<p>The North American Lake Management Society (NALMS) hosts a shiny server on <a href="https://nalms.shinyapps.io/NALMS_Shiny_Home/" target="_blank">nalms.shinyapps.io</a> as a free paid service for water resources apps. The service is paid for by NALMS and has all of the advantages of shinyapps.io, without the need for an individual user to pay for higher-tier subscription service. Simply use the contact information on the main page to request hosting for your app.</p>
 </section>
-<section id="it-hurdles" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="it-hurdles"><span class="header-section-number">3.6</span> IT hurdles</h2>
+<section id="custom-configuration" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="custom-configuration"><span class="header-section-number">3.6</span> Custom configuration</h2>
+<p>Posit provides an open source version of <a href="https://github.com/rstudio/shiny-server/blob/master/README.md" target="_blank">Shiny Server</a> that allows you to host apps on an internal or personal server. This may be desired if you want full control over the server and customization of the settings. Apps can also be hosted behind a firewall for an added level of security. However, this requires some knowledge of server settings and use of a Linux operating system. A dedicated server space is also needed, which usually requires a paid service such as through Google or Amazon hosting. Apps can also be hosting with Shiny Server using <a href="https://www.docker.com/">Docker</a>{target=“_blank} that “containerizes” an easily portable bundle. Machines or servers only need to have Docker installed to run an app.</p>
+</section>
+<section id="it-hurdles" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="it-hurdles"><span class="header-section-number">3.7</span> IT hurdles</h2>
 <p>What happens to my data - where does it go and what if I don’t want to include it in my app? This addresses two challenges - ownership and performance (data integration as internal v external).</p>
 </section>
 <section id="next-steps" class="level1" data-number="4">
