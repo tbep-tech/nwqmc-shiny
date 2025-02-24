@@ -20,7 +20,7 @@ knitr::kable(agenda)
 ## Important links {.unnumbered}
 
 * Workshop Website: [link](https://tbep-tech.github.io/nwqmc-shiny){target="_blank"}
-* Kickoff Slides: [Link](){target="_blank"}
+* Kickoff Menti: [Link](https://www.menti.com/al8cgs1ouubx){target="_blank"}
 * Live Chat: [link](https://app.gitter.im/#/room/#nwqmc-shiny:gitter.im){target="_blank"}
 * Posit Cloud: [link](https://posit.cloud/content/9569756){target="_blank"}
 * Post-workshop survey: [link](https://forms.gle/868MnzAQRj4XH4t56){target="_blank"}
