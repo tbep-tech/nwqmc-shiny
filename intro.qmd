@@ -63,6 +63,6 @@ You "launch" or run the dashboard by sourcing the script or hitting the green "R
 
 If you run this code, you'll see a local web browser pop up.  It will be empty because this app does nothing - it's just a template.  All we need to do is populate the `ui` and `server` objects with code to do some things. We'll do that in the next module.   
 
-# Next steps
+## Next steps
 
 Throughout this workshop, we'll cover the fundamentals of web-based applications in R for actionable science.  We'll highlight useful approaches that demonstrate how these applications fulfill for their intended uses, many examples of which are highlighted on our [resources](https://tbep-tech.github.io/shiny-workshop/resources.html) page.  

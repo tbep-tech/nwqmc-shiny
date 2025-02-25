@@ -49,7 +49,6 @@ book:
   appendices:
     - setup.qmd
     - rintro.qmd
-    - references.qmd
 
 bibliography: references.bib
 

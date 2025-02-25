@@ -703,6 +703,6 @@ shinyApp(ui, server)
 
 A word of caution... just because you can doesn't mean you should.  Don't use this as a crutch to a deeper understanding of Shiny.  It's a useful learning and troubleshooting tool, but it shouldn't replace the conventional learning process to build personal knowledge of the tools.  
 
-# Next steps
+## Next steps
 
 In this lesson, we learned about building a simple Shiny app and built on these principles to develop a more complex application.  We also learned how to troubleshoot applications using the `browser()` function.  In the next module, we'll talk about deploying Shiny apps and discuss common challenges developing and using Shiny apps in the wild. 
