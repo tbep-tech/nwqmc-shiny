@@ -7,7 +7,7 @@ project:
 book:
   title: "Actionable Data with Shiny Dashboards"
   subtitle: "NWQMC Workshop, 2:00 - 3:30, Mar. 12th, 2025"
-  author: "Marcus Beck, Erik Leppo, Kateri Salk"
+  author: "Marcus Beck, Erik Leppo"
   repo-url: https://github.com/tbep-tech/nwqmc-shiny
   reader-mode: true
   repo-actions: [edit]
