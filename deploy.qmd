@@ -6,30 +6,32 @@ lightbox: true
 
 ## Learning Objectives {.unnumbered .objectives}
 
-Understand how to share a Shiny application and the tradeoffs of the different approaches.
+Understand how to share a Shiny application and the tradeoffs of the different approaches.  Learn some approaches to address common IT hurdles for developing and deploying Shiny applications.
 
 ## Sharing your Shiny application
 
-Now that you know the basics of creating a Shiny application, the next step is to learn how to share it with others or yourself at different locations.  There are several ways this can be done and each comes with tradeoffs in the overhead and ease of access.  We'll present a few options and you can decide which is preferred for your needs.  
+Now that you know the basics of creating a Shiny application, the next step is to learn how to share it with others or yourself at different locations.  There are several ways this can be done and each comes with tradeoffs in the level of control and ease of setup.  We'll present a few options and you can decide which is preferred for your needs.  
+
+![](figs/deploy/sharing.png){width="800"}
 
 ### Sharing the script
 
-Because a Shiny app is simply an R script or two (i.e., `app.R` or `server.R` and `ui.R`), they can be shared directly with others for use on their own machines.  The advantage of this approach is that file sizes are small and easily shareable, although there are several disadvantages.  First, any data that an app requires must also be shared.  This can be simple if the data are small, but can quickly become tedious if multiple files are required or the data are larger than a few megabytes.  The second and more important disadvantage is that your intended user must knows how to use R and has the required dependencies (packages) installed on their machine.  For these reasons, this mode of sharing is not a recommended approach for most applications.
+Because a Shiny app is simply an R script or two (i.e., `app.R` or `server.R` and `ui.R`), they can be shared directly with others for use on their own machines.  The advantage of this approach is that file sizes are small and easily shareable, although there are several disadvantages.  First, any data that an app requires must also be shared.  This can be simple if the data are small, but can quickly become tedious if multiple files are required or the data are larger than a few megabytes.  The second and more important disadvantage is that your intended user must know how to use R and has the required dependencies (packages) installed on their machine.  For these reasons, this mode of sharing is not a recommended approach for most applications.
 
-### GitHub
+### Sharing on GitHub
 
-An app can also be shared on GitHub as a repository with all working components, similar to how it would be structured on your own machine.  
+Code for an app can also be shared on [GitHub](https://github.com/){target="_blank"} as a repository, similar to how it would be structured on your own machine.  
 
 ```{r}
 #| eval: false
 shiny::runGitHub('tbep-tech/nwqmc-shiny', subdir = 'app-wq')
 ```
 
-The disadvantages of this approach are similar to the previous example. A user must already know how to use R and the required packages must already be installed.  This also assumes you have a working knowledge of Git/GitHub and version control.
+The disadvantages of this approach are similar to the previous example. A user must already know how to use R and the required packages must already be installed.  The app is also not actually hosted on GitHub - only the code is made accessible.  Further, this approach assumes you have a working knowledge of Git/GitHub and version control.  There are some helpful resources in our [Useful Links](https://tbep-tech.github.io/nwqmc-shiny/resources/useful.html#sec-github) page for those interested in learning more.
 
-### shinyapps.io
+### ShinyApps.io
 
-The easiest and most portable approach to hosting an app is using [ShinyApps.io](https://www.shinyapps.io/){target="_blank"}.  Hosting on this service makes a publicly accessible web page for your app and allows you to host up five apps for free.  The free version is suitable for personal use and sharing with a handful of others, but it will quickly run out of the allowed hours if your app has more than few users.  Additional [pricing](https://www.shinyapps.io/#pricing-anchor){target="_blank"} options are available, although they may be prohibitive for individuals at the higher tiers. Visit [Shiny - Getting started with shinyapps.io](https://shiny.posit.co/r/articles/share/shinyapps/){target="_blank"} to run through the following sequence:
+The easiest and most portable approach to hosting an app is using [ShinyApps.io](https://www.shinyapps.io/){target="_blank"}.  Hosting on this service makes a publicly accessible web page for your app and allows you to host up to five apps for free.  The free version is suitable for personal use and sharing with a handful of others, but it will quickly run out of the allowed hours if your app has more than a few users.  Additional [pricing](https://www.shinyapps.io/#pricing-anchor){target="_blank"} options are available, although they may be prohibitive for individuals at the higher tiers. Visit [Shiny - Getting started with shinyapps.io](https://shiny.posit.co/r/articles/share/shinyapps/){target="_blank"} to run through the following sequence:
 
 1.  Install the `rsconnect` R package.
 2.  Create an account at [ShinyApps.io](https://www.shinyapps.io/){target="_blank"}.
@@ -40,17 +42,17 @@ The disadvantage of this approach is that your app is hosted on a third-party se
 
 ### NALMS server
 
-The North American Lake Management Society (NALMS) hosts a shiny server on [nalms.shinyapps.io](https://nalms.shinyapps.io/NALMS_Shiny_Home/){target="_blank"} as a free paid service for water resources apps.  The service is paid for by NALMS and has all of the advantages of shinyapps.io, without the need for an individual user to pay for a higher-tier subscription service.  Simply use the contact information on the main page to request hosting for your app.  The advantage of this approach is that the service is free and is hosted at the higher end of the pricing plan with plenty of computational resources to accommodate multiple apps.  The disadvantages are similar to the previous example.
+The North American Lake Management Society (NALMS) hosts a shiny server on [nalms.shinyapps.io](https://nalms.shinyapps.io/NALMS_Shiny_Home/){target="_blank"} as a free paid service for water resources apps.  The service is paid for by NALMS and has all of the advantages of ShinyApps.io, without the need for an individual user to pay for a higher-tier subscription service.  Simply use the contact information on the main page to request hosting for your app.  The advantage of this approach is that the service is free and is hosted at the higher end of the pricing plan with plenty of computational resources to accommodate multiple apps.  The disadvantages are similar to the previous example.
 
-### Custom configuration
+### Shiny Server or Docker
 
-Posit provides an open source version of [Shiny Server](https://github.com/rstudio/shiny-server/blob/master/README.md){target="_blank"} that allows you to host apps on an internal or personal server. This may be desired if you want full control over the server and customization of the settings.  Apps can also be hosted behind a firewall for an added level of security. However, this requires some knowledge of server settings and use of a Linux operating system that is common on remote servers. A dedicated server space is also needed, which usually requires a paid service, such as through Google or Amazon hosting. Apps can also be hosted with Shiny Server using [Docker](https://www.docker.com/){target="_blank"} that "containerizes" an easily portable bundle. Machines or servers only need to have Docker installed to run an app.  Assuming you have comfort with server management, this is the best option for full control of hosting, although it comes with overhead of requiring server space and full management of app dependencies.
+Posit provides an open source version of [Shiny Server](https://github.com/rstudio/shiny-server/blob/master/README.md){target="_blank"} that allows you to host apps on an internal or personal server. This may be desired if you want full control over the server and customization of the settings.  Apps can also be hosted behind a firewall for an added level of security. However, this requires some knowledge of server settings and use of a Linux operating system that is common on remote servers. A dedicated server space is also needed, which usually requires a paid service, such as through Google or Amazon hosting. Apps can also be hosted with Shiny Server using [Docker](https://www.docker.com/){target="_blank"} that "containerizes" an easily portable bundle of your app. Machines or servers only need to have Docker installed to run an app.  Assuming you have comfort with server management, this is the best option for full control of hosting, although it comes with overhead of requiring server space and full management of app dependencies.
 
 ## IT hurdles
 
 One of the biggest challenges developing and deploying Shiny applications is having support from your institution's IT or administrative staff.  Nearly all of these deployment options are not viable if you do not have administrative privileges on your computer nor the ability to host and expose internal applications outside of your institution.  So, the challenge becomes acceptance of the new approach rather than the technical logistics of hosting.  There is no simple solution to this issue, but we offer some suggestions as you begin or continue your journey developing robust applications. 
 
-1. __Demonstrate the value of the tool__: IT or administrative staff may be more willing to adopt these new approaches if they can see the value it has for the organization.  Presenting a functional, useful, and well designed application can go a long way in changing opinions on whether adopting the new technology is worthwhile.  
+1. __Demonstrate the value of the tool__: IT or administrative staff may be more willing to accept these new approaches if they can see the value it has for the organization.  Presenting a functional, useful, and well designed application can go a long way in changing opinions on whether adopting the new technology is worthwhile.  
 
 1. __Transparency in process__: Clearly explaining the logistics of creating an application and the deployment requirements may be necessary to address concerns that IT staff may have about exposing content to external users. Having them understand IT requirements will also ensure that any deployment system that is setup will meet the needs for your application.  This may require explaining which packages are required and what computational resources are needed.  Specific versions for R packages, R itself, and Shiny Server (if used) should also be discussed.
 
@@ -58,7 +60,7 @@ One of the biggest challenges developing and deploying Shiny applications is hav
 
 1. __Licensing__: The open source community has a well-established practice of licensing that defines how others may or may not use software or data.  The license does not directly control how others could use your app, but it does establish a legal framework for use should it be needed with bad actors.  Explaining the purpose and value of licensing to IT staff could address any legal concerns about sharing software and data publicly. Guidance on choosing an appropriate license can be found at [https://choosealicense.com/](https://choosealicense.com/){target="_blank"}.
 
-1. __Internal applications__: Controlling access to an application may be all that is needed to convince IT or administrative staff that hosting is okay.  Many of the hosting services described above can be configured with credential authentication that requires a password for access. Additional services provided by Posit (e.g., [Posit Connect](https://posit.co/products/enterprise/connect/){target="_blank"}) can also be used to setup an internal server accessible only within the organization. Posit has recognized the value of enterprising their services (at a cost) and has developed hosting products to serve these needs.
+1. __Internal applications__: Controlling access to an application may be all that is needed to convince IT or administrative staff that hosting is okay.  Many of the hosting services described above can be configured with credential authentication that requires a login for access. Additional services provided by Posit (e.g., [Posit Connect](https://posit.co/products/enterprise/connect/){target="_blank"}) can also be used to setup an internal server accessible only within the organization. Posit has recognized the value of enterprising their services (at a cost) and has developed hosting products to serve these needs.
 
 ## Next Steps
 
