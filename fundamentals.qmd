@@ -86,7 +86,7 @@ shinyApp(ui = ui, server = server)
 
 Okay, so what is happening under the hood when you change the sample size?  
 
-1.  The `input` value `n` (you name it) for the `server` is chosen by the user from the `ui`.  This uses the `numericInput()` widget.
+1.  The `input` value `n` (you name it) for the `server` is chosen by the user from the `ui`.  This uses the `numericInput()` [widget](https://shiny.posit.co/r/gallery/widgets/widget-gallery/){target="_blank"}.
 
     ```{r}
     #| eval: false
