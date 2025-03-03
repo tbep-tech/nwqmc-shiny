@@ -74,7 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2ce9fc9ac8b614e7ffef13962cc12eaf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a34d670291f06f286357e447776a572a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -334,10 +337,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sharing-your-shiny-application" id="toc-sharing-your-shiny-application" class="nav-link" data-scroll-target="#sharing-your-shiny-application"><span class="header-section-number">3.1</span> Sharing your Shiny application</a>
   <ul>
   <li><a href="#sharing-the-script" id="toc-sharing-the-script" class="nav-link" data-scroll-target="#sharing-the-script"><span class="header-section-number">3.1.1</span> Sharing the script</a></li>
-  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github"><span class="header-section-number">3.1.2</span> GitHub</a></li>
-  <li><a href="#shinyapps.io" id="toc-shinyapps.io" class="nav-link" data-scroll-target="#shinyapps.io"><span class="header-section-number">3.1.3</span> shinyapps.io</a></li>
+  <li><a href="#sharing-on-github" id="toc-sharing-on-github" class="nav-link" data-scroll-target="#sharing-on-github"><span class="header-section-number">3.1.2</span> Sharing on GitHub</a></li>
+  <li><a href="#shinyapps.io" id="toc-shinyapps.io" class="nav-link" data-scroll-target="#shinyapps.io"><span class="header-section-number">3.1.3</span> ShinyApps.io</a></li>
   <li><a href="#nalms-server" id="toc-nalms-server" class="nav-link" data-scroll-target="#nalms-server"><span class="header-section-number">3.1.4</span> NALMS server</a></li>
-  <li><a href="#custom-configuration" id="toc-custom-configuration" class="nav-link" data-scroll-target="#custom-configuration"><span class="header-section-number">3.1.5</span> Custom configuration</a></li>
+  <li><a href="#shiny-server-or-docker" id="toc-shiny-server-or-docker" class="nav-link" data-scroll-target="#shiny-server-or-docker"><span class="header-section-number">3.1.5</span> Shiny Server or Docker</a></li>
   </ul></li>
   <li><a href="#it-hurdles" id="toc-it-hurdles" class="nav-link" data-scroll-target="#it-hurdles"><span class="header-section-number">3.2</span> IT hurdles</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps"><span class="header-section-number">3.3</span> Next Steps</a></li>
@@ -368,26 +371,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="learning-objectives" class="level2 unnumbered objectives">
 <h2 class="unnumbered objectives anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<p>Understand how to share a Shiny application and the tradeoffs of the different approaches.</p>
+<p>Understand how to share a Shiny application and the tradeoffs of the different approaches. Learn some approaches to address common IT hurdles for developing and deploying Shiny applications.</p>
 </section>
 <section id="sharing-your-shiny-application" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="sharing-your-shiny-application"><span class="header-section-number">3.1</span> Sharing your Shiny application</h2>
-<p>Now that you know the basics of creating a Shiny application, the next step is to learn how to share it with others or yourself at different locations. There are several ways this can be done and each comes with tradeoffs in the overhead and ease of access. We’ll present a few options and you can decide which is preferred for your needs.</p>
+<p>Now that you know the basics of creating a Shiny application, the next step is to learn how to share it with others or yourself at different locations. There are several ways this can be done and each comes with tradeoffs in the level of control and ease of setup. We’ll present a few options and you can decide which is preferred for your needs.</p>
+<p><a href="figs/deploy/sharing.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figs/deploy/sharing.png" class="img-fluid" width="800"></a></p>
 <section id="sharing-the-script" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="sharing-the-script"><span class="header-section-number">3.1.1</span> Sharing the script</h3>
-<p>Because a Shiny app is simply an R script or two (i.e., <code>app.R</code> or <code>server.R</code> and <code>ui.R</code>), they can be shared directly with others for use on their own machines. The advantage of this approach is that file sizes are small and easily shareable, although there are several disadvantages. First, any data that an app requires must also be shared. This can be simple if the data are small, but can quickly become tedious if multiple files are required or the data are larger than a few megabytes. The second and more important disadvantage is that your intended user must knows how to use R and has the required dependencies (packages) installed on their machine. For these reasons, this mode of sharing is not a recommended approach for most applications.</p>
+<p>Because a Shiny app is simply an R script or two (i.e., <code>app.R</code> or <code>server.R</code> and <code>ui.R</code>), they can be shared directly with others for use on their own machines. The advantage of this approach is that file sizes are small and easily shareable, although there are several disadvantages. First, any data that an app requires must also be shared. This can be simple if the data are small, but can quickly become tedious if multiple files are required or the data are larger than a few megabytes. The second and more important disadvantage is that your intended user must know how to use R and has the required dependencies (packages) installed on their machine. For these reasons, this mode of sharing is not a recommended approach for most applications.</p>
 </section>
-<section id="github" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="github"><span class="header-section-number">3.1.2</span> GitHub</h3>
-<p>An app can also be shared on GitHub as a repository with all working components, similar to how it would be structured on your own machine.</p>
+<section id="sharing-on-github" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="sharing-on-github"><span class="header-section-number">3.1.2</span> Sharing on GitHub</h3>
+<p>Code for an app can also be shared on <a href="https://github.com/" target="_blank">GitHub</a> as a repository, similar to how it would be structured on your own machine.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>shiny<span class="sc">::</span><span class="fu">runGitHub</span>(<span class="st">'tbep-tech/nwqmc-shiny'</span>, <span class="at">subdir =</span> <span class="st">'app-wq'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The disadvantages of this approach are similar to the previous example. A user must already know how to use R and the required packages must already be installed. This also assumes you have a working knowledge of Git/GitHub and version control.</p>
+<p>The disadvantages of this approach are similar to the previous example. A user must already know how to use R and the required packages must already be installed. The app is also not actually hosted on GitHub - only the code is made accessible. Further, this approach assumes you have a working knowledge of Git/GitHub and version control. There are some helpful resources in our <a href="https://tbep-tech.github.io/nwqmc-shiny/resources/useful.html#sec-github">Useful Links</a> page for those interested in learning more.</p>
 </section>
 <section id="shinyapps.io" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="shinyapps.io"><span class="header-section-number">3.1.3</span> shinyapps.io</h3>
-<p>The easiest and most portable approach to hosting an app is using <a href="https://www.shinyapps.io/" target="_blank">ShinyApps.io</a>. Hosting on this service makes a publicly accessible web page for your app and allows you to host up five apps for free. The free version is suitable for personal use and sharing with a handful of others, but it will quickly run out of the allowed hours if your app has more than few users. Additional <a href="https://www.shinyapps.io/#pricing-anchor" target="_blank">pricing</a> options are available, although they may be prohibitive for individuals at the higher tiers. Visit <a href="https://shiny.posit.co/r/articles/share/shinyapps/" target="_blank">Shiny - Getting started with shinyapps.io</a> to run through the following sequence:</p>
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="shinyapps.io"><span class="header-section-number">3.1.3</span> ShinyApps.io</h3>
+<p>The easiest and most portable approach to hosting an app is using <a href="https://www.shinyapps.io/" target="_blank">ShinyApps.io</a>. Hosting on this service makes a publicly accessible web page for your app and allows you to host up to five apps for free. The free version is suitable for personal use and sharing with a handful of others, but it will quickly run out of the allowed hours if your app has more than a few users. Additional <a href="https://www.shinyapps.io/#pricing-anchor" target="_blank">pricing</a> options are available, although they may be prohibitive for individuals at the higher tiers. Visit <a href="https://shiny.posit.co/r/articles/share/shinyapps/" target="_blank">Shiny - Getting started with shinyapps.io</a> to run through the following sequence:</p>
 <ol type="1">
 <li>Install the <code>rsconnect</code> R package.</li>
 <li>Create an account at <a href="https://www.shinyapps.io/" target="_blank">ShinyApps.io</a>.</li>
@@ -398,22 +402,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="nalms-server" class="level3" data-number="3.1.4">
 <h3 data-number="3.1.4" class="anchored" data-anchor-id="nalms-server"><span class="header-section-number">3.1.4</span> NALMS server</h3>
-<p>The North American Lake Management Society (NALMS) hosts a shiny server on <a href="https://nalms.shinyapps.io/NALMS_Shiny_Home/" target="_blank">nalms.shinyapps.io</a> as a free paid service for water resources apps. The service is paid for by NALMS and has all of the advantages of shinyapps.io, without the need for an individual user to pay for a higher-tier subscription service. Simply use the contact information on the main page to request hosting for your app. The advantage of this approach is that the service is free and is hosted at the higher end of the pricing plan with plenty of computational resources to accommodate multiple apps. The disadvantages are similar to the previous example.</p>
+<p>The North American Lake Management Society (NALMS) hosts a shiny server on <a href="https://nalms.shinyapps.io/NALMS_Shiny_Home/" target="_blank">nalms.shinyapps.io</a> as a free paid service for water resources apps. The service is paid for by NALMS and has all of the advantages of ShinyApps.io, without the need for an individual user to pay for a higher-tier subscription service. Simply use the contact information on the main page to request hosting for your app. The advantage of this approach is that the service is free and is hosted at the higher end of the pricing plan with plenty of computational resources to accommodate multiple apps. The disadvantages are similar to the previous example.</p>
 </section>
-<section id="custom-configuration" class="level3" data-number="3.1.5">
-<h3 data-number="3.1.5" class="anchored" data-anchor-id="custom-configuration"><span class="header-section-number">3.1.5</span> Custom configuration</h3>
-<p>Posit provides an open source version of <a href="https://github.com/rstudio/shiny-server/blob/master/README.md" target="_blank">Shiny Server</a> that allows you to host apps on an internal or personal server. This may be desired if you want full control over the server and customization of the settings. Apps can also be hosted behind a firewall for an added level of security. However, this requires some knowledge of server settings and use of a Linux operating system that is common on remote servers. A dedicated server space is also needed, which usually requires a paid service, such as through Google or Amazon hosting. Apps can also be hosted with Shiny Server using <a href="https://www.docker.com/" target="_blank">Docker</a> that “containerizes” an easily portable bundle. Machines or servers only need to have Docker installed to run an app. Assuming you have comfort with server management, this is the best option for full control of hosting, although it comes with overhead of requiring server space and full management of app dependencies.</p>
+<section id="shiny-server-or-docker" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="shiny-server-or-docker"><span class="header-section-number">3.1.5</span> Shiny Server or Docker</h3>
+<p>Posit provides an open source version of <a href="https://github.com/rstudio/shiny-server/blob/master/README.md" target="_blank">Shiny Server</a> that allows you to host apps on an internal or personal server. This may be desired if you want full control over the server and customization of the settings. Apps can also be hosted behind a firewall for an added level of security. However, this requires some knowledge of server settings and use of a Linux operating system that is common on remote servers. A dedicated server space is also needed, which usually requires a paid service, such as through Google or Amazon hosting. Apps can also be hosted with Shiny Server using <a href="https://www.docker.com/" target="_blank">Docker</a> that “containerizes” an easily portable bundle of your app. Machines or servers only need to have Docker installed to run an app. Assuming you have comfort with server management, this is the best option for full control of hosting, although it comes with overhead of requiring server space and full management of app dependencies.</p>
 </section>
 </section>
 <section id="it-hurdles" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="it-hurdles"><span class="header-section-number">3.2</span> IT hurdles</h2>
 <p>One of the biggest challenges developing and deploying Shiny applications is having support from your institution’s IT or administrative staff. Nearly all of these deployment options are not viable if you do not have administrative privileges on your computer nor the ability to host and expose internal applications outside of your institution. So, the challenge becomes acceptance of the new approach rather than the technical logistics of hosting. There is no simple solution to this issue, but we offer some suggestions as you begin or continue your journey developing robust applications.</p>
 <ol type="1">
-<li><p><strong>Demonstrate the value of the tool</strong>: IT or administrative staff may be more willing to adopt these new approaches if they can see the value it has for the organization. Presenting a functional, useful, and well designed application can go a long way in changing opinions on whether adopting the new technology is worthwhile.</p></li>
+<li><p><strong>Demonstrate the value of the tool</strong>: IT or administrative staff may be more willing to accept these new approaches if they can see the value it has for the organization. Presenting a functional, useful, and well designed application can go a long way in changing opinions on whether adopting the new technology is worthwhile.</p></li>
 <li><p><strong>Transparency in process</strong>: Clearly explaining the logistics of creating an application and the deployment requirements may be necessary to address concerns that IT staff may have about exposing content to external users. Having them understand IT requirements will also ensure that any deployment system that is setup will meet the needs for your application. This may require explaining which packages are required and what computational resources are needed. Specific versions for R packages, R itself, and Shiny Server (if used) should also be discussed.</p></li>
 <li><p><strong>Data</strong>: Having a discussion about how data will be used by the application may also be needed. This discussion could serve two purposes. First, IT staff may have concerns about data ownership or if the application will share any sensitive information. Hosting the application on a third-party server may mean that the data are now external to your organization if included as files within the application. This may not be a huge concern if the data are not sensitive, but this potential issue should be stated upfront if a solution is needed. Any application that uses sensitive information (e.g., personal data) should also anonymize or otherwise not present this information directly. The second purpose of this discussion may be more technical if hosting the data with an application is prohibitive given the size. Shiny applications can use external databases as a data source and you may need to discuss with IT staff how this is accomplished. Using an external database may also greatly improve app performance.</p></li>
 <li><p><strong>Licensing</strong>: The open source community has a well-established practice of licensing that defines how others may or may not use software or data. The license does not directly control how others could use your app, but it does establish a legal framework for use should it be needed with bad actors. Explaining the purpose and value of licensing to IT staff could address any legal concerns about sharing software and data publicly. Guidance on choosing an appropriate license can be found at <a href="https://choosealicense.com/" target="_blank">https://choosealicense.com/</a>.</p></li>
-<li><p><strong>Internal applications</strong>: Controlling access to an application may be all that is needed to convince IT or administrative staff that hosting is okay. Many of the hosting services described above can be configured with credential authentication that requires a password for access. Additional services provided by Posit (e.g., <a href="https://posit.co/products/enterprise/connect/" target="_blank">Posit Connect</a>) can also be used to setup an internal server accessible only within the organization. Posit has recognized the value of enterprising their services (at a cost) and has developed hosting products to serve these needs.</p></li>
+<li><p><strong>Internal applications</strong>: Controlling access to an application may be all that is needed to convince IT or administrative staff that hosting is okay. Many of the hosting services described above can be configured with credential authentication that requires a login for access. Additional services provided by Posit (e.g., <a href="https://posit.co/products/enterprise/connect/" target="_blank">Posit Connect</a>) can also be used to setup an internal server accessible only within the organization. Posit has recognized the value of enterprising their services (at a cost) and has developed hosting products to serve these needs.</p></li>
 </ol>
 </section>
 <section id="next-steps" class="level2" data-number="3.3">
@@ -918,6 +922,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
