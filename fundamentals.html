@@ -448,7 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="figs/fundamentals/histshiny.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="figs/fundamentals/histshiny.png" class="img-fluid"></a></p>
 <p>Okay, so what is happening under the hood when you change the sample size?</p>
 <ol type="1">
-<li><p>The <code>input</code> value <code>n</code> (you name it) for the <code>server</code> is chosen by the user from the <code>ui</code>. This uses the <code>numericInput()</code> widget.</p>
+<li><p>The <code>input</code> value <code>n</code> (you name it) for the <code>server</code> is chosen by the user from the <code>ui</code>. This uses the <code>numericInput()</code> <a href="https://shiny.posit.co/r/gallery/widgets/widget-gallery/" target="_blank">widget</a>.</p>
 <div class="cell" data-source-line-numbers="2">
 <div class="sourceCode cell-code" id="cb6" data-source-line-numbers="2" data-code-line-numbers="2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">numericInput</span>(<span class="at">inputId =</span> <span class="st">'n'</span>, <span class="at">label =</span> <span class="st">'Sample size'</span>, <span class="at">value =</span> <span class="dv">50</span>),</span>
