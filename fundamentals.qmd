@@ -20,13 +20,15 @@ Let's begin by installing and loading the packages used for this workshop. This 
 
 ```{r}
 #| eval: false
-#| # enable repos
+# enable repos
 options(repos = c(
     tbeptech = 'https://tbep-tech.r-universe.dev',
     CRAN = 'https://cloud.r-project.org'))
 
-# install and load
-install.packages(c('shiny', 'plotly', 'tbeptools', 'tidyverse'))*
+# install (only need to do once)
+install.packages(c('shiny', 'plotly', 'tbeptools', 'tidyverse'))
+
+# load the packages
 library(plotly)
 library(shiny)
 library(tbeptools)

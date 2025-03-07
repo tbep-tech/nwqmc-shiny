@@ -8,7 +8,7 @@ Thanks for your interest in the R Shiny workshop. You can participate during the
 
 Please reach out if you have any issues with installation: [mbeck@tbep.org](mailto:mbeck@tbep.org)
 
-## Posit Cloud {#sec-cloud}
+## Option 1: Posit Cloud {#sec-cloud}
 
 Posit Cloud provides an environment to use RStudio through a web browser.  It's useful as a workshop resource because necessary packages and scripts are already included.  After the workshop, you'll want to continue work with R and RStudio installed on your own computer. 
 
@@ -24,9 +24,9 @@ You'll see the workspace in your browser once you've signed in.  You'll need to 
 
 ![](figs/setup/positworkspace.PNG)
 
-Now you can follow along with the workshop content.
+All of the packages used in this workshop are already installed and there are a few Shiny apps in separate folders.  You can use this space to follow along with the workshop content.
 
-## Install R and RStudio {#sec-rstudio}
+## Option 2: Install R and RStudio {#sec-rstudio}
 
 You can also use R and RStudio on your local computer for this workshop. Posit Cloud is setup as a convenience and you will want to work locally with R after the workshop. 
 
@@ -87,7 +87,30 @@ Once installed, RStudio should be accessible from the start menu. Start up RStud
 
 ![](figs/setup/rstudio.png)
 
-## Setup shinyapps.io {#sec-setshi}
+### Install packages
+
+We'll be using a few packages during the workshop.  Run the following code to install these packages on your local machine.  You should only need to do this once, but you'll need to load the packages each time you start RStudio. 
+
+```{r}
+#| eval: false
+# enable repos
+options(repos = c(
+    tbeptech = 'https://tbep-tech.r-universe.dev',
+    CRAN = 'https://cloud.r-project.org'))
+
+# install (only need to do once)
+install.packages(c('shiny', 'plotly', 'tbeptools', 'tidyverse'))
+
+# load the packages
+library(plotly)
+library(shiny)
+library(tbeptools)
+library(tidyverse)
+```
+
+If the packages are successfully installed and loaded, you should see several messages in the console, but no errors.  Try reinstalling again after closing and opening RStudio if you see errors.  Note that these packages are already installed if you're using Posit Cloud, but you'll need to load them for use.
+
+## Optional: Setup shinyapps.io {#sec-setshi}
 
 The [shinyapps.io](https://shinyapps.io){target="_blank"} website is a service provided by Posit for hosting Shiny applications online.  A free option is available, with additional paid tiers depending on your needs.  Although there are other free options, this website is the easiest and quickest way to host a Shiny application. 
 

@@ -19,9 +19,22 @@ knitr::kable(agenda)
 
 * Workshop Website: [link](https://tbep-tech.github.io/nwqmc-shiny){target="_blank"}
 * Kickoff Menti: [Link](https://www.menti.com/al8cgs1ouubx){target="_blank"}
+* Live Coding: [Link](https://tinyurl.com/live-nwqmc-shiny){target="_blank"}
 * Live Chat: [link](https://app.gitter.im/#/room/#nwqmc-shiny:gitter.im){target="_blank"}
 * Posit Cloud: [link](https://posit.cloud/content/9569756){target="_blank"}
 * Post-workshop survey: [link](https://forms.gle/868MnzAQRj4XH4t56){target="_blank"}
+
+## Housekeeping {.unnumbered}
+
+Please read these housekeeping items on the day of the training so that everything runs smoothly. 
+
+1. Feel free to verbally ask questions during the training.  You can also type questions in the [live chat](https://app.gitter.im/#/room/#nwqmc-shiny:gitter.im){target="_blank"}.  Other attendees are welcome to respond to questions in the chat.  
+
+1. Please use [Posit Cloud](https://posit.cloud/content/9569756){target="_blank"}) or RStudio installed on your computer to follow along during the workshop.  RStudio Cloud can also be used as a backup option.  See the [setup](setup.qmd) instructions for more information.
+
+1. We have a [live coding](https://tinyurl.com/live-ebase){target="_blank"} link that we’ll be using as we go through the lessons. If you get lost, you can copy/paste code from this link into RStudio.
+
+1. All training content is on this website. If you get lost you can view the agenda to see which lesson we’re covering.
 
 ## Setup {.unnumbered}
 
