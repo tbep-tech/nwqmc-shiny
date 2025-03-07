@@ -35,7 +35,7 @@ Please read these housekeeping items on the day of the training so that everythi
 
 1. We have a [live coding](https://tinyurl.com/live-nwqmc-shiny){target="_blank"} link that we’ll be using as we go through the lessons. If you get lost, you can copy/paste code from this link into RStudio.
 
-1. All training content is on this website. If you get lost you can view the agenda to see which lesson we’re covering.
+1. All training content is on this website. If you get lost you can view the content on each module to see where we're at.
 
 ## Setup {.unnumbered}
 
