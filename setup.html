@@ -333,16 +333,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-cloud" id="toc-sec-cloud" class="nav-link active" data-scroll-target="#sec-cloud"><span class="header-section-number">A.1</span> Posit Cloud</a></li>
-  <li><a href="#sec-rstudio" id="toc-sec-rstudio" class="nav-link" data-scroll-target="#sec-rstudio"><span class="header-section-number">A.2</span> Install R and RStudio</a>
+  <li><a href="#sec-cloud" id="toc-sec-cloud" class="nav-link active" data-scroll-target="#sec-cloud"><span class="header-section-number">A.1</span> Option 1: Posit Cloud</a></li>
+  <li><a href="#sec-rstudio" id="toc-sec-rstudio" class="nav-link" data-scroll-target="#sec-rstudio"><span class="header-section-number">A.2</span> Option 2: Install R and RStudio</a>
   <ul>
   <li><a href="#sec-instr" id="toc-sec-instr" class="nav-link" data-scroll-target="#sec-instr"><span class="header-section-number">A.2.1</span> Windows: Download and install R</a></li>
   <li><a href="#sec-instrstudio" id="toc-sec-instrstudio" class="nav-link" data-scroll-target="#sec-instrstudio"><span class="header-section-number">A.2.2</span> Windows: Download and install RStudio</a></li>
   <li><a href="#macos-download-and-install-r" id="toc-macos-download-and-install-r" class="nav-link" data-scroll-target="#macos-download-and-install-r"><span class="header-section-number">A.2.3</span> macOS: Download and install R</a></li>
   <li><a href="#macos-download-and-install-rstudio" id="toc-macos-download-and-install-rstudio" class="nav-link" data-scroll-target="#macos-download-and-install-rstudio"><span class="header-section-number">A.2.4</span> macOS: Download and install RStudio</a></li>
   <li><a href="#check-install" id="toc-check-install" class="nav-link" data-scroll-target="#check-install"><span class="header-section-number">A.2.5</span> Check Install</a></li>
+  <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages"><span class="header-section-number">A.2.6</span> Install packages</a></li>
   </ul></li>
-  <li><a href="#sec-setshi" id="toc-sec-setshi" class="nav-link" data-scroll-target="#sec-setshi"><span class="header-section-number">A.3</span> Setup shinyapps.io</a></li>
+  <li><a href="#sec-setshi" id="toc-sec-setshi" class="nav-link" data-scroll-target="#sec-setshi"><span class="header-section-number">A.3</span> Optional: Setup shinyapps.io</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/tbep-tech/nwqmc-shiny/edit/main/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -371,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Thanks for your interest in the R Shiny workshop. You can participate during the worskhop in two ways. First, you can use an RStudio project setup on <a href="#sec-cloud">Posit Cloud</a> (preferred) or you can use your own version of <a href="#sec-rstudio">R and RStudio</a> on your laptop. The instructions below describe setup for each.</p>
 <p>Please reach out if you have any issues with installation: <a href="mailto:mbeck@tbep.org">mbeck@tbep.org</a></p>
 <section id="sec-cloud" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="sec-cloud"><span class="header-section-number">A.1</span> Posit Cloud</h2>
+<h2 data-number="A.1" class="anchored" data-anchor-id="sec-cloud"><span class="header-section-number">A.1</span> Option 1: Posit Cloud</h2>
 <p>Posit Cloud provides an environment to use RStudio through a web browser. It’s useful as a workshop resource because necessary packages and scripts are already included. After the workshop, you’ll want to continue work with R and RStudio installed on your own computer.</p>
 <p>We’ve created a workspace on Posit Cloud that includes all of the content for this workshop. Open the following URL in a web browser: <a href="https://posit.cloud/content/9569756" target="_blank">https://posit.cloud/content/9569756</a></p>
 <p>You will see a login screen that looks like this:</p>
@@ -379,10 +380,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Sign up using a personal login or existing account (Google, GitHub, etc.).</p>
 <p>You’ll see the workspace in your browser once you’ve signed in. You’ll need to make a permanent copy to save your work. Just click the button at the top marked “+ Save as Permanent Copy”. When this is done, the red text at the top indicating “TEMPORARY COPY” will no longer be visible.</p>
 <p><a href="figs/setup/positworkspace.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="figs/setup/positworkspace.PNG" class="img-fluid"></a></p>
-<p>Now you can follow along with the workshop content.</p>
+<p>All of the packages used in this workshop are already installed and there are a few Shiny apps in separate folders. You can use this space to follow along with the workshop content.</p>
 </section>
 <section id="sec-rstudio" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="sec-rstudio"><span class="header-section-number">A.2</span> Install R and RStudio</h2>
+<h2 data-number="A.2" class="anchored" data-anchor-id="sec-rstudio"><span class="header-section-number">A.2</span> Option 2: Install R and RStudio</h2>
 <p>You can also use R and RStudio on your local computer for this workshop. Posit Cloud is setup as a convenience and you will want to work locally with R after the workshop.</p>
 <p>Most of the steps below will require administrative privileges on a computer. Work with your IT staff to complete the setup if you do not have these privileges. As an alternative, you can use Posit Cloud to participate (see <a href="#sec-cloud" class="quarto-xref"><span>Section A.1</span></a>), although we strongly encourage you to install the software on your personal computer for use after the workshop.</p>
 <p><strong>R</strong> and <strong>RStudio</strong> are separate downloads and installations. R is the underlying statistical computing software. RStudio is a graphical integrated development environment (IDE) that makes using R much easier and more interactive. <em>You need to install R before you install RStudio</em>.</p>
@@ -429,28 +430,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Once installed, RStudio should be accessible from the start menu. Start up RStudio. Once running it should look something like this:</p>
 <p><a href="figs/setup/rstudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="figs/setup/rstudio.png" class="img-fluid"></a></p>
 </section>
+<section id="install-packages" class="level3" data-number="A.2.6">
+<h3 data-number="A.2.6" class="anchored" data-anchor-id="install-packages"><span class="header-section-number">A.2.6</span> Install packages</h3>
+<p>We’ll be using a few packages during the workshop. Run the following code to install these packages on your local machine. You should only need to do this once, but you’ll need to load the packages each time you start RStudio.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># enable repos</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">tbeptech =</span> <span class="st">'https://tbep-tech.r-universe.dev'</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">CRAN =</span> <span class="st">'https://cloud.r-project.org'</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install (only need to do once)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">'shiny'</span>, <span class="st">'plotly'</span>, <span class="st">'tbeptools'</span>, <span class="st">'tidyverse'</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># load the packages</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tbeptools)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If the packages are successfully installed and loaded, you should see several messages in the console, but no errors. Try reinstalling again after closing and opening RStudio if you see errors. Note that these packages are already installed if you’re using Posit Cloud, but you’ll need to load them for use.</p>
+</section>
 </section>
 <section id="sec-setshi" class="level2" data-number="A.3">
-<h2 data-number="A.3" class="anchored" data-anchor-id="sec-setshi"><span class="header-section-number">A.3</span> Setup shinyapps.io</h2>
+<h2 data-number="A.3" class="anchored" data-anchor-id="sec-setshi"><span class="header-section-number">A.3</span> Optional: Setup shinyapps.io</h2>
 <p>The <a href="https://shinyapps.io" target="_blank">shinyapps.io</a> website is a service provided by Posit for hosting Shiny applications online. A free option is available, with additional paid tiers depending on your needs. Although there are other free options, this website is the easiest and quickest way to host a Shiny application.</p>
 <p>First, navigate to <a href="https://shinyapps.io" target="_blank">shinyapps.io</a> and click the “Sign Up” button. After you’ve setup your GitHub account, you can sign up for shinyapps.io by selecting the GitHub sign up option.</p>
 <p><a href="figs/setup/shinyappssignup.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="figs/setup/shinyappssignup.PNG" class="img-fluid"></a></p>
 <p>Next, install the <code>rsconnect</code> package in R. This package lets you connect to shinyapps.io and push applications from your local computer.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rsconnect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rsconnect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You need to obtain an access token from shinyapps.io to configure the <code>rsconnect</code> package to use your account. In your shinyapps.io dashboard, click your user name on the top right and select Tokens.</p>
 <p><a href="figs/setup/shinyappstoken.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="figs/setup/shinyappstoken.PNG" class="img-fluid"></a></p>
 <p>Add a new token, copy/paste the command to setup your account info, and execute it in the R console. It will look something like this and there will a button that allows you to copy the command to your clipboard, where <code>&lt;TOKEN&gt;</code> and <code>&lt;SECRET&gt;</code> are specific to your account and should not be shared.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rsconnect<span class="sc">::</span><span class="fu">setAccountInfo</span>(<span class="at">name=</span><span class="st">'beckmw'</span>,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">token=</span><span class="st">'&lt;TOKEN&gt;'</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">secret=</span><span class="st">'&lt;SECRET&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>rsconnect<span class="sc">::</span><span class="fu">setAccountInfo</span>(<span class="at">name=</span><span class="st">'beckmw'</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">token=</span><span class="st">'&lt;TOKEN&gt;'</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">secret=</span><span class="st">'&lt;SECRET&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now you will be able to push a Shiny application to your shinyapps.io account as follows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rsconnect)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">deployApp</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rsconnect)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">deployApp</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>More info can be found <a href="https://shiny.posit.co/r/articles/share/shinyapps/" target="_blank">here</a>.</p>
 

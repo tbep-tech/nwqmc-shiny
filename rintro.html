@@ -425,31 +425,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random numbers</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1]  6.804947 12.413779 10.541362  7.208588 10.036541 11.083475  7.980034
-  [8]  8.276028 13.057114  9.836330  8.818689 12.923526 12.297649 12.703921
- [15]  6.155785  7.203349  8.284276  6.174242 11.499638  8.902212 10.449004
- [22] 12.561950  8.735627 10.871782  6.485313  7.575244 10.766382  5.824078
- [29]  8.538969 14.367494 10.534317  8.665579 11.197779 12.051391 10.310329
- [36] 10.399515  6.919137  9.300514 12.501826 10.742763 11.438565 11.897782
- [43] 11.647595  7.246309  8.903437  9.464439 10.878091 10.231428 10.470560
- [50] 11.556908 11.976232  9.372923 10.854790  9.405496  7.872379 10.867790
- [57] 14.044327 10.297060 11.435684  9.422780  9.837648 14.483403  8.250459
- [64] 11.208230 10.093027  7.659424  7.171699 10.667080  7.906835  7.708431
- [71]  9.629417  8.453568  7.669715 12.156781 10.661016 11.502320 13.850872
- [78] 12.453592  8.542236 11.324431 12.273920 12.924723 12.811000  6.776417
- [85]  9.329879  8.582053  9.699832 12.454193  9.511635 11.370185 11.090887
- [92]  4.977825 12.761388  5.105300  9.280729 10.370392 10.218424 10.167857
- [99] 12.072101 13.927827</code></pre>
+<pre><code>  [1]  7.727060  7.441090  9.034549  8.439060 10.904286  6.404649 13.012749
+  [8]  7.238185  9.299973 11.786644 11.752803  9.585897  7.522172  8.075040
+ [15]  8.014478 11.027042 11.441395 11.736548  7.580672 11.881891 11.876829
+ [22]  8.078591  9.800530  7.533199  8.067413 10.393609  9.116196 12.118347
+ [29] 11.899106  9.441650  7.205707 11.111315  8.814910  9.499191  9.790429
+ [36] 11.433350  9.142305  9.962415 11.807077 13.020420 11.111624 10.951839
+ [43]  7.823850  8.504372 10.006756 12.460260 12.387514  7.795004  7.968337
+ [50] 10.439661  9.136871 11.696990 12.614716 10.870299 12.436516  9.769277
+ [57]  8.067902 12.237529 10.950972 14.646851  8.052618 12.875982 12.447007
+ [64] 11.023358 11.866335  9.787698 11.608428  9.941934 13.607904 10.777735
+ [71] 14.053566 13.897908  8.312795 10.637286 10.703154 10.570691 10.860038
+ [78]  9.440394  9.308153 10.186503 11.289459 10.517160  7.118312  9.173696
+ [85]  9.764001  6.845207 10.021941  9.197299  9.276746 14.244780 12.610109
+ [92]  9.449441  5.891595 11.247876  9.357117  9.453344  8.100849  9.617542
+ [99] 11.850532  9.270301</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># average </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.1300993</code></pre>
+<pre><code>[1] 0.08539539</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -13.1094</code></pre>
+<pre><code>[1] -0.2353697</code></pre>
 </div>
 </div>
 <p>Very often you will see functions used like this:</p>
@@ -460,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_random_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -9.063811</code></pre>
+<pre><code>[1] 19.19491</code></pre>
 </div>
 </div>
 <section id="what-is-the-environment" class="level3" data-number="B.2.1">
@@ -473,7 +473,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The base installation of R is quite powerful. Packages allow you to include new methods for use in R.</p>
 <section id="cran" class="level3" data-number="B.3.1">
 <h3 data-number="B.3.1" class="anchored" data-anchor-id="cran"><span class="header-section-number">B.3.1</span> CRAN</h3>
-<p>Many packages are available on CRAN, <a href="http://cran.r-project.org/" target="_blank">The Comprehensive R Archive Network</a>. This is where you download R and also where most will gain access to packages. As of 2025-03-03, there are 22124 packages on CRAN!</p>
+<p>Many packages are available on CRAN, <a href="http://cran.r-project.org/" target="_blank">The Comprehensive R Archive Network</a>. This is where you download R and also where most will gain access to packages. As of 2025-03-07, there are 22157 packages on CRAN!</p>
 </section>
 <section id="installing-packages" class="level3" data-number="B.3.2">
 <h3 data-number="B.3.2" class="anchored" data-anchor-id="installing-packages"><span class="header-section-number">B.3.2</span> Installing packages</h3>
