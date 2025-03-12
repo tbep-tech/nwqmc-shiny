@@ -65,4 +65,4 @@ If you run this code, you'll see a local web browser pop up.  It will be empty b
 
 ## Next steps
 
-Throughout this workshop, we'll cover the fundamentals of web-based applications in R for actionable science.  We'll highlight useful approaches that demonstrate how these applications fulfill for their intended uses, many examples of which are highlighted on our [resources](https://tbep-tech.github.io/shiny-workshop/resources.html) page.  
+Throughout this workshop, we'll cover the fundamentals of web-based applications in R for actionable science.  We'll highlight useful approaches that demonstrate how these applications fulfill for their intended uses, many examples of which are highlighted on our [resources](https://tbep-tech.github.io/nwqmc-shiny/resources.html) page.  

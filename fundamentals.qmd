@@ -351,7 +351,7 @@ my_func <- function(n){
 my_func(n = 100)
 ```
 
-Two things happen when the code is run: 
+Three things happen when the code is run: 
 
 1.  The source code now highlights the `browser()` function with a green arrow.  This indicates your current location inside the browser.
 
@@ -386,7 +386,7 @@ server <- function(input, output) {
 }
 ```
 
-The browser takes a bit of practice to get comfortable, but you'll quickly find it useful for debugging apps, particularly those that have multiple working parts. For more information on debugging, checkout the article [Debugging Shiny applications](https://shiny.posit.co/r/articles/improve/debugging/){target="_blank"}
+The browser takes a bit of practice to get comfortable, but you'll quickly find it useful for debugging apps, particularly those that have multiple working parts. For more information on debugging, checkout the article [Debugging Shiny applications](https://shiny.posit.co/r/articles/improve/debugging/){target="_blank"}.
 
 ## Create a complex Shiny app
 
@@ -416,39 +416,43 @@ How should we prepare `epcdata` for use with the dashboard?  Remember, our goals
 1.  The `epcdata` is currently in *wide* format, with each variable as its own column. We want to pivot it to *long* format so that each row is an observation of a single indicator. 
 The `dplyr` package is the 'swiss army knife' (or 'plyers') for data wrangling, along with its close cousin `tidyr`. Let's look at some basic operations: filtering, selecting, and pivoting. Be sure to reference [Posit Cheatsheets](https://posit.co/resources/cheatsheets/) like [Data tidying with tidyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/html/tidyr.html) and [Data transformation with dplyr :: Cheatsheet](https://rstudio.github.io/cheatsheets/html/data-transformation.html).
 
-1.  **Filter**\
-    ![](./figs/fundamentals/dplyr_filter.png){width="100"}\
-    Reduce ***rows*** based on condition(s) that evaluate logically (i.e. True or False)
-
-    ``` r
-    epcdata |> 
-      dplyr::filter(epchch_station == 8)
-    ```
-
-2.  **Select**\
+1.  **Select**\
     ![](./figs/fundamentals/dplyr_select.png){width="100"}\
     Reduce ***columns*** to only those specified
 
     ``` r
     epcdata |> 
       dplyr::select(
-        station = epchc_station, 
+        station                 = epchc_station,
         SampleTime,
-        lon     = Longitude,
-        lat     = Latitude)
+        `Total Nitrogen (mg/L)` = tn,
+        `Chlorophyll-a (ug/L)`  = chla,
+        `Secchi depth (m)`      = sd_m
+      ) 
     ```
 
-3.  **Pivot**\
+1.  **Pivot**\
     ![](./figs/fundamentals/tidyr_pivot-longer.png){width="150"}\
     Transform the data from wide ***to long*** format
 
     ``` r
     epcdata |> 
       tidyr::pivot_longer(
-        names_to  = "var", 
-        values_to = "val")
+        names_to  = "indicator",
+        values_to = "value",
+        `Total Nitrogen (mg/L)`:`Secchi depth (m)`
+      )
     ```
 
+1.  **Filter**\
+    ![](./figs/fundamentals/dplyr_filter.png){width="100"}\
+    Reduce ***rows*** based on condition(s) that evaluate logically (i.e. True or False)
+
+    ``` r
+    epcdata |> 
+      dplyr::filter(station == 8)
+    ```
+    
 Applying the above concepts, create a new folder `app-wq` for the water quality app and create the R file `app.R` inside the folder with the following contents:
 
 ```{r}
@@ -490,7 +494,7 @@ indicators
 
 ### Add User Interface
 
-Let's add dropdown menus for station and indicator selection and a placeholder for the `plotly` output. These outputs are [htmlwidgets](https://www.htmlwidgets.org/){target="_blank"} that allow additional interactivity.  They will also be update based on user input.
+Let's add dropdown menus for station and indicator selection and a placeholder for the `plotly` output. These outputs are [htmlwidgets](https://www.htmlwidgets.org/){target="_blank"} that allow additional interactivity.  They will also be updated based on user input.
 
 ```{r}
 #| eval: false
@@ -556,7 +560,6 @@ Now with all the pieces, your app should work as intended. Try running it by pla
 ```{r}
 #| eval: false
 # Goal: Create an app to show a time series by station and indicator
-#   includes map of selected station
 
 # global.R ----
 
@@ -627,7 +630,7 @@ shinyApp(ui, server)
 
 Much has changed in the programming world over the last few years.  As you might expect, there are generative AI tools to help build and develop Shiny apps.  The [Shiny Assistant](https://gallery.shinyapps.io/assistant/){target="_blank"} from Posit can be used in this capacity. 
 
-It works like any other generative AI tool, except it's trained specifically to support Shiny develop AND has a built in feature for rendering generated apps directly in the browser. Here's a prompt that shows how you could build an app similar to the one above that shows the tool the general structure of your data (i.e., `str(epcdata)`).
+It works like any other generative AI tool, except it's trained specifically to support Shiny development AND has a built in feature for rendering generated apps directly in the browser. Here's a prompt that shows how you could build an app similar to the one above that shows the tool the general structure of your data (i.e., `str(epcdata)`).
 
 ![](figs/fundamentals/shinyass.PNG)
 

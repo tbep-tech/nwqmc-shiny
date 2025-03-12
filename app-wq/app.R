@@ -1,5 +1,4 @@
 # Goal: Create an app to show a time series by station and indicator
-#   includes map of selected station
 
 # global.R ----
 
