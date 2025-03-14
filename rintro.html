@@ -297,6 +297,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Peter and Paul Lakes</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources/pinellas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pinellas County Water Quality</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -425,31 +431,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># random numbers</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 12.924961 11.223848 10.079265 14.365470  7.464869 12.676132  9.843400
-  [8]  9.246672  7.648964 14.243046 11.997316 10.975343  7.044687  8.622549
- [15] 10.844179 13.275118 13.022949  8.324582 13.890835  8.836246  8.465145
- [22]  9.962690  7.859578  5.989775 12.162028 13.007942  8.661107 11.696098
- [29]  7.472326 12.694773  7.719322 10.061143 11.578157  9.541489  7.905320
- [36] 10.628806  6.973710 14.548042  9.073429  4.163790 11.279495  9.615300
- [43]  8.111434 10.906833 10.581762  9.358810 12.177569  6.644432  7.097311
- [50]  9.794947 11.715983  9.961443  7.758644  8.452199  7.247253 10.953412
- [57]  8.499924  5.283299  9.732184 10.163210  9.514645  7.529959 12.186158
- [64]  9.097012  6.514258 13.293800 13.847193  9.199977 11.263669 10.016309
- [71] 10.784093  8.754405  6.776091  9.233947  6.111832 10.894467 10.608158
- [78] 13.736218 12.153438 12.353047 11.608658  9.099178  9.555223 10.864092
- [85] 10.165546 10.929786  9.804704  9.559639 10.148295  9.262498 10.243350
- [92]  9.101109  6.956220  8.490656 12.797990 11.440893  6.689850 13.844415
- [99]  8.086292 12.076621</code></pre>
+<pre><code>  [1]  8.215288 15.752656  9.363572  7.096341 13.345945 11.925304  7.507875
+  [8] 10.174912  9.174257  8.487599 12.682729 12.232503 12.734577  9.118885
+ [15]  8.426590 10.071299 10.622701  8.664416  8.383698  6.203215 10.317726
+ [22] 10.093311 10.460603 10.106924 14.083985  9.923904 10.377201 11.011934
+ [29] 12.984380  9.246387  8.747104  9.296439 10.366758 10.874941 10.715875
+ [36]  8.987754  8.966694  7.613422 12.703589 11.226438  8.302283 13.723784
+ [43] 13.040958  7.067523  8.381173  9.294102  7.023449  7.952067 12.535866
+ [50] 10.795284 10.832161  8.966341 10.484411 11.099160 12.223793  8.223438
+ [57]  7.062739 11.312607 10.525698 10.062231  9.999916 10.776142 10.400968
+ [64]  9.842209 10.751344  9.978962  9.005056  6.222508  8.069472  8.449853
+ [71] 11.131733 15.013956  8.401588 10.487518 11.220381 11.580249 10.607620
+ [78] 11.078196  8.687162 10.964094  8.299364  8.952931 11.825084  9.399767
+ [85] 10.931394  8.317562 13.873030 11.286575 11.061332 10.777481 12.271623
+ [92] 11.604692  8.403873  7.693848 10.510489 10.815880 12.686081 11.144177
+ [99]  9.061215  8.391056</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># average </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.05505684</code></pre>
+<pre><code>[1] 0.04233977</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6.613775</code></pre>
+<pre><code>[1] 0.38761</code></pre>
 </div>
 </div>
 <p>Very often you will see functions used like this:</p>
@@ -460,7 +466,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_random_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 16.47879</code></pre>
+<pre><code>[1] -11.83266</code></pre>
 </div>
 </div>
 <section id="what-is-the-environment" class="level3" data-number="B.2.1">
@@ -473,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The base installation of R is quite powerful. Packages allow you to include new methods for use in R.</p>
 <section id="cran" class="level3" data-number="B.3.1">
 <h3 data-number="B.3.1" class="anchored" data-anchor-id="cran"><span class="header-section-number">B.3.1</span> CRAN</h3>
-<p>Many packages are available on CRAN, <a href="http://cran.r-project.org/" target="_blank">The Comprehensive R Archive Network</a>. This is where you download R and also where most will gain access to packages. As of 2025-03-12, there are 22164 packages on CRAN!</p>
+<p>Many packages are available on CRAN, <a href="http://cran.r-project.org/" target="_blank">The Comprehensive R Archive Network</a>. This is where you download R and also where most will gain access to packages. As of 2025-03-14, there are 22188 packages on CRAN!</p>
 </section>
 <section id="installing-packages" class="level3" data-number="B.3.2">
 <h3 data-number="B.3.2" class="anchored" data-anchor-id="installing-packages"><span class="header-section-number">B.3.2</span> Installing packages</h3>
