@@ -46,6 +46,7 @@ book:
         - resources/exp_lakes.qmd
         - resources/utahlakes.qmd
         - resources/peterpaul.qmd
+        - resources/pinellas.qmd
   appendices:
     - setup.qmd
     - rintro.qmd

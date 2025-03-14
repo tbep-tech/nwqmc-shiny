@@ -1,0 +1,22 @@
+---
+pagetitle: "Pinellas County Water Quality"
+description: "A water quality dashboard for Pinellas County"
+image: "../figs/resources/pinellasmap.PNG"
+format: 
+  html: 
+    toc: true
+categories: "Tampa Bay"
+lightbox: true
+---
+
+# Pinellas County Water Quality {.unnumbered}
+
+## Background
+
+This dashboard is designed to make the monitoring results from Pinellas County Division of Environmental Management accessible and summarize how the lakes, streams, and coastal waters measure up compared to past conditions and based on regulatory and management targets. Content includes water qaulity information, red tide and beach bacteria data, annual reports, and data downloads.
+
+## Dashboard
+
+View the dashboard by visiting [https://pcdem.shinyapps.io/dashboard/](https://pcdem.shinyapps.io/dashboard/){target="_blank"}
+
+![](../figs/resources/pinellasdashscreenshot.PNG)
